@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mqtt | tknhs's blog]]></title>
   <link href="http://tknhs.github.io/blog/categories/mqtt/atom.xml" rel="self"/>
   <link href="http://tknhs.github.io/"/>
-  <updated>2014-12-25T19:11:16+09:00</updated>
+  <updated>2014-12-25T23:25:47+09:00</updated>
   <id>http://tknhs.github.io/</id>
   <author>
     <name><![CDATA[tknhs]]></name>
@@ -15,7 +15,7 @@
   
   <entry>
     <title type="html"><![CDATA[MQTT Broker を立てた]]></title>
-    <link href="http://tknhs.github.io/blog/2014/11/mqtt-mosquitto-setup/"/>
+    <link href="http://tknhs.github.io/blog/2014/11/mqtt-mosquitto-setup"/>
     <updated>2014-11-28T21:48:43+09:00</updated>
     <id>http://tknhs.github.io/blog/2014/11/mqtt-mosquitto-setup</id>
     <content type="html"><![CDATA[<p>さくらの VPS に MQTT Broker となる <a href="http://mosquitto.org/">Mosquitto</a> をインストールしたのでメモ．</p>
