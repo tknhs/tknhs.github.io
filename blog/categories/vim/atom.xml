@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: vim | tknhs's blog]]></title>
+  <link href="http://tknhs.github.io/blog/categories/vim/atom.xml" rel="self"/>
+  <link href="http://tknhs.github.io/"/>
+  <updated>2014-12-25T19:11:16+09:00</updated>
+  <id>http://tknhs.github.io/</id>
+  <author>
+    <name><![CDATA[tknhs]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Vim Plugin: NERDTree]]></title>
+    <link href="http://tknhs.github.io/blog/2014/05/vim-plugin-nerdtree/"/>
+    <updated>2014-05-30T17:17:12+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/05/vim-plugin-nerdtree</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='vim' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/b3bb5bc30558959cc24017c992a805d4.png' />
+</div>
+
+
+<p></p>
+
+<p>少しずつ少しずつ vim をカスタマイズ<br/>
+今回は <a href="https://github.com/scrooloose/nerdtree">NERDTree（ファイルシステム操作）</a>を導入</p>
+
+<!-- more -->
+
+
+<h2>NERDTree</h2>
+
+<div style='text-align: center'>
+<img alt='nerdtree' style='text-align: center;' src='http://tknhs.github.io/images/2014-05-30-vim-plugin-nerdtree/818abf4cd23c604a9f556d7da2b5cdca.png' />
+</div>
+
+
+<p></p>
+
+<p>毎回の如く，NeoBundle を使ってインストール
+<code>vim
+NeoBundle "scrooloose/nerdtree"
+</code></p>
+
+<p>.vimrc には以下を追記
+<code>vim .vimrc
+" NERDTree
+" ----------------------------------------
+autocmd FileType nerdtree setlocal nolist       " 不可視文字を非表示
+nnoremap &lt;f2&gt; :NERDTreeToggle&lt;CR&gt;               " &lt;F2&gt;でトグルする
+" 最後に残ったウィンドウがNERDTREEのみのときはvimを閉じる
+autocmd bufenter * if (winnr("$") == 1 &amp;&amp; exists("b:NERDTreeType") &amp;&amp; b:NERDTreeType == "primary") | q | endif
+let g:NERDTreeDirArrows=0
+let g:NERDTreeMouseMode=0
+</code></p>
+
+<p>細かい設定は<a href="https://github.com/scrooloose/nerdtree/blob/master/doc/NERD_tree.txt">こちら</a>を参照．</p>
+
+<h2>NERDTree Menu に grep 検索を追加するプラグインをインストール</h2>
+
+<p><a href="https://gist.github.com/masaakif/414375">https://gist.github.com/masaakif/414375</a></p>
+
+<div style='text-align: center'>
+<img alt='grep_menuitem.vim' style='text-align: center;' src='http://tknhs.github.io/images/2014-05-30-vim-plugin-nerdtree/b41b1c35c7ff472b385975539c30115c.png' />
+</div>
+
+
+<p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vim Tips: 改行コードを挿入する]]></title>
+    <link href="http://tknhs.github.io/blog/2014/05/vim-tips-new-line/"/>
+    <updated>2014-05-18T21:29:11+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/05/vim-tips-new-line</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='vim' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/b3bb5bc30558959cc24017c992a805d4.png' />
+</div>
+
+
+<p></p>
+
+<p>文字列操作</p>
+
+<!-- more -->
+
+
+<p>ダミーテキスト（<a href="http://ja.wikipedia.org/wiki/Lorem_ipsum">Lorem Ipsum</a>）を使って練習．</p>
+
+<pre><code class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</code></pre>
+
+<p>これを一文ごとに改行する．</p>
+
+<pre><code class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</code></pre>
+
+<p><code>:%s/\. /\.^M/g</code>で置換する．<br/>
+改行（^M）は C-v + Enter で入力する．</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[久しぶりにHaskellを触ろうと思ったらvimでちょこっとエラーを吐かれた]]></title>
+    <link href="http://tknhs.github.io/blog/2014/04/ghcmod-vim-vimproc-compile/"/>
+    <updated>2014-04-29T21:23:45+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/04/ghcmod-vim-vimproc-compile</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='haskell' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/c63dc4c7bdcfa907e0d12d9cebfa0993.png' />
+</div>
+
+
+<p></p>
+
+<p>以前haskellをちょこっと勉強しつつも最近触ってなかったので久しくぶりにやろうかなーと思ったのが発端．以前書いたソースを眺めようと，vimで.hsファイルを開くとvimがエラーを吐いた．</p>
+
+<!-- more -->
+
+
+<p>どうやら<a href="https://github.com/eagletmt/ghcmod-vim">ghcmod-vim</a>がおかしいらしいと．念のため，<code>cabal update</code>して<code>cabal install ghc-mod</code>．</p>
+
+<p>もちろん解決されない．</p>
+
+<p>ということで，vimのプラグイン<a href="https://github.com/eagletmt/ghcmod-vim">ghcmod-vim</a>を<code>git pull</code>して，<a href="https://github.com/Shougo/vimproc.vim">vimproc</a>も<code>git pull</code>して<code>make -f make_mac.mak</code>したらちゃんと動くようになった！</p>
+
+<p>そろそろ今年度真面目にやる言語を決めないとなぁ&hellip;</p>
+]]></content>
+  </entry>
+  
+</feed>

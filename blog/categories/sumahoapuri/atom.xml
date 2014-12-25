@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: スマホアプリ | tknhs's blog]]></title>
+  <link href="http://tknhs.github.io/blog/categories/sumahoapuri/atom.xml" rel="self"/>
+  <link href="http://tknhs.github.io/"/>
+  <updated>2014-12-25T19:11:16+09:00</updated>
+  <id>http://tknhs.github.io/</id>
+  <author>
+    <name><![CDATA[tknhs]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[iPhone/iPad: 天気アプリ「アメデス」が便利！]]></title>
+    <link href="http://tknhs.github.io/blog/2014/05/intro-amedesu/"/>
+    <updated>2014-05-01T23:21:18+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/05/intro-amedesu</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='amedesu' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/2014-05-01-intro-amedesu/246afe5074ef707cba0b87b935b3b681.png' />
+</div>
+
+
+<p></p>
+
+<p>後輩に紹介された「アメデス〜XRAIN(XバンドMPレーダ)」が便利だったので紹介．<br/>
+iPhoneアプリでも天気に関するアプリはたくさんあるけど，範囲が市町村だったり，時間が30分毎だったりで本当に今のこの場の天気がわからない．</p>
+
+<!-- more -->
+
+
+<h2>説明</h2>
+
+<blockquote><p>アメデスは、国土交通省のXRAIN（エックスレイン）（XバンドMPレーダネットワーク）による雨量データを見るためのアプリです。
+増加する集中豪雨や局所的な大雨（ゲリラ豪雨）による水害や土砂災害等に対する防災活動にお役立ててください。</p></blockquote>
+
+<p>ということで，石川県の天気情報は当てにならないのでコレを使うと非常に便利．<br/>
+さっきまで晴れてたのに雨が降ってるなんてことざらです．<br/>
+しかも土砂降りのなか帰ってきたのに家に着いたら止んだなんてことも．</p>
+
+<p>このアプリを使えば，<strong><code>1分更新のレーダ画像が見れます</code></strong>ということなので，今雨の降ってないところを通るとか，もうちょっとしたら一時的にも雨が止む場合はそこを狙って帰るとかができる．</p>
+
+<p>そんなアプリです．詳しくは下記リンクからどうぞ．<br/>
+では．</p>
+
+<h2>ダウンロードリンク</h2>
+
+<p>iPhone/iPad
+<a href="https://itunes.apple.com/jp/app/amedesu-xrain-xbandompreda/id837754827?mt=8&uo=4&at=1l3vbuW" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.png) no-repeat;width:135px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.svg);}"></a></p>
+]]></content>
+  </entry>
+  
+</feed>

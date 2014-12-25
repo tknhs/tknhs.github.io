@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: chrome | tknhs's blog]]></title>
+  <link href="http://tknhs.github.io/blog/categories/chrome/atom.xml" rel="self"/>
+  <link href="http://tknhs.github.io/"/>
+  <updated>2014-12-25T19:11:16+09:00</updated>
+  <id>http://tknhs.github.io/</id>
+  <author>
+    <name><![CDATA[tknhs]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Google Chrome: 外部プロトコルリクエスト]]></title>
+    <link href="http://tknhs.github.io/blog/2014/06/external-protocol-request/"/>
+    <updated>2014-06-23T02:28:32+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/06/external-protocol-request</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='chrome' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/260e4f873cdea5df0e140673833ccd11.png' />
+</div>
+
+
+<p></p>
+
+<p>「URLスキームを使った Chrome 拡張機能がちゃんと動作しない」ということが拡張機能のバグだと思われている件について</p>
+
+<!-- more -->
+
+
+<p>前に<a href="http://tknhs.github.io/blog/2014/04/chrome-extension-dayone/">日記アプリ「Day One」のChrome拡張機能を作ったと言う話</a>を書いたけど，これの話．</p>
+
+<p>評価に関して，☆なんてものはどうでもいいのだけれどコメントは読んだりしている．</p>
+
+<ul>
+<li>自分の環境で動かない</li>
+<li>空白ウィンドウが開く</li>
+</ul>
+
+
+<p>空白ウィンドウが開くということについては今回は触れない（修正済み）．<br/>
+てことで，自分の環境では動かないという点について，動かない？！<strong>僕の環境では動いてる</strong>．なんとなくURLスキームが絡んでる気がしてた．（というか，それぐらいしかない</p>
+
+<p>この拡張機能を実行した場合，</p>
+
+<div style='text-align: center'>
+<img alt='external protocol request' style='text-align: center;' src='http://tknhs.github.io/images/2014-06-23-external-protocol-request/3a18718774deed18dfc2305ef30c8fc7.jpg' />
+</div>
+
+
+<p></p>
+
+<p>というように，外部プロトコルリクエストがポップアップされる．<br/>
+ここで，</p>
+
+<div style='text-align: center'>
+<img alt='external protocol request' style='text-align: center;' src='http://tknhs.github.io/images/2014-06-23-external-protocol-request/670c34b4f6970fbb8a4b197633227d83.jpg' />
+</div>
+
+
+<p></p>
+
+<p>「このようなリンクの設定をすべて保存する」にチェックを入れて「何もしない」を押してしまうと，以降何もアクションが起きなくなってしまう．たぶんこれが問題で，この設定をしてしまうと拡張機能の役目を果たさないことになってしまう．</p>
+
+<p>そして，この設定を直すのが単純だけどめんどうで&hellip;以下に手順を示す．</p>
+
+<ol>
+<li>Chrome を閉じる</li>
+<li>Local State を書き換える <code>$ vi ~/Library/Application\ Support/Google/Chrome/Local\ State</code><br/>
+今回の場合は，<code>"dayone": true,</code> というのを見つけてその一行を削除して保存する．</li>
+</ol>
+
+
+<div style='text-align: center'>
+<img alt='external protocol request' style='text-align: center;' src='http://tknhs.github.io/images/2014-06-23-external-protocol-request/d99b1e3aa35426fb1a57cc53d7ca8e3e.png' />
+</div>
+
+
+<p></p>
+
+<p>これを行った後，拡張機能を実行するとまた外部プロトコルリクエストのポップアップが開くようになる．</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[日記アプリ「Day One」のChrome拡張機能を作ったと言う話]]></title>
+    <link href="http://tknhs.github.io/blog/2014/04/chrome-extension-dayone/"/>
+    <updated>2014-04-15T23:17:29+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/04/chrome-extension-dayone</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='dayone' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/2014-04-15-chrome-extension-dayone/27c7a4c65fcb08034da185c0719a0b87.png' />
+</div>
+
+
+<p></p>
+
+<p>もはや説明の必要もないであろうMac/iPhone/iPadの日記アプリ「Day One」．<br/>
+どういう使い方をしているかというと，</p>
+
+<!-- more -->
+
+
+<ul>
+<li>ライフログ</li>
+<li>その場で何か気づいたことのメモ（位置情報・天気もあわせて記録）</li>
+<li>ネット記事をクリップ</li>
+<li>開発案とか簡単な仕様のメモ</li>
+</ul>
+
+
+<p>と幅広く使っている．最初は，ライフログとして自己満足の域で書くことを目的として購入したけど痒いところに手が届く感じで使いやすかったので今に至る．</p>
+
+<p>しかし，ネットの記事をクリップするという点において，僕のニーズに応えきれてない部分があった．それは<strong>「記事全体を残しておきたいではなく，部分的に残しておきたい」</strong>というようなものであり，これを実現するために今回はChromeの拡張機能という形で作成した．</p>
+
+<p><img src="/images/2014-04-15-chrome-extension-dayone/3ef8f395ea1bcc68fa4fd000ba97dd3b.png" alt="ChromeWebStore" /><br/>
+【 Post on DayOne / <a href="http://goo.gl/5Cqrlu">http://goo.gl/5Cqrlu</a> 】</p>
+
+<p>実際に作成して公開したのは 2014/02/02 だけど，いろいろ気に入らない部分を残しながらも公開して放置していた&hellip;そろそろ納得した形にしたいなと思ったのが今日である．</p>
+
+<p>動作としては，記事内で気になった箇所をテキスト選択して右上のボタン（ブラウザアクション）をクリックするとDay OneのURLスキームにそのデータを投げるというもの．（Alt+Dでも投稿可能．）</p>
+
+<p><img src="/images/2014-04-15-chrome-extension-dayone/bf53c68f3bd72baf761ec96c11208b33.png" alt="PostOnDayOne" /></p>
+
+<h2>Day One ダウンロードリンク</h2>
+
+<p>Mac
+<a href="https://itunes.apple.com/jp/app/day-one/id422304217?mt=12&uo=4&at=1l3vbuW" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_macappstore-lrg.png) no-repeat;width:165px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_macappstore-lrg.svg);}"></a>
+iPhone/iPad
+<a href="https://itunes.apple.com/jp/app/day-one-ri-zhi-ri-ji/id421706526?mt=8&uo=4&at=1l3vbuW" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.png) no-repeat;width:135px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.svg);}"></a></p>
+
+<h2>以下，ソースコード</h2>
+
+<ul>
+<li><p>manifest.json
+<figure class='code'><figcaption><span> (manifest.json)</span> <a href='/downloads/code/2014-04-15-chrome-extension-dayone/manifest.json'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;manifest_version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Post on DayOne&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.1&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&quot;default_locale&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;__MSG_extDesc__&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;icons&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;16&quot;</span><span class="p">:</span> <span class="s2">&quot;icon/icon16.png&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;48&quot;</span><span class="p">:</span> <span class="s2">&quot;icon/icon48.png&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;128&quot;</span><span class="p">:</span> <span class="s2">&quot;icon/icon128.png&quot;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&quot;permissions&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>    <span class="s2">&quot;activeTab&quot;</span>
+</span><span class='line'>  <span class="p">],</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&quot;background&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;js/background.js&quot;</span><span class="p">]</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&quot;browser_action&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;default_icon&quot;</span><span class="p">:</span> <span class="s2">&quot;icon/icon19.png&quot;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&quot;content_scripts&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;matches&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;*://*/*&quot;</span><span class="p">],</span>
+</span><span class='line'>      <span class="nt">&quot;js&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;js/content.js&quot;</span><span class="p">],</span>
+</span><span class='line'>      <span class="nt">&quot;run_at&quot;</span><span class="p">:</span> <span class="s2">&quot;document_end&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>background.js
+<figure class='code'><figcaption><span> (background.js)</span> <a href='/downloads/code/2014-04-15-chrome-extension-dayone/background.js'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> *  shortcut keydown event</span>
+</span><span class='line'><span class="cm"> **/</span>
+</span><span class='line'><span class="nx">chrome</span><span class="p">.</span><span class="nx">extension</span><span class="p">.</span><span class="nx">onMessage</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">sender</span><span class="p">,</span> <span class="nx">sendResponse</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">sender</span><span class="p">.</span><span class="nx">tab</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">title</span> <span class="o">=</span> <span class="nx">sender</span><span class="p">.</span><span class="nx">tab</span><span class="p">.</span><span class="nx">title</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">sender</span><span class="p">.</span><span class="nx">tab</span><span class="p">.</span><span class="nx">url</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">strings</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">dayone</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">text</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> *  browser_action click event</span>
+</span><span class='line'><span class="cm"> **/</span>
+</span><span class='line'><span class="nx">chrome</span><span class="p">.</span><span class="nx">browserAction</span><span class="p">.</span><span class="nx">onClicked</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">tab</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">sendRequest</span><span class="p">(</span><span class="nx">tab</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="p">{</span><span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;getSelection&#39;</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">title</span> <span class="o">=</span> <span class="nx">tab</span><span class="p">.</span><span class="nx">title</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">tab</span><span class="p">.</span><span class="nx">url</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">dayone</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">text</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">function</span> <span class="nx">dayone</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">header</span> <span class="o">=</span> <span class="s1">&#39;## [&#39;</span> <span class="o">+</span> <span class="nx">title</span> <span class="o">+</span> <span class="s1">&#39;](&#39;</span> <span class="o">+</span> <span class="nx">url</span> <span class="o">+</span> <span class="s1">&#39;)\n&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="s1">&#39;---\n\n&#39;</span> <span class="o">+</span> <span class="nx">text</span> <span class="o">+</span> <span class="s1">&#39;\n\n---\n&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">footer</span> <span class="o">=</span> <span class="s1">&#39;![capture](http://capture.heartrails.com/300x200/cool?&#39;</span> <span class="o">+</span> <span class="nx">url</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">dayone</span> <span class="o">=</span> <span class="s1">&#39;dayone://post?entry=&#39;</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">header</span> <span class="o">+</span> <span class="nx">body</span> <span class="o">+</span> <span class="nx">footer</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="nx">url</span><span class="o">:</span> <span class="nx">dayone</span><span class="p">});</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>content.js
+<figure class='code'><figcaption><span> (content.js)</span> <a href='/downloads/code/2014-04-15-chrome-extension-dayone/content.js'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nb">document</span><span class="p">.</span><span class="nx">onkeydown</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">// Alt + d</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">keyCode</span><span class="o">==</span><span class="mi">68</span> <span class="o">&amp;&amp;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">altKey</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// get selected strings</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">strings</span> <span class="o">=</span> <span class="nx">getSelection</span><span class="p">().</span><span class="nx">toString</span><span class="p">();</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">strings</span> <span class="o">!==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">chrome</span><span class="p">.</span><span class="nx">extension</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">({</span> <span class="nx">strings</span><span class="o">:</span> <span class="nx">strings</span> <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">chrome</span><span class="p">.</span><span class="nx">extension</span><span class="p">.</span><span class="nx">onRequest</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">sender</span><span class="p">,</span> <span class="nx">sendResponse</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">method</span> <span class="o">==</span> <span class="s1">&#39;getSelection&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">sendResponse</span><span class="p">({</span><span class="nx">data</span><span class="o">:</span> <span class="nx">getSelection</span><span class="p">().</span><span class="nx">toString</span><span class="p">()});</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">sendResponse</span><span class="p">({});</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure></p></li>
+</ul>
+
+
+<p>ショートカットについてはブラウザアクションの設定で対応できるけど，今後のことを少しだけ考えて別にしてあるとかないとか．</p>
+
+<p>ソースはGitHubで公開してます． <a href="https://github.com/tknhs/Post-on-DayOne">https://github.com/tknhs/Post-on-DayOne</a></p>
+]]></content>
+  </entry>
+  
+</feed>

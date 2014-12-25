@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: jailbreak | tknhs's blog]]></title>
+  <link href="http://tknhs.github.io/blog/categories/jailbreak/atom.xml" rel="self"/>
+  <link href="http://tknhs.github.io/"/>
+  <updated>2014-12-25T19:11:16+09:00</updated>
+  <id>http://tknhs.github.io/</id>
+  <author>
+    <name><![CDATA[tknhs]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[自作の iOS アプリを実機に転送]]></title>
+    <link href="http://tknhs.github.io/blog/2014/12/ios-device-test/"/>
+    <updated>2014-12-13T19:51:10+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/12/ios-device-test</id>
+    <content type="html"><![CDATA[<p>公開するまでもない自分用の iOS アプリを作って，無料で実機で動かして遊ぶ．<br/>
+（jailbreak 必須）</p>
+
+<!-- more -->
+
+
+<h2>環境</h2>
+
+<ul>
+<li>MacBook Air Mid 2012
+
+<ul>
+<li>OS X Yosemite 10.10.1</li>
+<li>Xcode 6.1.1</li>
+</ul>
+</li>
+<li>iPhone 5s
+
+<ul>
+<li>8.1.1</li>
+<li>jailbreak 済</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>内容</h2>
+
+<ul>
+<li><p>iOS アプリのビルドから codesign までは <a href="http://www.atsuhiro-me.net/apple/ios/devfree-ios7">iOSアプリを無料で実機テストする (iOS7版) (要脱獄)</a> ，ファイルをインストールするのは <a href="http://hackin2os.org/wordpress/?p=210">iOS8対応！ipaファイルをインストールできるTweak, App Installer!</a> を行えば，動作確認できた．</p></li>
+<li><p>以下には，参考にした２つの記事の途中でやることを書く．</p></li>
+<li>ipa ファイルを作成するために iTunes を起動して App -> マイApp の画面に移動する．</li>
+<li>マイApp の画面に Xcode で Build して codesign を行った XXX.app を投げる．</li>
+<li>iTunes に XXX.app が読み込まれたら，右クリック -> Finderで表示する．</li>
+<li>XXX.ipa が作成されているので，iFunBox 等を用いて，iPhone に XXX.ipa を転送する．</li>
+</ul>
+
+
+<p>おわり</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to create jailbreak apps for iphone]]></title>
+    <link href="http://tknhs.github.io/blog/2014/05/how-to-create-jailbreak-apps-for-iphone/"/>
+    <updated>2014-05-06T12:58:02+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/05/how-to-create-jailbreak-apps-for-iphone</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='jailbreak' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/ca2707f5345b4cd527253b97cdff3ce4.png' />
+</div>
+
+
+<p></p>
+
+<p>（※2014/02/11に別の場所で公開していた記事です）</p>
+
+<p>順番が違うような気がしないでもないけど，Jailbreak Apps作りに励みます．</p>
+
+<!-- more -->
+
+
+<p>個人的に楽だなと思ったのは「<a href="http://iphonedevwiki.net/index.php/Main_Page">Theos</a>」っていう開発環境．
+Xcodeで開発ができる「<a href="http://www.iosopendev.com/">iOSOpenDev</a>」と迷ったけど，やっぱりCLIでごりごりしたいので前者．</p>
+
+<p>とりあえずサンプルを動かすとこまではできたので，環境構築について以下を参考にしながら&hellip;</p>
+
+<ul>
+<li><a href="http://www.kako.com/blog/?p=130">iOSのJailbreak環境用の脱獄アプリ開発環境Theosをインストールしてみた</a></li>
+<li><a href="http://www.kako.com/blog/?p=148">iOSのJailbreak環境で64bit ARM(AARCH64)のバイナリを試してみた</a></li>
+<li><a href="http://ichitaso.com/ios-development/iphone-theos-project/">【脱獄アプリ開発】第7回theosのインストールから簡単なTweakの作成までのガイドライン</a></li>
+<li><a href="http://sharedinstance.net/2013/12/build-on-windows/">Important: Update your tweaks to support arm64</a></li>
+</ul>
+
+
+<h2>手順</h2>
+
+<p>環境構築するための手間を減らすためとか64bit対応を作成するのに必要な処理とかのために少しだけスクリプトを書き換えた．
+<div><script src='https://gist.github.com/8929786.js'></script>
+<noscript><pre><code>#!/bin/bash
+current_dir=$(cd $(dirname $0) &amp;&amp; pwd)
+export THEOS=/opt/theos
+
+# clone theos.git
+cd /opt
+git clone git://github.com/DHowett/theos.git
+
+# clone iphoneheaders.git
+cd $THEOS
+mv include include.bak
+git clone git://github.com/rpetrich/iphoneheaders.git include
+for FILE in include.bak/*.h; do mv $FILE include/; done
+rmdir include.bak/
+
+# get IOSurfaceAPI.h
+cd $THEOS/include/IOSurface/
+curl -O https://raw.github.com/javacom/toolchain4/master/Projects/IOSurfaceAPI.h
+
+# clone CaptainHook.git
+cd $THEOS/include/
+git clone git://github.com/rpetrich/CaptainHook.git
+
+# clone theos-nic-templates.git
+cd $THEOS/templates/
+git clone git://github.com/orikad/theos-nic-templates.git
+
+# get dpkg-deb for Mac OS X
+cd $THEOS
+curl -O http://test.saurik.com/francis/dpkg-deb-fat
+chmod a+x dpkg-deb-fat
+sudo mkdir -p /usr/local/bin
+sudo mv dpkg-deb-fat /usr/local/bin/dpkg-deb
+
+# get ldid for Mac OS X
+cd $THEOS/bin
+curl -O http://dl.dropboxusercontent.com/u/3157793/ldid
+chmod a+x ldid
+
+# get libsubstrate.dylib
+cd $THEOS/lib
+curl -L http://cdn.hbang.ws/dl/libsubstrate_arm64.dylib &gt; ./libsubstrate.dylib
+chmod a+x libsubstrate.dylib
+
+#get libactivator.dylib
+echo &quot;Downloading Activator header and library...&quot;
+ACTIVATOR_REPO=&quot;http://apt.thebigboss.org/repofiles/cydia&quot;
+curl -s -L &quot;${ACTIVATOR_REPO}/dists/stable/main/binary-iphoneos-arm/Packages.bz2&quot; &gt; Packages.bz2
+pkg_path=$(bzcat Packages.bz2 | grep &quot;debs2.0/libactivator&quot; | awk '{print $2}')
+pkg=$(basename $pkg_path)
+curl -s -L &quot;${ACTIVATOR_REPO}/${pkg_path}&quot; &gt; $pkg
+ar -p $pkg data.tar.gz | tar -zxf - ./usr/include/libactivator/libactivator.h ./usr/lib/libactivator.dylib
+mv ./usr/include/libactivator $THEOS/include
+mv ./usr/lib/libactivator.dylib $THEOS/lib
+rm -rf usr Packages.bz2 $pkg
+
+# remove install_theos.sh
+echo &quot;Removing $(basename $0)&quot;
+rm $current_dir/$(basename $0)
+
+echo &quot;Done.&quot;
+</code></pre></noscript></div>
+</p>
+
+<p>上のスクリプトをダウンロードして以下のコマンドを打つ</p>
+
+<pre><code class="bash">$ chmod +x install_theos.sh; sudo ./install_theos.sh
+$ echo export theos=/opt/theos/bin &gt;&gt; ~/.zprofile
+</code></pre>
+
+<p>以降は上のURLを参考にサンプル作ってmakeしてinstallすると下のように実行できた．</p>
+
+<p><img src="/images/2014-05-06-how-to-create-jailbreak-apps-for-iphone/87b86daeb680046f98a69395b678712e.jpg" alt="welcomewagon" /></p>
+
+<h4>[追記: 2014/02/12 02:54]</h4>
+
+<ul>
+<li><a href="http://www.andyibanez.com/creating-aggregate-projects-theos-configurable-tweak">Aggregate Projects with Theos: A Configurable Tweak.</a></li>
+<li><a href="http://jontelang.com/guide/How-to-contribute.html">[iOSjbdev] - How to contribute</a></li>
+</ul>
+
+
+<p>Preferencebundlesはここを参考に．</p>
+
+<h4>[追記: 2014/02/14 00:03]</h4>
+
+<p>今日の成果<br/>
+PreferenceBundlesでUIAlertViewを使って「はい」をタッチするとリンク先に飛ぶ</p>
+
+<p><img src="/images/2014-05-06-how-to-create-jailbreak-apps-for-iphone/abb8f6ba652765903ee7e4acc0f88524.jpg" alt="pref1" /></p>
+]]></content>
+  </entry>
+  
+</feed>

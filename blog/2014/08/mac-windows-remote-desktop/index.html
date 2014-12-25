@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>リモートデスクトップ: Mac -> Windows - tknhs&#8217;s blog</title>
+  <meta name="author" content="tknhs">
+
+  
+  <meta name="description" content="Mac から Windows をリモートしたかったので作業メモ（同一ネットワーク） Mac 側の設定 MS が公式で出している Microsoft Remote Desktop をインストールする
+以下のように設定する Windows 側の設定 ファイアウォールでリモートデスクトップを有効にする &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tknhs.github.io/blog/2014/08/mac-windows-remote-desktop">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/social.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+  <link href="/atom.xml" rel="alternate" title="tknhs's blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- リンク先を別ウィンドウで開く -->
+<script>
+$(document).ready( function () {
+   $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-50623059-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  <meta property="og:title" content="リモートデスクトップ: Mac -> Windows - tknhs&#8217;s blog&#8221; />
+<meta property="og:description" content="Mac から Windows をリモートしたかったので作業メモ（同一ネットワーク） Mac 側の設定 MS が公式で出している Microsoft Remote Desktop をインストールする
+以下のように設定する Windows 側の設定 ファイアウォールでリモートデスクトップを有効にする &hellip;" />
+<meta property="og:url" content="http://tknhs.github.io/blog/2014/08/mac-windows-remote-desktop" />
+<meta property="og:image" content="http://tknhs.github.io/favicon.png" />
+<meta property="og:author" content="tknhs" />
+<meta property="og:site_name" content="tknhs's blog" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:type" content="article" />
+<meta property="fb:app_id" content="1506920132861098" />
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">tknhs&#8217;s blog</a></h1>
+  
+    <h2>ー ごちゃごちゃしてるブログ ー</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  
+  
+</ul>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">リモートデスクトップ: Mac -> Windows</h1>
+    
+    
+      <p class="meta">
+        
+<!---->
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-08-15T18:18:23+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-08-15T18:18:23+09:00'><span class='date'>2014-08-15</span></time></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://tknhs.github.io">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Mac から Windows をリモートしたかったので作業メモ（同一ネットワーク）</p>
+
+<!-- more -->
+
+
+<h2>Mac 側の設定</h2>
+
+<ul>
+<li>MS が公式で出している <a href="https://itunes.apple.com/jp/app/microsoft-remote-desktop/id715768417?mt=12&amp;uo=4&amp;at=1l3vbuW">Microsoft Remote Desktop</a> をインストールする</li>
+<li>以下のように設定する</li>
+</ul>
+
+
+<div style='text-align: center'>
+<img alt='microsoft remote desktop' style='text-align: center;' src='/images/2014-08-15-mac-windows-remote-desktop/ff076774d82c14a3c69cb8aa85ed3515.png' />
+</div>
+
+
+<p></p>
+
+<h2>Windows 側の設定</h2>
+
+<ul>
+<li>ファイアウォールでリモートデスクトップを有効にする</li>
+</ul>
+
+
+<div style='text-align: center'>
+<img alt='firewall' style='text-align: center;' src='/images/2014-08-15-mac-windows-remote-desktop/fd7ae8bea8d62192cdcb8d0d5c22b1cf.png' />
+</div>
+
+
+<p></p>
+
+<ul>
+<li>システムでリモートデスクトップを許可する</li>
+</ul>
+
+
+<div style='text-align: center'>
+<img alt='system' style='text-align: center;' src='/images/2014-08-15-mac-windows-remote-desktop/afc4506e903d263805e9cbfed633366c.png' />
+</div>
+
+
+<p></p>
+
+<ul>
+<li>空のパスワードでもリモートデスクトップを可能にする</li>
+</ul>
+
+
+<div style='text-align: center'>
+<img alt='null password' style='text-align: center;' src='/images/2014-08-15-mac-windows-remote-desktop/55fbd202cfeae78ad6ca38fbbd58f1a4.png' />
+</div>
+
+
+<p></p>
+
+<h2>Microsoft Remote Desktop ダウンロードリンク</h2>
+
+<p>Mac
+<a href="https://itunes.apple.com/jp/app/microsoft-remote-desktop/id715768417?mt=12&uo=4&at=1l3vbuW" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_macappstore-lrg.png) no-repeat;width:165px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_macappstore-lrg.svg);}"></a>
+iPhone/iPad
+<a href="https://itunes.apple.com/jp/app/microsoft-remote-desktop/id714464092?mt=8&uo=4&at=1l3vbuW" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.png) no-repeat;width:135px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.svg);}"></a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tknhs</span></span>
+
+      
+<!---->
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-08-15T18:18:23+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-08-15T18:18:23+09:00'><span class='date'>2014-08-15</span></time></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mac/'>mac</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <div class="hatena">
+    <a class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="リモートデスクトップ: Mac -> Windows - tknhs&#8217;s blog&#8221; href=&#8221;http://b.hatena.ne.jp/entry/http://tknhs.github.io&#8221;></a>
+  </div>
+  
+  
+  <div class="twitter">
+    <a href="//twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://tknhs.github.io/blog/2014/08/mac-windows-remote-desktop/" data-via="tknhs35" data-counturl="http://tknhs.github.io/blog/2014/08/mac-windows-remote-desktop/" >Tweet</a>
+  </div>
+  
+  
+  
+  <div class="facebook">
+    <div class=fb-like data-href="http://tknhs.github.io/blog/2014/08/mac-windows-remote-desktop/" data-layout="button_count" data-send="false" data-show-faces="false"></div>
+  </div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/06/external-protocol-request/" title="Previous Post: Google Chrome: 外部プロトコルリクエスト">&laquo; Google Chrome: 外部プロトコルリクエスト</a><br>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/09/mac-app-autokeyboard/" title="Next Post: Mac App: AutoKeyboard">Mac App: AutoKeyboard &raquo;</a>
+      
+    </p>
+
+    <div style='text-align: center'>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- tknhs.github.io - post_footer2 -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3904948390832684"
+           data-ad-slot="4815787655"
+           data-ad-format="horizontal"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Links</h1>
+  <a href="/atom.xml"><img src="/images/rss32.png" alt="rss" title="rss"></a>
+  <a href="http://cloud.feedly.com/#subscription/feed/http://tknhs.github.io/atom.xml" target="_blank"><img src="/images/feedly32.png" alt="feedly" title="feedly"></a>
+  <a href="http://www.amazon.co.jp/registry/wishlist/2GSP5C4GKAR2" target="_blank"><img src="/images/amazon32.png" alt="amazon" title="amazon"></a>
+  <br>
+  <a href="https://github.com/tknhs" target="_blank"><img src="/images/github32.png" alt="github" title="guthub"></a>
+  <a href="https://twitter.com/tknhs35" target="_blank"><img src="/images/twitter32.png" alt="twitter" title="twitter"></a>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/12/ios-device-test/">自作の iOS アプリを実機に転送</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/mqtt-mosquitto-setup/">MQTT Broker を立てた</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/09/kit-hackathon/">K.I.T. HACKATHON</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/09/mac-app-autokeyboard/">Mac App: AutoKeyboard</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/mac-windows-remote-desktop/">リモートデスクトップ: Mac -> Windows</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <div style='text-align: center'>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- tknhs.github.io - sidebar -->
+    <ins class="adsbygoogle"
+      style="display:inline-block;width:250px;height:250px"
+      data-ad-client="ca-pub-3904948390832684"
+      data-ad-slot="4073674053"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</section>
+<section>
+  <h1>Tag Cloud</h1>
+  <span id="tag-cloud"><a href='/blog/categories/chrome' style='font-size: 130.0%'>chrome</a> <a href='/blog/categories/coderetreat' style='font-size: 115.0%'>coderetreat</a> <a href='/blog/categories/hackathon' style='font-size: 115.0%'>hackathon</a> <a href='/blog/categories/haskell' style='font-size: 130.0%'>haskell</a> <a href='/blog/categories/jailbreak' style='font-size: 130.0%'>jailbreak</a> <a href='/blog/categories/kzrb' style='font-size: 115.0%'>kzrb</a> <a href='/blog/categories/mac' style='font-size: 160.0%'>mac</a> <a href='/blog/categories/mqtt' style='font-size: 115.0%'>mqtt</a> <a href='/blog/categories/nginx' style='font-size: 115.0%'>nginx</a> <a href='/blog/categories/python' style='font-size: 145.0%'>python</a> <a href='/blog/categories/tornado' style='font-size: 115.0%'>tornado</a> <a href='/blog/categories/vim' style='font-size: 145.0%'>vim</a> <a href='/blog/categories/sumahoapuri' style='font-size: 115.0%'>スマホアプリ</a> <a href='/blog/categories/burauzakuo-zhang-ji-neng' style='font-size: 115.0%'>ブラウザ拡張機能</a> </span>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - tknhs -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tknhs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tknhs.github.io/blog/2014/08/mac-windows-remote-desktop/';
+        var disqus_url = 'http://tknhs.github.io/blog/2014/08/mac-windows-remote-desktop/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+<script>
+(function(w,d){
+  var c,e=d.createDocumentFragment(),f=d.getElementsByTagName("script")[0],
+  a=function(a,b){if(!d.getElementById(b)){c=d.createElement("script");
+  c.src=a;c.id=b||null;c.async=true;e.appendChild(c);}};
+
+  
+
+  
+    a("//platform.twitter.com/widgets.js");
+  
+
+  
+    a("//connect.facebook.net/ja_JP/all.js#appId=1506920132861098&xfbml=1","facebook-jssdk");
+  
+
+  
+    a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
+  
+  f.parentNode.insertBefore(e,f);
+})(this,document);
+</script>
+
+
+</body>
+</html>

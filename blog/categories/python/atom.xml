@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: python | tknhs's blog]]></title>
+  <link href="http://tknhs.github.io/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://tknhs.github.io/"/>
+  <updated>2014-12-25T19:11:16+09:00</updated>
+  <id>http://tknhs.github.io/</id>
+  <author>
+    <name><![CDATA[tknhs]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Python Tips: Prettyprint]]></title>
+    <link href="http://tknhs.github.io/blog/2014/06/python-pretty-print/"/>
+    <updated>2014-06-18T04:32:12+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/06/python-pretty-print</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='python' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/eea97ed4952c05be55ff9e462ea0e1c4.png' />
+</div>
+
+
+<p></p>
+
+<p>オブジェクトを整形して見やすい形で出力してくれる標準ライブラリ <code>pprint</code>．</p>
+
+<!-- more -->
+
+
+<pre><code class="python">import pprint
+</code></pre>
+
+<p>短いリストにこれを使用した場合は <code>print</code> したときと同じように出力される．
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">pprint</span>
+</span><span class='line'><span class="n">words</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Lorem</span> <span class="n">ipsum</span> <span class="n">dolor</span> <span class="n">sit</span> <span class="n">amet</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span><span class='line'><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">words</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="err">出力</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">[</span><span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">Lorem</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">ipsum</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">dolor</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">sit</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">amet</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;]</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>長いリストの場合はちゃんと整形される．
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">pprint</span>
+</span><span class='line'><span class="n">words</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Lorem</span> <span class="n">ipsum</span> <span class="n">dolor</span> <span class="n">sit</span> <span class="n">amet</span><span class="p">,</span> <span class="n">consectetur</span> <span class="n">adipisicing</span> <span class="n">elit</span><span class="p">,</span> <span class="n">sed</span> <span class="n">do</span> <span class="n">eiusmod</span> <span class="n">tempor</span> <span class="n">incididunt</span> <span class="n">ut</span> <span class="n">labore</span> <span class="n">et</span> <span class="n">dolore</span> <span class="n">magna</span> <span class="n">aliqua</span><span class="o">.&amp;</span><span class="n">rdquo</span><span class="p">;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span><span class='line'><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">words</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="err">出力</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">[</span><span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">Lorem</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">ipsum</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">dolor</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">sit</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">amet</span><span class="p">,</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">consectetur</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">adipisicing</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">elit</span><span class="p">,</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">sed</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">do</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">eiusmod</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">tempor</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">incididunt</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">ut</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">labore</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">et</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">dolore</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">magna</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">aliqua</span><span class="o">.&amp;</span><span class="n">rsquo</span><span class="p">;]</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>なんかそれっぽい二次元配列とかも非常に見やすくなる．
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">pprint</span>
+</span><span class='line'><span class="n">array</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+</span><span class='line'><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="err">出力</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+</span><span class='line'> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</span><span class='line'> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</span><span class='line'> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</span><span class='line'> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>リストだけじゃなくて辞書もいける．
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">pprint</span>
+</span><span class='line'><span class="n">langs</span> <span class="o">=</span> <span class="p">{</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">c</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;:</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">C</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">j</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;:</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Java</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">o</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;:</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Objectiv</span><span class="o">-</span><span class="n">C</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">p</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;:</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">PHP</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">r</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;:</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Ruby</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">a</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;:</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">ActionScript</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;}</span>
+</span><span class='line'><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">langs</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="err">出力</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">{</span><span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">a</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;:</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">ActionScript</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">c</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;:</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">C</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">j</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;:</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">Java</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">o</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;:</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">Objectiv</span><span class="o">-</span><span class="n">C</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">p</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;:</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">PHP</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span>
+</span><span class='line'> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">r</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;:</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">Ruby</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>pprint に indent, width, depth など引数を与えることができるが詳しくは公式ドキュメントで．</p>
+
+<h2>ドキュメント</h2>
+
+<ul>
+<li><a href="https://docs.python.org/3/library/pprint.html">8.11. pprint — Data pretty printer</a></li>
+<li><a href="http://docs.python.jp/3.3/library/pprint.html">8.11. pprint — データ出力の整然化</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[さくらのVPSを借りて]]></title>
+    <link href="http://tknhs.github.io/blog/2014/04/sakura-vps-nginx-tornado/"/>
+    <updated>2014-04-04T01:22:51+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/04/sakura-vps-nginx-tornado</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='sakura_internet' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/1cc83d36c7b75af55c58d3d5f3b8f6cd.png' />
+</div>
+
+
+<p></p>
+
+<p>今日，ようやくVPSを借りるに踏み切った．<br/>
+環境をいろいろ整えてたら今日が終わった，そんな感じ．</p>
+
+<!-- more -->
+
+
+<p>構成管理ツールとか使ってみたいお年頃だったので<a href="http://www.ansible.com">ansible</a>に手を出してちょこっとだけ最初の設定（sshとかユーザ作成とか）を自動化した．もっと全体を網羅するようにしっかり書きたいなぁと思ったけど目的はそこじゃないので，少しだけにしておいた．</p>
+
+<p>その後，やはり先にansibleを学ぶべきかという誘惑？とかなり格闘しながら，必要な物を手動で設定したりインストールしたりして最低限の構築を終えた．</p>
+
+<p>そしてせっかくやるならapacheじゃないよなと思って<a href="http://nginx.org">nginx</a>，新しいフレームワーク使いたいよなと思って<a href="http://www.tornadoweb.org/">tornado</a>．（tornado選択の本当の理由は，標準でwebsocketハンドラを提供してるからなんだけど．）</p>
+
+<p>今日の成果は環境構築，nginx，tornadoを使って<code>Hello World</code>を出力！()<br/>
+とりあえずモノを一つ作ってみる．</p>
+
+<p>まだまだ問題は山積み．<br/>
+明日に続く&hellip;？</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[mac で pyenv と pyenv-virtualenv]]></title>
+    <link href="http://tknhs.github.io/blog/2014/04/pyenv/"/>
+    <updated>2014-04-02T23:47:55+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/04/pyenv</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='python' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/eea97ed4952c05be55ff9e462ea0e1c4.png' />
+</div>
+
+
+<p></p>
+
+<h2>経緯</h2>
+
+<ul>
+<li>python環境がごちゃごちゃしてるのがずっと気になってたけど，やってなかった．</li>
+<li>今日，気が向いた．</li>
+</ul>
+
+
+<!-- more -->
+
+
+<h2>環境</h2>
+
+<ul>
+<li>Mac OS X Mavericks 10.9.2</li>
+<li>Homebrew インストール済み</li>
+</ul>
+
+
+<h2>pyenv のインストール</h2>
+
+<ul>
+<li>モジュールを共存させたくない環境を作るために<code>$ brew install pyenv-virtualenv</code> で pyenv と pyenv-virtualenv を一緒にインストールする</li>
+<li><p>そんなの必要ないよというのであれば <code>$ brew install pyenv</code> でおｋ</p></li>
+<li><p>バージョンが確認できればインストールされている
+<code>bash
+$ pyenv --version
+pyenv 0.4.0-20140317
+</code></p></li>
+<li><p>ついでにパスを通しておく
+<code>bash
+$ echo 'export PATH="$HOME/.pyenv/bin:$PATH"' &gt;&gt; ~/.zprofile
+$ echo 'if which pyenv &gt; /dev/null; then eval "$(pyenv init - zsh)"; fi' &gt;&gt; ~/.zprofile
+</code></p></li>
+<li><p>普段通り起動する python がデフォルトになっている
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>pyenv versions&lt;/p&gt;&lt;/li&gt;
+</span><span class='line'>&lt;li&gt;&lt;p&gt;system
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>インストール可能なバージョンを表示
+<code>bash
+$ pyenv install -l
+Available versions:
+.
+.
+.
+2.7.6
+.
+.
+.
+3.4.0
+.
+.
+.
+pypy-2.2.1
+.
+.
+.
+</code></p></li>
+<li><p><code>$ pyenv install 2.7.6</code> とかやるとインストールが開始されるので暫く待つ</p></li>
+<li>2.7.6 がインストールされたのを確認する
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>pyenv versions&lt;/li&gt;
+</span><span class='line'>&lt;li&gt;&lt;p&gt;system
+</span><span class='line'>2.7.6
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>Python 2.7.6 を <code>Documents</code> だけで使うために以下のコマンドを実行する</p></li>
+<li>他のフォルダに移動すると <code>* system</code> となっているはず
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> ~/Documents
+</span><span class='line'><span class="nv">$ </span>pyenv <span class="nb">local </span>2.7.6
+</span><span class='line'><span class="nv">$ </span>pyenv versions
+</span><span class='line'>system&lt;/li&gt;
+</span><span class='line'>&lt;li&gt;&lt;p&gt;2.7.6
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>ただ，他のところでも 2.7.6 を使うとなるとモジュールの共有がされてしまう</p></li>
+<li>これじゃ前の環境と対して変わらないので virtualenv を使う
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>pyenv virtualenv 2.7.6 test_env
+</span><span class='line'><span class="nv">$ </span>pyenv <span class="nb">local </span>test_env
+</span><span class='line'><span class="nv">$ </span>pyenv activate
+</span><span class='line'>system
+</span><span class='line'>2.7.6&lt;/li&gt;
+</span><span class='line'>&lt;li&gt;&lt;p&gt;test_env
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>作ったものを削除する
+<code>bash
+$ pyenv uninstall test_env
+</code></p></li>
+</ul>
+
+
+<p>ということで，環境はキレイになったかな．<br/>
+これからはちゃんとプロジェクト毎に環境作っていこう！</p>
+]]></content>
+  </entry>
+  
+</feed>

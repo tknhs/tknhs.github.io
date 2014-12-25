@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: nginx | tknhs's blog]]></title>
+  <link href="http://tknhs.github.io/blog/categories/nginx/atom.xml" rel="self"/>
+  <link href="http://tknhs.github.io/"/>
+  <updated>2014-12-25T19:11:16+09:00</updated>
+  <id>http://tknhs.github.io/</id>
+  <author>
+    <name><![CDATA[tknhs]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[さくらのVPSを借りて]]></title>
+    <link href="http://tknhs.github.io/blog/2014/04/sakura-vps-nginx-tornado/"/>
+    <updated>2014-04-04T01:22:51+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/04/sakura-vps-nginx-tornado</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='sakura_internet' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/1cc83d36c7b75af55c58d3d5f3b8f6cd.png' />
+</div>
+
+
+<p></p>
+
+<p>今日，ようやくVPSを借りるに踏み切った．<br/>
+環境をいろいろ整えてたら今日が終わった，そんな感じ．</p>
+
+<!-- more -->
+
+
+<p>構成管理ツールとか使ってみたいお年頃だったので<a href="http://www.ansible.com">ansible</a>に手を出してちょこっとだけ最初の設定（sshとかユーザ作成とか）を自動化した．もっと全体を網羅するようにしっかり書きたいなぁと思ったけど目的はそこじゃないので，少しだけにしておいた．</p>
+
+<p>その後，やはり先にansibleを学ぶべきかという誘惑？とかなり格闘しながら，必要な物を手動で設定したりインストールしたりして最低限の構築を終えた．</p>
+
+<p>そしてせっかくやるならapacheじゃないよなと思って<a href="http://nginx.org">nginx</a>，新しいフレームワーク使いたいよなと思って<a href="http://www.tornadoweb.org/">tornado</a>．（tornado選択の本当の理由は，標準でwebsocketハンドラを提供してるからなんだけど．）</p>
+
+<p>今日の成果は環境構築，nginx，tornadoを使って<code>Hello World</code>を出力！()<br/>
+とりあえずモノを一つ作ってみる．</p>
+
+<p>まだまだ問題は山積み．<br/>
+明日に続く&hellip;？</p>
+]]></content>
+  </entry>
+  
+</feed>

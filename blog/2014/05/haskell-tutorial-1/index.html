@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Haskellのお勉強１ - tknhs&#8217;s blog</title>
+  <meta name="author" content="tknhs">
+
+  
+  <meta name="description" content="Haskellのお勉強を再開．といっても忘れているので最初からやる．
+環境はすでに入ってるけど，一応環境の構築から（てきとー）． 今回進めるもの 本も考えたけど，一度ふつうのHaskellをやっていて，今回は違うやり方で始めようと思ったので， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tknhs.github.io/blog/2014/05/haskell-tutorial-1">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/social.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+  <link href="/atom.xml" rel="alternate" title="tknhs's blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- リンク先を別ウィンドウで開く -->
+<script>
+$(document).ready( function () {
+   $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-50623059-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  <meta property="og:title" content="Haskellのお勉強１ - tknhs's blog" />
+<meta property="og:description" content="Haskellのお勉強を再開．といっても忘れているので最初からやる．
+環境はすでに入ってるけど，一応環境の構築から（てきとー）． 今回進めるもの 本も考えたけど，一度ふつうのHaskellをやっていて，今回は違うやり方で始めようと思ったので， &hellip;" />
+<meta property="og:url" content="http://tknhs.github.io/blog/2014/05/haskell-tutorial-1" />
+<meta property="og:image" content="http://tknhs.github.io/favicon.png" />
+<meta property="og:author" content="tknhs" />
+<meta property="og:site_name" content="tknhs's blog" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:type" content="article" />
+<meta property="fb:app_id" content="1506920132861098" />
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">tknhs&#8217;s blog</a></h1>
+  
+    <h2>ー ごちゃごちゃしてるブログ ー</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  
+  
+</ul>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Haskellのお勉強１</h1>
+    
+    
+      <p class="meta">
+        
+<!---->
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-05-02T04:19:01+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-05-02T04:19:01+09:00'><span class='date'>2014-05-02</span></time></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://tknhs.github.io">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div style='text-align: center'>
+<img alt='haskell' style='text-align: center;' width='120' height='120' src='/images/icons/c63dc4c7bdcfa907e0d12d9cebfa0993.png' />
+</div>
+
+
+<p></p>
+
+<p>Haskellのお勉強を再開．といっても忘れているので最初からやる．<br/>
+環境はすでに入ってるけど，一応環境の構築から（てきとー）．</p>
+
+<!-- more -->
+
+
+<h2>今回進めるもの</h2>
+
+<p>本も考えたけど，一度<a href="http://www.amazon.co.jp/gp/product/4797336021/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=4797336021&amp;linkCode=as2&amp;tag=brsmc-22">ふつうのHaskell</a>をやっていて，今回は違うやり方で始めようと思ったので，とりあえずは<a href="http://labs.gree.jp/blog/2013/12/9201/">社内Haskellチュートリアルのススメ</a>にある<a href="https://github.com/gree/haskell-tutorial">gree/haskell-tutorial</a>を進めていくことにした．</p>
+
+<h2>環境構築</h2>
+
+<h4>処理系とか開発用プラットフォームとかのインストール</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>brew install ghc
+</span><span class='line'><span class="nv">$ </span>brew install haskell-platform
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s1">&#39;export PATH=&quot;$HOME/.cabal/bin:$PATH&quot;&#39;</span> &gt;&gt; ~/.zprofile
+</span><span class='line'><span class="nv">$ </span>. ~/.zprofile
+</span><span class='line'><span class="nv">$ </span>cabal update
+</span><span class='line'><span class="nv">$ </span>cabal install ghc-mod
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>開発はvimでやるのでプラグインを入れる</h4>
+
+<figure class='code'><figcaption><span>.vimrc</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundle <span class="s1">&#39;ujihisa/neco-ghc&#39;</span>
+</span><span class='line'>NeoBundle <span class="s1">&#39;eagletmt/ghcmod-vim&#39;</span>
+</span><span class='line'>NeoBundle <span class="s1">&#39;dag/vim2hs&#39;</span>
+</span><span class='line'>
+</span><span class='line'>map <span class="p">&lt;</span>Leader<span class="p">&gt;</span><span class="k">c</span> <span class="p">&lt;</span>esc<span class="p">&gt;</span>:GhcModType<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'>map <span class="p">&lt;</span>Leader<span class="p">&gt;</span>C <span class="p">&lt;</span>esc<span class="p">&gt;</span>:GhcModTypeClear<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'>map <span class="p">&lt;</span>Leader<span class="p">&gt;</span><span class="k">l</span> <span class="p">&lt;</span>esc<span class="p">&gt;</span>:GhcModLint<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:haskell_jmacro  <span class="p">=</span> <span class="m">0</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:haskell_conceal <span class="p">=</span> <span class="m">0</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:haskell_multiline_strings <span class="p">=</span> <span class="m">1</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>公式読み物</h2>
+
+<ul>
+<li><a href="http://www.haskell.org/ghc/docs/latest/html/">ドキュメント</a></li>
+<li><a href="http://www.haskell.org/hoogle/">Hoogle</a></li>
+<li><a href="http://www.haskell.org/haskellwiki/Keywords">予約語一覧</a></li>
+</ul>
+
+
+<h2>Haskellチュートリアル(第一日)</h2>
+
+<p>ということで，<a href="https://github.com/gree/haskell-tutorial/wiki/Haskell%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB(%E7%AC%AC%E4%B8%80%E6%97%A5)">Haskellチュートリアル(第一日)</a>をやる．<br/>
+<a href="https://github.com/yaakaito/NLTQuickCheck/wiki/yaakaito-%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEHaskell%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E8%AA%AD%E3%81%BF%E6%96%B9">yaakaito のためのHaskellコードの読み方</a>とかも読みながら．</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tknhs</span></span>
+
+      
+<!---->
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-05-02T04:19:01+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-05-02T04:19:01+09:00'><span class='date'>2014-05-02</span></time></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/haskell/'>haskell</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <div class="hatena">
+    <a class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="Haskellのお勉強１ - tknhs's blog" href="http://b.hatena.ne.jp/entry/http://tknhs.github.io"></a>
+  </div>
+  
+  
+  <div class="twitter">
+    <a href="//twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://tknhs.github.io/blog/2014/05/haskell-tutorial-1/" data-via="tknhs35" data-counturl="http://tknhs.github.io/blog/2014/05/haskell-tutorial-1/" >Tweet</a>
+  </div>
+  
+  
+  
+  <div class="facebook">
+    <div class=fb-like data-href="http://tknhs.github.io/blog/2014/05/haskell-tutorial-1/" data-layout="button_count" data-send="false" data-show-faces="false"></div>
+  </div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/05/intro-amedesu/" title="Previous Post: iPhone/iPad: 天気アプリ「アメデス」が便利！">&laquo; iPhone/iPad: 天気アプリ「アメデス」が便利！</a><br>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/05/how-to-create-jailbreak-apps-for-iphone/" title="Next Post: How to create jailbreak apps for iphone">How to create jailbreak apps for iphone &raquo;</a>
+      
+    </p>
+
+    <div style='text-align: center'>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- tknhs.github.io - post_footer2 -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3904948390832684"
+           data-ad-slot="4815787655"
+           data-ad-format="horizontal"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Links</h1>
+  <a href="/atom.xml"><img src="/images/rss32.png" alt="rss" title="rss"></a>
+  <a href="http://cloud.feedly.com/#subscription/feed/http://tknhs.github.io/atom.xml" target="_blank"><img src="/images/feedly32.png" alt="feedly" title="feedly"></a>
+  <a href="http://www.amazon.co.jp/registry/wishlist/2GSP5C4GKAR2" target="_blank"><img src="/images/amazon32.png" alt="amazon" title="amazon"></a>
+  <br>
+  <a href="https://github.com/tknhs" target="_blank"><img src="/images/github32.png" alt="github" title="guthub"></a>
+  <a href="https://twitter.com/tknhs35" target="_blank"><img src="/images/twitter32.png" alt="twitter" title="twitter"></a>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/12/ios-device-test/">自作の iOS アプリを実機に転送</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/mqtt-mosquitto-setup/">MQTT Broker を立てた</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/09/kit-hackathon/">K.I.T. HACKATHON</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/09/mac-app-autokeyboard/">Mac App: AutoKeyboard</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/mac-windows-remote-desktop/">リモートデスクトップ: Mac -> Windows</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <div style='text-align: center'>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- tknhs.github.io - sidebar -->
+    <ins class="adsbygoogle"
+      style="display:inline-block;width:250px;height:250px"
+      data-ad-client="ca-pub-3904948390832684"
+      data-ad-slot="4073674053"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</section>
+<section>
+  <h1>Tag Cloud</h1>
+  <span id="tag-cloud"><a href='/blog/categories/chrome' style='font-size: 130.0%'>chrome</a> <a href='/blog/categories/coderetreat' style='font-size: 115.0%'>coderetreat</a> <a href='/blog/categories/hackathon' style='font-size: 115.0%'>hackathon</a> <a href='/blog/categories/haskell' style='font-size: 130.0%'>haskell</a> <a href='/blog/categories/jailbreak' style='font-size: 130.0%'>jailbreak</a> <a href='/blog/categories/kzrb' style='font-size: 115.0%'>kzrb</a> <a href='/blog/categories/mac' style='font-size: 160.0%'>mac</a> <a href='/blog/categories/mqtt' style='font-size: 115.0%'>mqtt</a> <a href='/blog/categories/nginx' style='font-size: 115.0%'>nginx</a> <a href='/blog/categories/python' style='font-size: 145.0%'>python</a> <a href='/blog/categories/tornado' style='font-size: 115.0%'>tornado</a> <a href='/blog/categories/vim' style='font-size: 145.0%'>vim</a> <a href='/blog/categories/sumahoapuri' style='font-size: 115.0%'>スマホアプリ</a> <a href='/blog/categories/burauzakuo-zhang-ji-neng' style='font-size: 115.0%'>ブラウザ拡張機能</a> </span>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - tknhs -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tknhs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tknhs.github.io/blog/2014/05/haskell-tutorial-1/';
+        var disqus_url = 'http://tknhs.github.io/blog/2014/05/haskell-tutorial-1/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+<script>
+(function(w,d){
+  var c,e=d.createDocumentFragment(),f=d.getElementsByTagName("script")[0],
+  a=function(a,b){if(!d.getElementById(b)){c=d.createElement("script");
+  c.src=a;c.id=b||null;c.async=true;e.appendChild(c);}};
+
+  
+
+  
+    a("//platform.twitter.com/widgets.js");
+  
+
+  
+    a("//connect.facebook.net/ja_JP/all.js#appId=1506920132861098&xfbml=1","facebook-jssdk");
+  
+
+  
+    a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
+  
+  f.parentNode.insertBefore(e,f);
+})(this,document);
+</script>
+
+
+</body>
+</html>

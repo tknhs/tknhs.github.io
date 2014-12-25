@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: kzrb | tknhs's blog]]></title>
+  <link href="http://tknhs.github.io/blog/categories/kzrb/atom.xml" rel="self"/>
+  <link href="http://tknhs.github.io/"/>
+  <updated>2014-12-25T19:11:16+09:00</updated>
+  <id>http://tknhs.github.io/</id>
+  <author>
+    <name><![CDATA[tknhs]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[kanazawa.rb meetup #21]]></title>
+    <link href="http://tknhs.github.io/blog/2014/05/kzrb21/"/>
+    <updated>2014-05-27T01:25:43+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/05/kzrb21</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='kzrb' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/b295977b566cfd465e2a903189e4705a.png' />
+</div>
+
+
+<p></p>
+
+<p>05/17に <a href="http://kanazawarb.github.com/meetup/21/">kanazawa.rb meetup #21</a><strong>「みんなの環境を見せて！おっぴろげ祭り！」</strong>が開催され，参加してきました．</p>
+
+<!-- more -->
+
+
+<p>発表のなかで逸脱で印象に残ったのがトリを飾った<a href="http://www.slideshare.net/pharaohkj/ss-34794458"><strong>俺と開発環境 @PharaohKJ</strong></a></p>
+
+<p>今回の meetup のサブタイトルは「環境」<br/>
+「開発環境」ではなく「環境」</p>
+
+<p>環境と聞くと開発環境を思い浮かべる．それがエンジニアのいけないところ（笑）<br/>
+良い開発をしていくには，まずは開発するときの身の周りの環境を．<br/>
+そして，<strong>「金で解決できることは割と多いので即やる」</strong></p>
+
+<p>ということで，これに感化されて第一弾としてイヤホンを買いました．</p>
+
+<p><a href="http://www.amazon.co.jp/gp/product/B00JN2WNCO/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00JN2WNCO&amp;linkCode=as2&amp;tag=brsmc-22">【日本正規代理店品】 Jabra Bluetooth4.0 ヘッドセットNFC対応 防滴・防塵(IP52) ROXシリーズ ブラック ROXWIRELESS-BK</a></p>
+
+<p><a href="http://www.amazon.co.jp/gp/product/B002OOWBWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B002OOWBWK&amp;linkCode=as2&amp;tag=brsmc-22">Comply (コンプライ) イヤホンチップ Tx-500 ブラック Mサイズ (3ペア)</a></p>
+
+<p>Bluetooth4.0を搭載していて同時に２台まで接続ができるので，Mac と iPhone を同時接続．これで集中し過ぎて電話に気づかないということもなくなる．ただ，話しかけられても気づかないという欠点はあるけれど，Skype とか Skype とかを使ってPC上でやりとりをすればその問題も解決される（笑）</p>
+
+<p>とりあえず，これで環境が少し改善された．<br/>
+今後もお財布と相談しながら環境を良くしていこう．</p>
+
+<p><strong>「金で解決できることは割と多いので即やる」</strong></p>
+]]></content>
+  </entry>
+  
+</feed>

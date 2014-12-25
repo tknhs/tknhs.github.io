@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: hackathon | tknhs's blog]]></title>
+  <link href="http://tknhs.github.io/blog/categories/hackathon/atom.xml" rel="self"/>
+  <link href="http://tknhs.github.io/"/>
+  <updated>2014-12-25T19:11:16+09:00</updated>
+  <id>http://tknhs.github.io/</id>
+  <author>
+    <name><![CDATA[tknhs]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[K.I.T. HACKATHON]]></title>
+    <link href="http://tknhs.github.io/blog/2014/09/kit-hackathon/"/>
+    <updated>2014-09-24T14:30:10+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/09/kit-hackathon</id>
+    <content type="html"><![CDATA[<p>2014/09/20 - 2014/09/22<br/>
+K.I.T. HACKATHON に参加してきました．</p>
+
+<!-- more -->
+
+
+<p>サブタイトルは「<a href="http://www.kanazawa-it.ac.jp/kitnews/2014/1197419_3722.html">地方都市イノベーション創出 ～消滅する地方都市を救え！～</a>」<br/>
+細かい内容はリンク先で．</p>
+
+<p>Twitter Hashtag: <a href="http://realtime.search.yahoo.co.jp/search?p=%23kithack">#kithack</a></p>
+
+<h2>目的</h2>
+
+<p>サブタイトルは置いといて，ライフハックするものを作りたい．<br/>
+タスク管理とソースコード管理をしながら作りたい．</p>
+
+<h2>制作物</h2>
+
+<p>「<strong>家の施錠管理をするシステム</strong>」: 車のキーレスエントリーみたいなもの</p>
+
+<p>モノはとりあえず決まった，せっかく作るんだったら初めて尽くしでいこうということで，ハード側は <a href="http://www.acmesystems.it/arietta">Arietta G25</a> を使って， ソフト側は <a href="http://golang.org">Golang</a> で書きました．の予定でしたが，ハード側の設定に手こずったため，最終的にはハードを MacBook Air にしてデモをすることになりました．</p>
+
+<p>また，タスク管理には <a href="https://trello.com">Trello</a>，ソースコード管理には <a href="https://github.com">GitHub</a> を使いました．Trello と GitHub の連携も試してみたかったけど，今回は見送りました．</p>
+
+<p>制作物の大まかな動作としては，一定の間隔（デフォルトは５分）でドアを閉める動作を行い，Bluetooth Low Energy を使ってビーコンを受信し，ドアを開けるコマンドを Twitter に投稿するとドアを開ける動作を行うというものです．</p>
+
+<p><a href="https://github.com/tknhs/Surelock-Homes">開発中のソースコード</a></p>
+
+<h2>おわりに</h2>
+
+<p>現在 MacBook Air 上での動作はしていますが，まだまだ問題は山積みです．今年度中には最初に掲げた構成で動作するようにしたいと思ってるので今後も研究の合間に開発を続けていきます？</p>
+
+<p>他のことを何も考えずに集中して取り組めるって素晴らしい！<br/>
+各関係者の皆さまありがとうございました．お疲れ様でした．</p>
+
+<h2>情報提供企業（敬称略）</h2>
+
+<ul>
+<li><a href="http://www.change-vision.com">Change Vision, Inc.</a></li>
+<li><a href="http://www.fsi.co.jp">FUJI SOFT INCORPORATED</a></li>
+<li><a href="http://www.iodata.jp">I-O DATA DEVICE, INC.</a></li>
+<li><a href="http://www.next-group.jp">NEXT Co.,Ltd.</a></li>
+<li><a href="http://www.pfu.fujitsu.com">PFU LIMITED</a></li>
+</ul>
+
+
+<div style='text-align: center'>
+<img alt='companies' style='text-align: center;' src='http://tknhs.github.io/images/2014-09-24-kit-hackathon/d109ed23aaa9a67108829af6c5116996.jpg' />
+</div>
+
+
+<p></p>
+]]></content>
+  </entry>
+  
+</feed>

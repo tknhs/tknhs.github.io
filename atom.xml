@@ -1,0 +1,1543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[tknhs's blog]]></title>
+  <link href="http://tknhs.github.io/atom.xml" rel="self"/>
+  <link href="http://tknhs.github.io/"/>
+  <updated>2014-12-25T19:11:16+09:00</updated>
+  <id>http://tknhs.github.io/</id>
+  <author>
+    <name><![CDATA[tknhs]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[自作の iOS アプリを実機に転送]]></title>
+    <link href="http://tknhs.github.io/blog/2014/12/ios-device-test/"/>
+    <updated>2014-12-13T19:51:10+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/12/ios-device-test</id>
+    <content type="html"><![CDATA[<p>公開するまでもない自分用の iOS アプリを作って，無料で実機で動かして遊ぶ．<br/>
+（jailbreak 必須）</p>
+
+<!-- more -->
+
+
+<h2>環境</h2>
+
+<ul>
+<li>MacBook Air Mid 2012
+
+<ul>
+<li>OS X Yosemite 10.10.1</li>
+<li>Xcode 6.1.1</li>
+</ul>
+</li>
+<li>iPhone 5s
+
+<ul>
+<li>8.1.1</li>
+<li>jailbreak 済</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>内容</h2>
+
+<ul>
+<li><p>iOS アプリのビルドから codesign までは <a href="http://www.atsuhiro-me.net/apple/ios/devfree-ios7">iOSアプリを無料で実機テストする (iOS7版) (要脱獄)</a> ，ファイルをインストールするのは <a href="http://hackin2os.org/wordpress/?p=210">iOS8対応！ipaファイルをインストールできるTweak, App Installer!</a> を行えば，動作確認できた．</p></li>
+<li><p>以下には，参考にした２つの記事の途中でやることを書く．</p></li>
+<li>ipa ファイルを作成するために iTunes を起動して App -> マイApp の画面に移動する．</li>
+<li>マイApp の画面に Xcode で Build して codesign を行った XXX.app を投げる．</li>
+<li>iTunes に XXX.app が読み込まれたら，右クリック -> Finderで表示する．</li>
+<li>XXX.ipa が作成されているので，iFunBox 等を用いて，iPhone に XXX.ipa を転送する．</li>
+</ul>
+
+
+<p>おわり</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MQTT Broker を立てた]]></title>
+    <link href="http://tknhs.github.io/blog/2014/11/mqtt-mosquitto-setup/"/>
+    <updated>2014-11-28T21:48:43+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/11/mqtt-mosquitto-setup</id>
+    <content type="html"><![CDATA[<p>さくらの VPS に MQTT Broker となる <a href="http://mosquitto.org/">Mosquitto</a> をインストールしたのでメモ．</p>
+
+<!-- more -->
+
+
+<p>MQTT とはなんぞ．な話は <a href="http://tdoc.info/blog/2014/01/27/mqtt.html">MQTTについてのまとめ</a> とか <a href="https://gist.github.com/voluntas/558fea1445253e6dc6c2">時雨堂 MQTT ブローカー開発ログ</a> とか <a href="https://gist.github.com/voluntas/8238751#%E5%8F%82%E8%80%83">MQTT コトハジメ</a> を読む．</p>
+
+<h2>Mosquitto のインストール</h2>
+
+<p>サーバの OS は CentOS 6</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd /etc/yum.repos.d
+</span><span class='line'>wget http://download.opensuse.org/repositories/home:/oojah:/mqtt/CentOS_CentOS-6/home:oojah:mqtt.repo
+</span><span class='line'>yum update
+</span><span class='line'>yum install mosquitto</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ポートの開放</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi /etc/sysconfig/iptable
+</span><span class='line'>/etc/init.d/iptables restart</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>設定</h2>
+
+<p><code>/etc/mosquitto/mosquitto.conf.example</code> を読みながら，<br/>
+<code>/etc/mosquitto/mosquitto.conf</code> らへんに記述していく．</p>
+
+<h2>起動</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/etc/rc.d/init.d/mosquitto start</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>確認</h2>
+
+<p>あとは自分の端末から mosquitto_pub, mosquitto_sub などを使ってちゃんと動いてるかチェックすればおしまい！<br/>
+Mac の場合は，<code>brew install mosquitto</code> をすれば，Pub/Sub できるようになる．</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[K.I.T. HACKATHON]]></title>
+    <link href="http://tknhs.github.io/blog/2014/09/kit-hackathon/"/>
+    <updated>2014-09-24T14:30:10+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/09/kit-hackathon</id>
+    <content type="html"><![CDATA[<p>2014/09/20 - 2014/09/22<br/>
+K.I.T. HACKATHON に参加してきました．</p>
+
+<!-- more -->
+
+
+<p>サブタイトルは「<a href="http://www.kanazawa-it.ac.jp/kitnews/2014/1197419_3722.html">地方都市イノベーション創出 ～消滅する地方都市を救え！～</a>」<br/>
+細かい内容はリンク先で．</p>
+
+<p>Twitter Hashtag: <a href="http://realtime.search.yahoo.co.jp/search?p=%23kithack">#kithack</a></p>
+
+<h2>目的</h2>
+
+<p>サブタイトルは置いといて，ライフハックするものを作りたい．<br/>
+タスク管理とソースコード管理をしながら作りたい．</p>
+
+<h2>制作物</h2>
+
+<p>「<strong>家の施錠管理をするシステム</strong>」: 車のキーレスエントリーみたいなもの</p>
+
+<p>モノはとりあえず決まった，せっかく作るんだったら初めて尽くしでいこうということで，ハード側は <a href="http://www.acmesystems.it/arietta">Arietta G25</a> を使って， ソフト側は <a href="http://golang.org">Golang</a> で書きました．の予定でしたが，ハード側の設定に手こずったため，最終的にはハードを MacBook Air にしてデモをすることになりました．</p>
+
+<p>また，タスク管理には <a href="https://trello.com">Trello</a>，ソースコード管理には <a href="https://github.com">GitHub</a> を使いました．Trello と GitHub の連携も試してみたかったけど，今回は見送りました．</p>
+
+<p>制作物の大まかな動作としては，一定の間隔（デフォルトは５分）でドアを閉める動作を行い，Bluetooth Low Energy を使ってビーコンを受信し，ドアを開けるコマンドを Twitter に投稿するとドアを開ける動作を行うというものです．</p>
+
+<p><a href="https://github.com/tknhs/Surelock-Homes">開発中のソースコード</a></p>
+
+<h2>おわりに</h2>
+
+<p>現在 MacBook Air 上での動作はしていますが，まだまだ問題は山積みです．今年度中には最初に掲げた構成で動作するようにしたいと思ってるので今後も研究の合間に開発を続けていきます？</p>
+
+<p>他のことを何も考えずに集中して取り組めるって素晴らしい！<br/>
+各関係者の皆さまありがとうございました．お疲れ様でした．</p>
+
+<h2>情報提供企業（敬称略）</h2>
+
+<ul>
+<li><a href="http://www.change-vision.com">Change Vision, Inc.</a></li>
+<li><a href="http://www.fsi.co.jp">FUJI SOFT INCORPORATED</a></li>
+<li><a href="http://www.iodata.jp">I-O DATA DEVICE, INC.</a></li>
+<li><a href="http://www.next-group.jp">NEXT Co.,Ltd.</a></li>
+<li><a href="http://www.pfu.fujitsu.com">PFU LIMITED</a></li>
+</ul>
+
+
+<div style='text-align: center'>
+<img alt='companies' style='text-align: center;' src='http://tknhs.github.io/images/2014-09-24-kit-hackathon/d109ed23aaa9a67108829af6c5116996.jpg' />
+</div>
+
+
+<p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mac App: AutoKeyboard]]></title>
+    <link href="http://tknhs.github.io/blog/2014/09/mac-app-autokeyboard/"/>
+    <updated>2014-09-18T11:57:54+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/09/mac-app-autokeyboard</id>
+    <content type="html"><![CDATA[<p>個別のアプリケーションにデフォルトのキーボード入力ソースを設定するアプリの紹介</p>
+
+<!-- more -->
+
+
+
+
+<div style='text-align: center'>
+<img alt='autokeyboard-about' style='text-align: center;' src='http://tknhs.github.io/images/2014-09-18-mac-app-autokeyboard/33b8186c537a18306368d3997298910c.jpg' />
+</div>
+
+
+<p></p>
+
+<p>ターミナルで文字入力をする際に，日本語で入力する状態になっていて憤りを覚えることがありますよね．それを防いでくれるアプリ．</p>
+
+<div style='text-align: center'>
+<img alt='autokeyboard-screenshot' style='text-align: center;' src='http://tknhs.github.io/images/2014-09-18-mac-app-autokeyboard/c3ee182647bef71cf68dbda4c9d1167.jpg' />
+</div>
+
+
+<p></p>
+
+<h2>AutoKeyboard ダウンロードリンク</h2>
+
+<p>Mac
+<a href="https://itunes.apple.com/us/app/autokeyboard/id908553210?mt=12&uo=4&at=1l3vbuW" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_macappstore-lrg.png) no-repeat;width:165px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_macappstore-lrg.svg);}"></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[リモートデスクトップ: Mac -> Windows]]></title>
+    <link href="http://tknhs.github.io/blog/2014/08/mac-windows-remote-desktop/"/>
+    <updated>2014-08-15T18:18:23+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/08/mac-windows-remote-desktop</id>
+    <content type="html"><![CDATA[<p>Mac から Windows をリモートしたかったので作業メモ（同一ネットワーク）</p>
+
+<!-- more -->
+
+
+<h2>Mac 側の設定</h2>
+
+<ul>
+<li>MS が公式で出している <a href="https://itunes.apple.com/jp/app/microsoft-remote-desktop/id715768417?mt=12&amp;uo=4&amp;at=1l3vbuW">Microsoft Remote Desktop</a> をインストールする</li>
+<li>以下のように設定する</li>
+</ul>
+
+
+<div style='text-align: center'>
+<img alt='microsoft remote desktop' style='text-align: center;' src='http://tknhs.github.io/images/2014-08-15-mac-windows-remote-desktop/ff076774d82c14a3c69cb8aa85ed3515.png' />
+</div>
+
+
+<p></p>
+
+<h2>Windows 側の設定</h2>
+
+<ul>
+<li>ファイアウォールでリモートデスクトップを有効にする</li>
+</ul>
+
+
+<div style='text-align: center'>
+<img alt='firewall' style='text-align: center;' src='http://tknhs.github.io/images/2014-08-15-mac-windows-remote-desktop/fd7ae8bea8d62192cdcb8d0d5c22b1cf.png' />
+</div>
+
+
+<p></p>
+
+<ul>
+<li>システムでリモートデスクトップを許可する</li>
+</ul>
+
+
+<div style='text-align: center'>
+<img alt='system' style='text-align: center;' src='http://tknhs.github.io/images/2014-08-15-mac-windows-remote-desktop/afc4506e903d263805e9cbfed633366c.png' />
+</div>
+
+
+<p></p>
+
+<ul>
+<li>空のパスワードでもリモートデスクトップを可能にする</li>
+</ul>
+
+
+<div style='text-align: center'>
+<img alt='null password' style='text-align: center;' src='http://tknhs.github.io/images/2014-08-15-mac-windows-remote-desktop/55fbd202cfeae78ad6ca38fbbd58f1a4.png' />
+</div>
+
+
+<p></p>
+
+<h2>Microsoft Remote Desktop ダウンロードリンク</h2>
+
+<p>Mac
+<a href="https://itunes.apple.com/jp/app/microsoft-remote-desktop/id715768417?mt=12&uo=4&at=1l3vbuW" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_macappstore-lrg.png) no-repeat;width:165px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_macappstore-lrg.svg);}"></a>
+iPhone/iPad
+<a href="https://itunes.apple.com/jp/app/microsoft-remote-desktop/id714464092?mt=8&uo=4&at=1l3vbuW" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.png) no-repeat;width:135px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.svg);}"></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Google Chrome: 外部プロトコルリクエスト]]></title>
+    <link href="http://tknhs.github.io/blog/2014/06/external-protocol-request/"/>
+    <updated>2014-06-23T02:28:32+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/06/external-protocol-request</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='chrome' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/260e4f873cdea5df0e140673833ccd11.png' />
+</div>
+
+
+<p></p>
+
+<p>「URLスキームを使った Chrome 拡張機能がちゃんと動作しない」ということが拡張機能のバグだと思われている件について</p>
+
+<!-- more -->
+
+
+<p>前に<a href="http://tknhs.github.io/blog/2014/04/chrome-extension-dayone/">日記アプリ「Day One」のChrome拡張機能を作ったと言う話</a>を書いたけど，これの話．</p>
+
+<p>評価に関して，☆なんてものはどうでもいいのだけれどコメントは読んだりしている．</p>
+
+<ul>
+<li>自分の環境で動かない</li>
+<li>空白ウィンドウが開く</li>
+</ul>
+
+
+<p>空白ウィンドウが開くということについては今回は触れない（修正済み）．<br/>
+てことで，自分の環境では動かないという点について，動かない？！<strong>僕の環境では動いてる</strong>．なんとなくURLスキームが絡んでる気がしてた．（というか，それぐらいしかない</p>
+
+<p>この拡張機能を実行した場合，</p>
+
+<div style='text-align: center'>
+<img alt='external protocol request' style='text-align: center;' src='http://tknhs.github.io/images/2014-06-23-external-protocol-request/3a18718774deed18dfc2305ef30c8fc7.jpg' />
+</div>
+
+
+<p></p>
+
+<p>というように，外部プロトコルリクエストがポップアップされる．<br/>
+ここで，</p>
+
+<div style='text-align: center'>
+<img alt='external protocol request' style='text-align: center;' src='http://tknhs.github.io/images/2014-06-23-external-protocol-request/670c34b4f6970fbb8a4b197633227d83.jpg' />
+</div>
+
+
+<p></p>
+
+<p>「このようなリンクの設定をすべて保存する」にチェックを入れて「何もしない」を押してしまうと，以降何もアクションが起きなくなってしまう．たぶんこれが問題で，この設定をしてしまうと拡張機能の役目を果たさないことになってしまう．</p>
+
+<p>そして，この設定を直すのが単純だけどめんどうで&hellip;以下に手順を示す．</p>
+
+<ol>
+<li>Chrome を閉じる</li>
+<li>Local State を書き換える <code>$ vi ~/Library/Application\ Support/Google/Chrome/Local\ State</code><br/>
+今回の場合は，<code>"dayone": true,</code> というのを見つけてその一行を削除して保存する．</li>
+</ol>
+
+
+<div style='text-align: center'>
+<img alt='external protocol request' style='text-align: center;' src='http://tknhs.github.io/images/2014-06-23-external-protocol-request/d99b1e3aa35426fb1a57cc53d7ca8e3e.png' />
+</div>
+
+
+<p></p>
+
+<p>これを行った後，拡張機能を実行するとまた外部プロトコルリクエストのポップアップが開くようになる．</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Python Tips: Prettyprint]]></title>
+    <link href="http://tknhs.github.io/blog/2014/06/python-pretty-print/"/>
+    <updated>2014-06-18T04:32:12+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/06/python-pretty-print</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='python' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/eea97ed4952c05be55ff9e462ea0e1c4.png' />
+</div>
+
+
+<p></p>
+
+<p>オブジェクトを整形して見やすい形で出力してくれる標準ライブラリ <code>pprint</code>．</p>
+
+<!-- more -->
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">pprint</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>短いリストにこれを使用した場合は <code>print</code> したときと同じように出力される．</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">pprint</span>
+</span><span class='line'><span class="n">words</span> <span class="o">=</span> <span class="s">&quot;Lorem ipsum dolor sit amet&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span><span class='line'><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># 出力</span>
+</span><span class='line'><span class="p">[</span><span class="s">&#39;Lorem&#39;</span><span class="p">,</span> <span class="s">&#39;ipsum&#39;</span><span class="p">,</span> <span class="s">&#39;dolor&#39;</span><span class="p">,</span> <span class="s">&#39;sit&#39;</span><span class="p">,</span> <span class="s">&#39;amet&#39;</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>長いリストの場合はちゃんと整形される．</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">pprint</span>
+</span><span class='line'><span class="n">words</span> <span class="o">=</span> <span class="s">&quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span><span class='line'><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># 出力</span>
+</span><span class='line'><span class="p">[</span><span class="s">&#39;Lorem&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;ipsum&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;dolor&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;sit&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;amet,&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;consectetur&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;adipisicing&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;elit,&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;sed&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;do&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;eiusmod&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;tempor&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;incididunt&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;ut&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;labore&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;et&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;dolore&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;magna&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;aliqua.&#39;</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>なんかそれっぽい二次元配列とかも非常に見やすくなる．</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">pprint</span>
+</span><span class='line'><span class="n">array</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+</span><span class='line'><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># 出力</span>
+</span><span class='line'><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+</span><span class='line'> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</span><span class='line'> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</span><span class='line'> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+</span><span class='line'> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>リストだけじゃなくて辞書もいける．</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">pprint</span>
+</span><span class='line'><span class="n">langs</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;c&quot;</span><span class="p">:</span> <span class="s">&quot;C&quot;</span><span class="p">,</span> <span class="s">&quot;j&quot;</span><span class="p">:</span> <span class="s">&quot;Java&quot;</span><span class="p">,</span> <span class="s">&quot;o&quot;</span><span class="p">:</span> <span class="s">&quot;Objectiv-C&quot;</span><span class="p">,</span> <span class="s">&quot;p&quot;</span><span class="p">:</span> <span class="s">&quot;PHP&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">:</span> <span class="s">&quot;Ruby&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">:</span> <span class="s">&quot;ActionScript&quot;</span><span class="p">}</span>
+</span><span class='line'><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">langs</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># 出力</span>
+</span><span class='line'><span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="s">&#39;ActionScript&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;c&#39;</span><span class="p">:</span> <span class="s">&#39;C&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;j&#39;</span><span class="p">:</span> <span class="s">&#39;Java&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;o&#39;</span><span class="p">:</span> <span class="s">&#39;Objectiv-C&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;p&#39;</span><span class="p">:</span> <span class="s">&#39;PHP&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;r&#39;</span><span class="p">:</span> <span class="s">&#39;Ruby&#39;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>pprint に indent, width, depth など引数を与えることができるが詳しくは公式ドキュメントで．</p>
+
+<h2>ドキュメント</h2>
+
+<ul>
+<li><a href="https://docs.python.org/3/library/pprint.html">8.11. pprint — Data pretty printer</a></li>
+<li><a href="http://docs.python.jp/3.3/library/pprint.html">8.11. pprint — データ出力の整然化</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Coderetreat in K.I.T.]]></title>
+    <link href="http://tknhs.github.io/blog/2014/06/coderetreat-in-kit/"/>
+    <updated>2014-06-01T02:28:28+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/06/coderetreat-in-kit</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='coderetreat' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/2014-06-01-coderetreat-in-kit/a1682d7938b30aa02432340419c3647e.png' />
+</div>
+
+
+<p></p>
+
+<p>2014/05/31 <a href="http://coderetreat.doorkeeper.jp/events/9854">Coderetreat in K.I.T.</a> に参加してきました．</p>
+
+<!-- more -->
+
+
+<p>まず驚いたのが学生が多いこと．そして１年生が結構いたこと（優秀ですわぁ．<br/>
+飲み友達（隠語）も結構いたので，気持ち的には楽に始めることができました（悪習慣？）</p>
+
+<h2>内容</h2>
+
+<ul>
+<li>入門: うるう年の計算</li>
+<li>ふつう: コンウェイのライフゲーム</li>
+<li>チャレンジ: ボーリングスコア計算</li>
+</ul>
+
+
+<h2>目的</h2>
+
+<p>内容は当日までわからなかったけど，TDD をちゃんと理解するためにも全セッション中に一度は TDD で開発する．</p>
+
+<h2>ペアプロ</h2>
+
+<h3>セッション #1 - うるう年の計算</h3>
+
+<p><strong>使用言語</strong> : Python<br/>
+<strong>ペア</strong>　　 : 学生<br/>
+<strong>役割</strong>　　 : ドライバー</p>
+
+<p>普通に実装したらすぐ終わっちゃうよねということだったので if文禁止を制約に加えて実装．<br/>
+実装内容は「対象年において4で割り切れるか100で割り切れるか400で割り切れるかという値を持ち，割り切れる状態が奇数個あればそれはうるう年である」というものになった．この回は「紙でテスト -> 実装 -> テストコード」という順番で行った．</p>
+
+<h3>セッション #2 - うるう年の計算</h3>
+
+<p><strong>使用言語</strong> : C#<br/>
+<strong>ペア</strong>　　 : 社会人<br/>
+<strong>役割</strong>　　 : ナビゲーター</p>
+
+<p>この回は実質 C# のお勉強．C# の言語仕様的な話を聞くことをメインにおいていたため実装は完成せず．ただ，TDD な感じで実装はしていた．やっぱり IDE は便利だよなぁとか思ってたりもしたけど，宗教変更までには居たらず．言語仕様自体はラムダとか型推論とかあって，まぁ入りやすいかなとは感じました（モダンな言語が増えてきて選択が難しいの意．</p>
+
+<h3>セッション #3 - コンウェイのライフゲーム</h3>
+
+<p><strong>使用言語</strong> : PHP<br/>
+<strong>ペア</strong>　　 : 社会人<br/>
+<strong>役割</strong>　　 : ナビゲーター</p>
+
+<p>研究室の同期ということもあり，最近どう？みたいな話をしていて中身に入るまでにちょっと時間を費やしてしまった感じ．ロジック・実装ともに，とりあえず愚直に行っていった．完成はしていない．</p>
+
+<h3>セッション #4 - コンウェイのライフゲーム</h3>
+
+<p><strong>使用言語</strong> : Python<br/>
+<strong>ペア</strong>　　 : 学生<br/>
+<strong>役割</strong>　　 : ナビゲーター</p>
+
+<p>Python2.6 当初から使ってるということで Python の先輩．ライフゲームにおいては，誕生・生存辺りをもっとうまく判断したいなぁとか言ってたら終わった．</p>
+
+<h3>セッション #5 - ボーリングスコア計算</h3>
+
+<p><strong>使用言語</strong> : Python<br/>
+<strong>ペア</strong>　　 : 社会人<br/>
+<strong>役割</strong>　　 : ドライバー</p>
+
+<p>TDD でやりましょうと．テスト書いてそれが通る実装を書く．また他のテストを書くそれが通る実装を書く．また他のテスｔ(ry の繰り返し．ちゃんと TDD を実感できるやり方だったため，非常に気持よく書くことができた．ただペア考えた起こりうるだろうすべてのテストが通って，すんなり実装できてしまったと思って達成感に浸っていたら，横から◯◯は通る？と言われ，「Failed&hellip;」その後すぐに時間終了してしまい，完璧な実装にはならなかったorz<br/>
+また，テストが通らなかった際に，デバッグの仕方をちゃんと勉強していなかったのもあり，その場その場テストが通る実装だったのもありで可読性の低いものになってしまったのが反省点．次からデバッグは <a href="https://docs.python.org/3.4/library/pdb.html">pdb</a> でやります．</p>
+
+<h2>おわりに</h2>
+
+<p>前回（2013/12/14 <a href="http://kokucheese.com/event/index/127798/">Global Day of Coderetreat in Fukui 2013</a> にも）参加していたので，Coderetreat 自体は実質二回目．ただ，前回はいまいちよくわからない状態で参加していたので今回どうなるかなーと思っていたけど，前回に比べて理解は進んでいたし，その後いろいろしていたので十二分に楽しむことができた．また年内に開催するらしいので次回の開催を待ち望んでいます．各スポンサーの企業様，ありがとうございました．</p>
+
+<div style='text-align: center'>
+<img alt='coderetreat' style='text-align: center;' src='http://tknhs.github.io/images/2014-06-01-coderetreat-in-kit/71d9da0d6548054e7981ac0bfea38ab2.jpg' />
+</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vim Plugin: NERDTree]]></title>
+    <link href="http://tknhs.github.io/blog/2014/05/vim-plugin-nerdtree/"/>
+    <updated>2014-05-30T17:17:12+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/05/vim-plugin-nerdtree</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='vim' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/b3bb5bc30558959cc24017c992a805d4.png' />
+</div>
+
+
+<p></p>
+
+<p>少しずつ少しずつ vim をカスタマイズ<br/>
+今回は <a href="https://github.com/scrooloose/nerdtree">NERDTree（ファイルシステム操作）</a>を導入</p>
+
+<!-- more -->
+
+
+<h2>NERDTree</h2>
+
+<div style='text-align: center'>
+<img alt='nerdtree' style='text-align: center;' src='http://tknhs.github.io/images/2014-05-30-vim-plugin-nerdtree/818abf4cd23c604a9f556d7da2b5cdca.png' />
+</div>
+
+
+<p></p>
+
+<p>毎回の如く，NeoBundle を使ってインストール</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundle <span class="s2">&quot;scrooloose/nerdtree&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>.vimrc には以下を追記</p>
+
+<figure class='code'><figcaption><span>.vimrc</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; NERDTree</span>
+</span><span class='line'><span class="c">&quot; ----------------------------------------</span>
+</span><span class='line'><span class="k">autocmd</span> <span class="nb">FileType</span> nerdtree <span class="k">setlocal</span> <span class="nb">nolist</span>       <span class="c">&quot; 不可視文字を非表示</span>
+</span><span class='line'><span class="nb">nnoremap</span> <span class="p">&lt;</span>f2<span class="p">&gt;</span> :NERDTreeToggle<span class="p">&lt;</span>CR<span class="p">&gt;</span>               <span class="c">&quot; &lt;F2&gt;でトグルする</span>
+</span><span class='line'><span class="c">&quot; 最後に残ったウィンドウがNERDTREEのみのときはvimを閉じる</span>
+</span><span class='line'><span class="k">autocmd</span> bufenter * <span class="k">if</span> <span class="p">(</span>winnr<span class="p">(</span><span class="s2">&quot;$&quot;</span><span class="p">)</span> <span class="p">==</span> <span class="m">1</span> &amp;&amp; exists<span class="p">(</span><span class="s2">&quot;b:NERDTreeType&quot;</span><span class="p">)</span> &amp;&amp; <span class="k">b</span>:NERDTreeType <span class="p">==</span> <span class="s2">&quot;primary&quot;</span><span class="p">)</span> <span class="p">|</span> <span class="k">q</span> <span class="p">|</span> <span class="k">endif</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:NERDTreeDirArrows<span class="p">=</span><span class="m">0</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:NERDTreeMouseMode<span class="p">=</span><span class="m">0</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>細かい設定は<a href="https://github.com/scrooloose/nerdtree/blob/master/doc/NERD_tree.txt">こちら</a>を参照．</p>
+
+<h2>NERDTree Menu に grep 検索を追加するプラグインをインストール</h2>
+
+<p><a href="https://gist.github.com/masaakif/414375">https://gist.github.com/masaakif/414375</a></p>
+
+<div style='text-align: center'>
+<img alt='grep_menuitem.vim' style='text-align: center;' src='http://tknhs.github.io/images/2014-05-30-vim-plugin-nerdtree/b41b1c35c7ff472b385975539c30115c.png' />
+</div>
+
+
+<p></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[kanazawa.rb meetup #21]]></title>
+    <link href="http://tknhs.github.io/blog/2014/05/kzrb21/"/>
+    <updated>2014-05-27T01:25:43+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/05/kzrb21</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='kzrb' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/b295977b566cfd465e2a903189e4705a.png' />
+</div>
+
+
+<p></p>
+
+<p>05/17に <a href="http://kanazawarb.github.com/meetup/21/">kanazawa.rb meetup #21</a><strong>「みんなの環境を見せて！おっぴろげ祭り！」</strong>が開催され，参加してきました．</p>
+
+<!-- more -->
+
+
+<p>発表のなかで逸脱で印象に残ったのがトリを飾った<a href="http://www.slideshare.net/pharaohkj/ss-34794458"><strong>俺と開発環境 @PharaohKJ</strong></a></p>
+
+<p>今回の meetup のサブタイトルは「環境」<br/>
+「開発環境」ではなく「環境」</p>
+
+<p>環境と聞くと開発環境を思い浮かべる．それがエンジニアのいけないところ（笑）<br/>
+良い開発をしていくには，まずは開発するときの身の周りの環境を．<br/>
+そして，<strong>「金で解決できることは割と多いので即やる」</strong></p>
+
+<p>ということで，これに感化されて第一弾としてイヤホンを買いました．</p>
+
+<p><a href="http://www.amazon.co.jp/gp/product/B00JN2WNCO/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00JN2WNCO&amp;linkCode=as2&amp;tag=brsmc-22">【日本正規代理店品】 Jabra Bluetooth4.0 ヘッドセットNFC対応 防滴・防塵(IP52) ROXシリーズ ブラック ROXWIRELESS-BK</a></p>
+
+<p><a href="http://www.amazon.co.jp/gp/product/B002OOWBWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B002OOWBWK&amp;linkCode=as2&amp;tag=brsmc-22">Comply (コンプライ) イヤホンチップ Tx-500 ブラック Mサイズ (3ペア)</a></p>
+
+<p>Bluetooth4.0を搭載していて同時に２台まで接続ができるので，Mac と iPhone を同時接続．これで集中し過ぎて電話に気づかないということもなくなる．ただ，話しかけられても気づかないという欠点はあるけれど，Skype とか Skype とかを使ってPC上でやりとりをすればその問題も解決される（笑）</p>
+
+<p>とりあえず，これで環境が少し改善された．<br/>
+今後もお財布と相談しながら環境を良くしていこう．</p>
+
+<p><strong>「金で解決できることは割と多いので即やる」</strong></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vim Tips: 改行コードを挿入する]]></title>
+    <link href="http://tknhs.github.io/blog/2014/05/vim-tips-new-line/"/>
+    <updated>2014-05-18T21:29:11+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/05/vim-tips-new-line</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='vim' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/b3bb5bc30558959cc24017c992a805d4.png' />
+</div>
+
+
+<p></p>
+
+<p>文字列操作</p>
+
+<!-- more -->
+
+
+<p>ダミーテキスト（<a href="http://ja.wikipedia.org/wiki/Lorem_ipsum">Lorem Ipsum</a>）を使って練習．</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これを一文ごとに改行する．</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='text'><span class='line'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+</span><span class='line'>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+</span><span class='line'>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+</span><span class='line'>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>:%s/\. /\.^M/g</code>で置換する．<br/>
+改行（^M）は C-v + Enter で入力する．</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to create jailbreak apps for iphone]]></title>
+    <link href="http://tknhs.github.io/blog/2014/05/how-to-create-jailbreak-apps-for-iphone/"/>
+    <updated>2014-05-06T12:58:02+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/05/how-to-create-jailbreak-apps-for-iphone</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='jailbreak' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/ca2707f5345b4cd527253b97cdff3ce4.png' />
+</div>
+
+
+<p></p>
+
+<p>（※2014/02/11に別の場所で公開していた記事です）</p>
+
+<p>順番が違うような気がしないでもないけど，Jailbreak Apps作りに励みます．</p>
+
+<!-- more -->
+
+
+<p>個人的に楽だなと思ったのは「<a href="http://iphonedevwiki.net/index.php/Main_Page">Theos</a>」っていう開発環境．
+Xcodeで開発ができる「<a href="http://www.iosopendev.com/">iOSOpenDev</a>」と迷ったけど，やっぱりCLIでごりごりしたいので前者．</p>
+
+<p>とりあえずサンプルを動かすとこまではできたので，環境構築について以下を参考にしながら&hellip;</p>
+
+<ul>
+<li><a href="http://www.kako.com/blog/?p=130">iOSのJailbreak環境用の脱獄アプリ開発環境Theosをインストールしてみた</a></li>
+<li><a href="http://www.kako.com/blog/?p=148">iOSのJailbreak環境で64bit ARM(AARCH64)のバイナリを試してみた</a></li>
+<li><a href="http://ichitaso.com/ios-development/iphone-theos-project/">【脱獄アプリ開発】第7回theosのインストールから簡単なTweakの作成までのガイドライン</a></li>
+<li><a href="http://sharedinstance.net/2013/12/build-on-windows/">Important: Update your tweaks to support arm64</a></li>
+</ul>
+
+
+<h2>手順</h2>
+
+<p>環境構築するための手間を減らすためとか64bit対応を作成するのに必要な処理とかのために少しだけスクリプトを書き換えた．</p>
+
+<div><script src='https://gist.github.com/8929786.js'></script>
+<noscript><pre><code>#!/bin/bash
+current_dir=$(cd $(dirname $0) &amp;&amp; pwd)
+export THEOS=/opt/theos
+
+# clone theos.git
+cd /opt
+git clone git://github.com/DHowett/theos.git
+
+# clone iphoneheaders.git
+cd $THEOS
+mv include include.bak
+git clone git://github.com/rpetrich/iphoneheaders.git include
+for FILE in include.bak/*.h; do mv $FILE include/; done
+rmdir include.bak/
+
+# get IOSurfaceAPI.h
+cd $THEOS/include/IOSurface/
+curl -O https://raw.github.com/javacom/toolchain4/master/Projects/IOSurfaceAPI.h
+
+# clone CaptainHook.git
+cd $THEOS/include/
+git clone git://github.com/rpetrich/CaptainHook.git
+
+# clone theos-nic-templates.git
+cd $THEOS/templates/
+git clone git://github.com/orikad/theos-nic-templates.git
+
+# get dpkg-deb for Mac OS X
+cd $THEOS
+curl -O http://test.saurik.com/francis/dpkg-deb-fat
+chmod a+x dpkg-deb-fat
+sudo mkdir -p /usr/local/bin
+sudo mv dpkg-deb-fat /usr/local/bin/dpkg-deb
+
+# get ldid for Mac OS X
+cd $THEOS/bin
+curl -O http://dl.dropboxusercontent.com/u/3157793/ldid
+chmod a+x ldid
+
+# get libsubstrate.dylib
+cd $THEOS/lib
+curl -L http://cdn.hbang.ws/dl/libsubstrate_arm64.dylib &gt; ./libsubstrate.dylib
+chmod a+x libsubstrate.dylib
+
+#get libactivator.dylib
+echo &quot;Downloading Activator header and library...&quot;
+ACTIVATOR_REPO=&quot;http://apt.thebigboss.org/repofiles/cydia&quot;
+curl -s -L &quot;${ACTIVATOR_REPO}/dists/stable/main/binary-iphoneos-arm/Packages.bz2&quot; &gt; Packages.bz2
+pkg_path=$(bzcat Packages.bz2 | grep &quot;debs2.0/libactivator&quot; | awk '{print $2}')
+pkg=$(basename $pkg_path)
+curl -s -L &quot;${ACTIVATOR_REPO}/${pkg_path}&quot; &gt; $pkg
+ar -p $pkg data.tar.gz | tar -zxf - ./usr/include/libactivator/libactivator.h ./usr/lib/libactivator.dylib
+mv ./usr/include/libactivator $THEOS/include
+mv ./usr/lib/libactivator.dylib $THEOS/lib
+rm -rf usr Packages.bz2 $pkg
+
+# remove install_theos.sh
+echo &quot;Removing $(basename $0)&quot;
+rm $current_dir/$(basename $0)
+
+echo &quot;Done.&quot;
+</code></pre></noscript></div>
+
+
+<p>上のスクリプトをダウンロードして以下のコマンドを打つ</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>chmod +x install_theos.sh<span class="p">;</span> sudo ./install_theos.sh
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo export </span><span class="nv">theos</span><span class="o">=</span>/opt/theos/bin &gt;&gt; ~/.zprofile
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以降は上のURLを参考にサンプル作ってmakeしてinstallすると下のように実行できた．</p>
+
+<p><img src="http://tknhs.github.io/images/2014-05-06-how-to-create-jailbreak-apps-for-iphone/87b86daeb680046f98a69395b678712e.jpg" alt="welcomewagon" /></p>
+
+<h4>[追記: 2014/02/12 02:54]</h4>
+
+<ul>
+<li><a href="http://www.andyibanez.com/creating-aggregate-projects-theos-configurable-tweak">Aggregate Projects with Theos: A Configurable Tweak.</a></li>
+<li><a href="http://jontelang.com/guide/How-to-contribute.html">[iOSjbdev] - How to contribute</a></li>
+</ul>
+
+
+<p>Preferencebundlesはここを参考に．</p>
+
+<h4>[追記: 2014/02/14 00:03]</h4>
+
+<p>今日の成果<br/>
+PreferenceBundlesでUIAlertViewを使って「はい」をタッチするとリンク先に飛ぶ</p>
+
+<p><img src="http://tknhs.github.io/images/2014-05-06-how-to-create-jailbreak-apps-for-iphone/abb8f6ba652765903ee7e4acc0f88524.jpg" alt="pref1" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Haskellのお勉強１]]></title>
+    <link href="http://tknhs.github.io/blog/2014/05/haskell-tutorial-1/"/>
+    <updated>2014-05-02T04:19:01+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/05/haskell-tutorial-1</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='haskell' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/c63dc4c7bdcfa907e0d12d9cebfa0993.png' />
+</div>
+
+
+<p></p>
+
+<p>Haskellのお勉強を再開．といっても忘れているので最初からやる．<br/>
+環境はすでに入ってるけど，一応環境の構築から（てきとー）．</p>
+
+<!-- more -->
+
+
+<h2>今回進めるもの</h2>
+
+<p>本も考えたけど，一度<a href="http://www.amazon.co.jp/gp/product/4797336021/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=4797336021&amp;linkCode=as2&amp;tag=brsmc-22">ふつうのHaskell</a>をやっていて，今回は違うやり方で始めようと思ったので，とりあえずは<a href="http://labs.gree.jp/blog/2013/12/9201/">社内Haskellチュートリアルのススメ</a>にある<a href="https://github.com/gree/haskell-tutorial">gree/haskell-tutorial</a>を進めていくことにした．</p>
+
+<h2>環境構築</h2>
+
+<h4>処理系とか開発用プラットフォームとかのインストール</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>brew install ghc
+</span><span class='line'><span class="nv">$ </span>brew install haskell-platform
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s1">&#39;export PATH=&quot;$HOME/.cabal/bin:$PATH&quot;&#39;</span> &gt;&gt; ~/.zprofile
+</span><span class='line'><span class="nv">$ </span>. ~/.zprofile
+</span><span class='line'><span class="nv">$ </span>cabal update
+</span><span class='line'><span class="nv">$ </span>cabal install ghc-mod
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>開発はvimでやるのでプラグインを入れる</h4>
+
+<figure class='code'><figcaption><span>.vimrc</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundle <span class="s1">&#39;ujihisa/neco-ghc&#39;</span>
+</span><span class='line'>NeoBundle <span class="s1">&#39;eagletmt/ghcmod-vim&#39;</span>
+</span><span class='line'>NeoBundle <span class="s1">&#39;dag/vim2hs&#39;</span>
+</span><span class='line'>
+</span><span class='line'>map <span class="p">&lt;</span>Leader<span class="p">&gt;</span><span class="k">c</span> <span class="p">&lt;</span>esc<span class="p">&gt;</span>:GhcModType<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'>map <span class="p">&lt;</span>Leader<span class="p">&gt;</span>C <span class="p">&lt;</span>esc<span class="p">&gt;</span>:GhcModTypeClear<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'>map <span class="p">&lt;</span>Leader<span class="p">&gt;</span><span class="k">l</span> <span class="p">&lt;</span>esc<span class="p">&gt;</span>:GhcModLint<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:haskell_jmacro  <span class="p">=</span> <span class="m">0</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:haskell_conceal <span class="p">=</span> <span class="m">0</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:haskell_multiline_strings <span class="p">=</span> <span class="m">1</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>公式読み物</h2>
+
+<ul>
+<li><a href="http://www.haskell.org/ghc/docs/latest/html/">ドキュメント</a></li>
+<li><a href="http://www.haskell.org/hoogle/">Hoogle</a></li>
+<li><a href="http://www.haskell.org/haskellwiki/Keywords">予約語一覧</a></li>
+</ul>
+
+
+<h2>Haskellチュートリアル(第一日)</h2>
+
+<p>ということで，<a href="https://github.com/gree/haskell-tutorial/wiki/Haskell%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB(%E7%AC%AC%E4%B8%80%E6%97%A5)">Haskellチュートリアル(第一日)</a>をやる．<br/>
+<a href="https://github.com/yaakaito/NLTQuickCheck/wiki/yaakaito-%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEHaskell%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E8%AA%AD%E3%81%BF%E6%96%B9">yaakaito のためのHaskellコードの読み方</a>とかも読みながら．</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[iPhone/iPad: 天気アプリ「アメデス」が便利！]]></title>
+    <link href="http://tknhs.github.io/blog/2014/05/intro-amedesu/"/>
+    <updated>2014-05-01T23:21:18+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/05/intro-amedesu</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='amedesu' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/2014-05-01-intro-amedesu/246afe5074ef707cba0b87b935b3b681.png' />
+</div>
+
+
+<p></p>
+
+<p>後輩に紹介された「アメデス〜XRAIN(XバンドMPレーダ)」が便利だったので紹介．<br/>
+iPhoneアプリでも天気に関するアプリはたくさんあるけど，範囲が市町村だったり，時間が30分毎だったりで本当に今のこの場の天気がわからない．</p>
+
+<!-- more -->
+
+
+<h2>説明</h2>
+
+<blockquote><p>アメデスは、国土交通省のXRAIN（エックスレイン）（XバンドMPレーダネットワーク）による雨量データを見るためのアプリです。
+増加する集中豪雨や局所的な大雨（ゲリラ豪雨）による水害や土砂災害等に対する防災活動にお役立ててください。</p></blockquote>
+
+<p>ということで，石川県の天気情報は当てにならないのでコレを使うと非常に便利．<br/>
+さっきまで晴れてたのに雨が降ってるなんてことざらです．<br/>
+しかも土砂降りのなか帰ってきたのに家に着いたら止んだなんてことも．</p>
+
+<p>このアプリを使えば，<strong><code>1分更新のレーダ画像が見れます</code></strong>ということなので，今雨の降ってないところを通るとか，もうちょっとしたら一時的にも雨が止む場合はそこを狙って帰るとかができる．</p>
+
+<p>そんなアプリです．詳しくは下記リンクからどうぞ．<br/>
+では．</p>
+
+<h2>ダウンロードリンク</h2>
+
+<p>iPhone/iPad
+<a href="https://itunes.apple.com/jp/app/amedesu-xrain-xbandompreda/id837754827?mt=8&uo=4&at=1l3vbuW" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.png) no-repeat;width:135px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.svg);}"></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[久しぶりにHaskellを触ろうと思ったらvimでちょこっとエラーを吐かれた]]></title>
+    <link href="http://tknhs.github.io/blog/2014/04/ghcmod-vim-vimproc-compile/"/>
+    <updated>2014-04-29T21:23:45+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/04/ghcmod-vim-vimproc-compile</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='haskell' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/c63dc4c7bdcfa907e0d12d9cebfa0993.png' />
+</div>
+
+
+<p></p>
+
+<p>以前haskellをちょこっと勉強しつつも最近触ってなかったので久しくぶりにやろうかなーと思ったのが発端．以前書いたソースを眺めようと，vimで.hsファイルを開くとvimがエラーを吐いた．</p>
+
+<!-- more -->
+
+
+<p>どうやら<a href="https://github.com/eagletmt/ghcmod-vim">ghcmod-vim</a>がおかしいらしいと．念のため，<code>cabal update</code>して<code>cabal install ghc-mod</code>．</p>
+
+<p>もちろん解決されない．</p>
+
+<p>ということで，vimのプラグイン<a href="https://github.com/eagletmt/ghcmod-vim">ghcmod-vim</a>を<code>git pull</code>して，<a href="https://github.com/Shougo/vimproc.vim">vimproc</a>も<code>git pull</code>して<code>make -f make_mac.mak</code>したらちゃんと動くようになった！</p>
+
+<p>そろそろ今年度真面目にやる言語を決めないとなぁ&hellip;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[日記アプリ「Day One」のChrome拡張機能を作ったと言う話]]></title>
+    <link href="http://tknhs.github.io/blog/2014/04/chrome-extension-dayone/"/>
+    <updated>2014-04-15T23:17:29+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/04/chrome-extension-dayone</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='dayone' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/2014-04-15-chrome-extension-dayone/27c7a4c65fcb08034da185c0719a0b87.png' />
+</div>
+
+
+<p></p>
+
+<p>もはや説明の必要もないであろうMac/iPhone/iPadの日記アプリ「Day One」．<br/>
+どういう使い方をしているかというと，</p>
+
+<!-- more -->
+
+
+<ul>
+<li>ライフログ</li>
+<li>その場で何か気づいたことのメモ（位置情報・天気もあわせて記録）</li>
+<li>ネット記事をクリップ</li>
+<li>開発案とか簡単な仕様のメモ</li>
+</ul>
+
+
+<p>と幅広く使っている．最初は，ライフログとして自己満足の域で書くことを目的として購入したけど痒いところに手が届く感じで使いやすかったので今に至る．</p>
+
+<p>しかし，ネットの記事をクリップするという点において，僕のニーズに応えきれてない部分があった．それは<strong>「記事全体を残しておきたいではなく，部分的に残しておきたい」</strong>というようなものであり，これを実現するために今回はChromeの拡張機能という形で作成した．</p>
+
+<p><img src="http://tknhs.github.io/images/2014-04-15-chrome-extension-dayone/3ef8f395ea1bcc68fa4fd000ba97dd3b.png" alt="ChromeWebStore" /><br/>
+【 Post on DayOne / <a href="http://goo.gl/5Cqrlu">http://goo.gl/5Cqrlu</a> 】</p>
+
+<p>実際に作成して公開したのは 2014/02/02 だけど，いろいろ気に入らない部分を残しながらも公開して放置していた&hellip;そろそろ納得した形にしたいなと思ったのが今日である．</p>
+
+<p>動作としては，記事内で気になった箇所をテキスト選択して右上のボタン（ブラウザアクション）をクリックするとDay OneのURLスキームにそのデータを投げるというもの．（Alt+Dでも投稿可能．）</p>
+
+<p><img src="http://tknhs.github.io/images/2014-04-15-chrome-extension-dayone/bf53c68f3bd72baf761ec96c11208b33.png" alt="PostOnDayOne" /></p>
+
+<h2>Day One ダウンロードリンク</h2>
+
+<p>Mac
+<a href="https://itunes.apple.com/jp/app/day-one/id422304217?mt=12&uo=4&at=1l3vbuW" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_macappstore-lrg.png) no-repeat;width:165px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_macappstore-lrg.svg);}"></a>
+iPhone/iPad
+<a href="https://itunes.apple.com/jp/app/day-one-ri-zhi-ri-ji/id421706526?mt=8&uo=4&at=1l3vbuW" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.png) no-repeat;width:135px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.svg);}"></a></p>
+
+<h2>以下，ソースコード</h2>
+
+<ul>
+<li>manifest.json</li>
+</ul>
+
+
+<figure class='code'><figcaption><span> (manifest.json)</span> <a href='http://tknhs.github.io/downloads/code/2014-04-15-chrome-extension-dayone/manifest.json'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;manifest_version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Post on DayOne&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.1&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&quot;default_locale&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;__MSG_extDesc__&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;icons&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;16&quot;</span><span class="p">:</span> <span class="s2">&quot;icon/icon16.png&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;48&quot;</span><span class="p">:</span> <span class="s2">&quot;icon/icon48.png&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nt">&quot;128&quot;</span><span class="p">:</span> <span class="s2">&quot;icon/icon128.png&quot;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&quot;permissions&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>    <span class="s2">&quot;activeTab&quot;</span>
+</span><span class='line'>  <span class="p">],</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&quot;background&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;js/background.js&quot;</span><span class="p">]</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&quot;browser_action&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;default_icon&quot;</span><span class="p">:</span> <span class="s2">&quot;icon/icon19.png&quot;</span>
+</span><span class='line'>  <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&quot;content_scripts&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;matches&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;*://*/*&quot;</span><span class="p">],</span>
+</span><span class='line'>      <span class="nt">&quot;js&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;js/content.js&quot;</span><span class="p">],</span>
+</span><span class='line'>      <span class="nt">&quot;run_at&quot;</span><span class="p">:</span> <span class="s2">&quot;document_end&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>background.js</li>
+</ul>
+
+
+<figure class='code'><figcaption><span> (background.js)</span> <a href='http://tknhs.github.io/downloads/code/2014-04-15-chrome-extension-dayone/background.js'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> *  shortcut keydown event</span>
+</span><span class='line'><span class="cm"> **/</span>
+</span><span class='line'><span class="nx">chrome</span><span class="p">.</span><span class="nx">extension</span><span class="p">.</span><span class="nx">onMessage</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">sender</span><span class="p">,</span> <span class="nx">sendResponse</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">sender</span><span class="p">.</span><span class="nx">tab</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">title</span> <span class="o">=</span> <span class="nx">sender</span><span class="p">.</span><span class="nx">tab</span><span class="p">.</span><span class="nx">title</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">sender</span><span class="p">.</span><span class="nx">tab</span><span class="p">.</span><span class="nx">url</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">strings</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">dayone</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">text</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> *  browser_action click event</span>
+</span><span class='line'><span class="cm"> **/</span>
+</span><span class='line'><span class="nx">chrome</span><span class="p">.</span><span class="nx">browserAction</span><span class="p">.</span><span class="nx">onClicked</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">tab</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">sendRequest</span><span class="p">(</span><span class="nx">tab</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="p">{</span><span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;getSelection&#39;</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">title</span> <span class="o">=</span> <span class="nx">tab</span><span class="p">.</span><span class="nx">title</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">tab</span><span class="p">.</span><span class="nx">url</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">dayone</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">text</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">function</span> <span class="nx">dayone</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">header</span> <span class="o">=</span> <span class="s1">&#39;## [&#39;</span> <span class="o">+</span> <span class="nx">title</span> <span class="o">+</span> <span class="s1">&#39;](&#39;</span> <span class="o">+</span> <span class="nx">url</span> <span class="o">+</span> <span class="s1">&#39;)\n&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="s1">&#39;---\n\n&#39;</span> <span class="o">+</span> <span class="nx">text</span> <span class="o">+</span> <span class="s1">&#39;\n\n---\n&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">footer</span> <span class="o">=</span> <span class="s1">&#39;![capture](http://capture.heartrails.com/300x200/cool?&#39;</span> <span class="o">+</span> <span class="nx">url</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">dayone</span> <span class="o">=</span> <span class="s1">&#39;dayone://post?entry=&#39;</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">header</span> <span class="o">+</span> <span class="nx">body</span> <span class="o">+</span> <span class="nx">footer</span><span class="p">);</span>
+</span><span class='line'>  <span class="nx">chrome</span><span class="p">.</span><span class="nx">tabs</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="nx">url</span><span class="o">:</span> <span class="nx">dayone</span><span class="p">});</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>content.js</li>
+</ul>
+
+
+<figure class='code'><figcaption><span> (content.js)</span> <a href='http://tknhs.github.io/downloads/code/2014-04-15-chrome-extension-dayone/content.js'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nb">document</span><span class="p">.</span><span class="nx">onkeydown</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">// Alt + d</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">keyCode</span><span class="o">==</span><span class="mi">68</span> <span class="o">&amp;&amp;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">altKey</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// get selected strings</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">strings</span> <span class="o">=</span> <span class="nx">getSelection</span><span class="p">().</span><span class="nx">toString</span><span class="p">();</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">strings</span> <span class="o">!==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">chrome</span><span class="p">.</span><span class="nx">extension</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">({</span> <span class="nx">strings</span><span class="o">:</span> <span class="nx">strings</span> <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">chrome</span><span class="p">.</span><span class="nx">extension</span><span class="p">.</span><span class="nx">onRequest</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">sender</span><span class="p">,</span> <span class="nx">sendResponse</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">method</span> <span class="o">==</span> <span class="s1">&#39;getSelection&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">sendResponse</span><span class="p">({</span><span class="nx">data</span><span class="o">:</span> <span class="nx">getSelection</span><span class="p">().</span><span class="nx">toString</span><span class="p">()});</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">sendResponse</span><span class="p">({});</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ショートカットについてはブラウザアクションの設定で対応できるけど，今後のことを少しだけ考えて別にしてあるとかないとか．</p>
+
+<p>ソースはGitHubで公開してます． <a href="https://github.com/tknhs/Post-on-DayOne">https://github.com/tknhs/Post-on-DayOne</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[さくらのVPSを借りて]]></title>
+    <link href="http://tknhs.github.io/blog/2014/04/sakura-vps-nginx-tornado/"/>
+    <updated>2014-04-04T01:22:51+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/04/sakura-vps-nginx-tornado</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='sakura_internet' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/1cc83d36c7b75af55c58d3d5f3b8f6cd.png' />
+</div>
+
+
+<p></p>
+
+<p>今日，ようやくVPSを借りるに踏み切った．<br/>
+環境をいろいろ整えてたら今日が終わった，そんな感じ．</p>
+
+<!-- more -->
+
+
+<p>構成管理ツールとか使ってみたいお年頃だったので<a href="http://www.ansible.com">ansible</a>に手を出してちょこっとだけ最初の設定（sshとかユーザ作成とか）を自動化した．もっと全体を網羅するようにしっかり書きたいなぁと思ったけど目的はそこじゃないので，少しだけにしておいた．</p>
+
+<p>その後，やはり先にansibleを学ぶべきかという誘惑？とかなり格闘しながら，必要な物を手動で設定したりインストールしたりして最低限の構築を終えた．</p>
+
+<p>そしてせっかくやるならapacheじゃないよなと思って<a href="http://nginx.org">nginx</a>，新しいフレームワーク使いたいよなと思って<a href="http://www.tornadoweb.org/">tornado</a>．（tornado選択の本当の理由は，標準でwebsocketハンドラを提供してるからなんだけど．）</p>
+
+<p>今日の成果は環境構築，nginx，tornadoを使って<code>Hello World</code>を出力！()<br/>
+とりあえずモノを一つ作ってみる．</p>
+
+<p>まだまだ問題は山積み．<br/>
+明日に続く&hellip;？</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[mac で pyenv と pyenv-virtualenv]]></title>
+    <link href="http://tknhs.github.io/blog/2014/04/pyenv/"/>
+    <updated>2014-04-02T23:47:55+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/04/pyenv</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='python' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/eea97ed4952c05be55ff9e462ea0e1c4.png' />
+</div>
+
+
+<p></p>
+
+<h2>経緯</h2>
+
+<ul>
+<li>python環境がごちゃごちゃしてるのがずっと気になってたけど，やってなかった．</li>
+<li>今日，気が向いた．</li>
+</ul>
+
+
+<!-- more -->
+
+
+<h2>環境</h2>
+
+<ul>
+<li>Mac OS X Mavericks 10.9.2</li>
+<li>Homebrew インストール済み</li>
+</ul>
+
+
+<h2>pyenv のインストール</h2>
+
+<ul>
+<li>モジュールを共存させたくない環境を作るために<code>$ brew install pyenv-virtualenv</code> で pyenv と pyenv-virtualenv を一緒にインストールする</li>
+<li><p>そんなの必要ないよというのであれば <code>$ brew install pyenv</code> でおｋ</p></li>
+<li><p>バージョンが確認できればインストールされている</p></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>pyenv --version
+</span><span class='line'>pyenv 0.4.0-20140317
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>ついでにパスを通しておく</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s1">&#39;export PATH=&quot;$HOME/.pyenv/bin:$PATH&quot;&#39;</span> &gt;&gt; ~/.zprofile
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s1">&#39;if which pyenv &gt; /dev/null; then eval &quot;$(pyenv init - zsh)&quot;; fi&#39;</span> &gt;&gt; ~/.zprofile
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>普段通り起動する python がデフォルトになっている</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>pyenv versions
+</span><span class='line'>* system
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>インストール可能なバージョンを表示</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>pyenv install -l
+</span><span class='line'>Available versions:
+</span><span class='line'>  .
+</span><span class='line'>  .
+</span><span class='line'>  .
+</span><span class='line'>  2.7.6
+</span><span class='line'>  .
+</span><span class='line'>  .
+</span><span class='line'>  .
+</span><span class='line'>  3.4.0
+</span><span class='line'>  .
+</span><span class='line'>  .
+</span><span class='line'>  .
+</span><span class='line'>  pypy-2.2.1
+</span><span class='line'>  .
+</span><span class='line'>  .
+</span><span class='line'>  .
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><code>$ pyenv install 2.7.6</code> とかやるとインストールが開始されるので暫く待つ</li>
+<li>2.7.6 がインストールされたのを確認する</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>pyenv versions
+</span><span class='line'>* system
+</span><span class='line'>  2.7.6
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Python 2.7.6 を <code>Documents</code> だけで使うために以下のコマンドを実行する</li>
+<li>他のフォルダに移動すると <code>* system</code> となっているはず</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> ~/Documents
+</span><span class='line'><span class="nv">$ </span>pyenv <span class="nb">local </span>2.7.6
+</span><span class='line'><span class="nv">$ </span>pyenv versions
+</span><span class='line'>  system
+</span><span class='line'>* 2.7.6
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>ただ，他のところでも 2.7.6 を使うとなるとモジュールの共有がされてしまう</li>
+<li>これじゃ前の環境と対して変わらないので virtualenv を使う</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>pyenv virtualenv 2.7.6 test_env
+</span><span class='line'><span class="nv">$ </span>pyenv <span class="nb">local </span>test_env
+</span><span class='line'><span class="nv">$ </span>pyenv activate
+</span><span class='line'>  system
+</span><span class='line'>  2.7.6
+</span><span class='line'>* test_env
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>作ったものを削除する</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>pyenv uninstall test_env
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ということで，環境はキレイになったかな．<br/>
+これからはちゃんとプロジェクト毎に環境作っていこう！</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[そんな装備で大丈夫か]]></title>
+    <link href="http://tknhs.github.io/blog/2014/04/you-sure-thats-enough-armor/"/>
+    <updated>2014-04-01T23:37:25+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/04/you-sure-thats-enough-armor</id>
+    <content type="html"><![CDATA[<p>ニコ動のランキングを見てたらエルシャダイ関連の動画が上がっていた．</p>
+
+<!-- more -->
+
+
+<div style="margin-left: auto; margin-right: auto; width: 500px;"><script type="text/javascript" src="http://ext.nicovideo.jp/thumb_watch/sm23209789 "></script><noscript><a href="http://www.nicovideo.jp/watch/sm23209789 ">【Minecraft】そんなマイクラで大丈夫か？【エルシャダイ】</a></noscript></div>
+
+
+<p>いやはやこのネタ懐かしい．</p>
+
+<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/PAIfIFV9A4E "></iframe></div>
+
+
+<p>プレイステーション3およびXbox 360用3Dアクションゲーム<br/>
+【El Shaddai: Ascension of the Metatron】，発売は2011年．</p>
+
+<p>当時のPVを見ていて自分も買うしかないと思って実際に買ったし，続編をずっとやりたいと望んでいたのだけれども，イグニッション・エンターテイメント・リミテッドが解散という話が出てきて続編は望めないと諦めてエルシャダイに関する情報はそれっきりになっていた．</p>
+
+<p>今更だけど，2013年にエルシャダイの権利を個人が取得していたらしい．<br/>
+そして，その後iOSやAndroidのゲームも出しているとな．</p>
+
+<p>という情報をググってたら見つけたので，希望は繋がったと．<br/>
+ぜひとも続編の開発も視野に入れて欲しいなと応援しています．というお話でした．</p>
+
+<p><a href="http://elshaddai.jp">エルシャダイ - ポータルサイト</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[新年度ということで]]></title>
+    <link href="http://tknhs.github.io/blog/2014/04/first-blog/"/>
+    <updated>2014-04-01T14:03:38+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/04/first-blog</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='github' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/007e1beb270498ecf16244db09d7ae35.png' />
+</div>
+
+
+<p></p>
+
+<p>GitHub上に <a href="http://octopress.org/">Octopress</a> でブログを構築してみたので，いろいろ書いていく！<br/>
+以上</p>
+]]></content>
+  </entry>
+  
+</feed>

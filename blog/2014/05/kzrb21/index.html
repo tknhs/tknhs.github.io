@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>kanazawa.rb meetup #21 - tknhs&#8217;s blog</title>
+  <meta name="author" content="tknhs">
+
+  
+  <meta name="description" content="05/17に kanazawa.rb meetup #21「みんなの環境を見せて！おっぴろげ祭り！」が開催され，参加してきました． 発表のなかで逸脱で印象に残ったのがトリを飾った俺と開発環境 @PharaohKJ 今回の meetup のサブタイトルは「環境」
+「開発環境」ではなく「環境」 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tknhs.github.io/blog/2014/05/kzrb21">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/social.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+  <link href="/atom.xml" rel="alternate" title="tknhs's blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- リンク先を別ウィンドウで開く -->
+<script>
+$(document).ready( function () {
+   $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-50623059-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  <meta property="og:title" content="kanazawa.rb meetup #21 - tknhs's blog" />
+<meta property="og:description" content="05/17に kanazawa.rb meetup #21「みんなの環境を見せて！おっぴろげ祭り！」が開催され，参加してきました． 発表のなかで逸脱で印象に残ったのがトリを飾った俺と開発環境 @PharaohKJ 今回の meetup のサブタイトルは「環境」
+「開発環境」ではなく「環境」 &hellip;" />
+<meta property="og:url" content="http://tknhs.github.io/blog/2014/05/kzrb21" />
+<meta property="og:image" content="http://tknhs.github.io/favicon.png" />
+<meta property="og:author" content="tknhs" />
+<meta property="og:site_name" content="tknhs's blog" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:type" content="article" />
+<meta property="fb:app_id" content="1506920132861098" />
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">tknhs&#8217;s blog</a></h1>
+  
+    <h2>ー ごちゃごちゃしてるブログ ー</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  
+  
+</ul>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">kanazawa.rb meetup #21</h1>
+    
+    
+      <p class="meta">
+        
+<!---->
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-05-27T01:25:43+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-05-27T01:25:43+09:00'><span class='date'>2014-05-27</span></time></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://tknhs.github.io">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div style='text-align: center'>
+<img alt='kzrb' style='text-align: center;' width='120' height='120' src='/images/icons/b295977b566cfd465e2a903189e4705a.png' />
+</div>
+
+
+<p></p>
+
+<p>05/17に <a href="http://kanazawarb.github.com/meetup/21/">kanazawa.rb meetup #21</a><strong>「みんなの環境を見せて！おっぴろげ祭り！」</strong>が開催され，参加してきました．</p>
+
+<!-- more -->
+
+
+<p>発表のなかで逸脱で印象に残ったのがトリを飾った<a href="http://www.slideshare.net/pharaohkj/ss-34794458"><strong>俺と開発環境 @PharaohKJ</strong></a></p>
+
+<p>今回の meetup のサブタイトルは「環境」<br/>
+「開発環境」ではなく「環境」</p>
+
+<p>環境と聞くと開発環境を思い浮かべる．それがエンジニアのいけないところ（笑）<br/>
+良い開発をしていくには，まずは開発するときの身の周りの環境を．<br/>
+そして，<strong>「金で解決できることは割と多いので即やる」</strong></p>
+
+<p>ということで，これに感化されて第一弾としてイヤホンを買いました．</p>
+
+<p><a href="http://www.amazon.co.jp/gp/product/B00JN2WNCO/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00JN2WNCO&amp;linkCode=as2&amp;tag=brsmc-22">【日本正規代理店品】 Jabra Bluetooth4.0 ヘッドセットNFC対応 防滴・防塵(IP52) ROXシリーズ ブラック ROXWIRELESS-BK</a></p>
+
+<p><a href="http://www.amazon.co.jp/gp/product/B002OOWBWK/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B002OOWBWK&amp;linkCode=as2&amp;tag=brsmc-22">Comply (コンプライ) イヤホンチップ Tx-500 ブラック Mサイズ (3ペア)</a></p>
+
+<p>Bluetooth4.0を搭載していて同時に２台まで接続ができるので，Mac と iPhone を同時接続．これで集中し過ぎて電話に気づかないということもなくなる．ただ，話しかけられても気づかないという欠点はあるけれど，Skype とか Skype とかを使ってPC上でやりとりをすればその問題も解決される（笑）</p>
+
+<p>とりあえず，これで環境が少し改善された．<br/>
+今後もお財布と相談しながら環境を良くしていこう．</p>
+
+<p><strong>「金で解決できることは割と多いので即やる」</strong></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tknhs</span></span>
+
+      
+<!---->
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-05-27T01:25:43+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-05-27T01:25:43+09:00'><span class='date'>2014-05-27</span></time></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/kzrb/'>kzrb</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <div class="hatena">
+    <a class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="kanazawa.rb meetup #21 - tknhs's blog" href="http://b.hatena.ne.jp/entry/http://tknhs.github.io"></a>
+  </div>
+  
+  
+  <div class="twitter">
+    <a href="//twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://tknhs.github.io/blog/2014/05/kzrb21/" data-via="tknhs35" data-counturl="http://tknhs.github.io/blog/2014/05/kzrb21/" >Tweet</a>
+  </div>
+  
+  
+  
+  <div class="facebook">
+    <div class=fb-like data-href="http://tknhs.github.io/blog/2014/05/kzrb21/" data-layout="button_count" data-send="false" data-show-faces="false"></div>
+  </div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/05/vim-tips-new-line/" title="Previous Post: Vim Tips: 改行コードを挿入する">&laquo; Vim Tips: 改行コードを挿入する</a><br>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/05/vim-plugin-nerdtree/" title="Next Post: Vim Plugin: NERDTree">Vim Plugin: NERDTree &raquo;</a>
+      
+    </p>
+
+    <div style='text-align: center'>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- tknhs.github.io - post_footer2 -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3904948390832684"
+           data-ad-slot="4815787655"
+           data-ad-format="horizontal"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Links</h1>
+  <a href="/atom.xml"><img src="/images/rss32.png" alt="rss" title="rss"></a>
+  <a href="http://cloud.feedly.com/#subscription/feed/http://tknhs.github.io/atom.xml" target="_blank"><img src="/images/feedly32.png" alt="feedly" title="feedly"></a>
+  <a href="http://www.amazon.co.jp/registry/wishlist/2GSP5C4GKAR2" target="_blank"><img src="/images/amazon32.png" alt="amazon" title="amazon"></a>
+  <br>
+  <a href="https://github.com/tknhs" target="_blank"><img src="/images/github32.png" alt="github" title="guthub"></a>
+  <a href="https://twitter.com/tknhs35" target="_blank"><img src="/images/twitter32.png" alt="twitter" title="twitter"></a>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/12/ios-device-test/">自作の iOS アプリを実機に転送</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/mqtt-mosquitto-setup/">MQTT Broker を立てた</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/09/kit-hackathon/">K.I.T. HACKATHON</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/09/mac-app-autokeyboard/">Mac App: AutoKeyboard</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/mac-windows-remote-desktop/">リモートデスクトップ: Mac -> Windows</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <div style='text-align: center'>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- tknhs.github.io - sidebar -->
+    <ins class="adsbygoogle"
+      style="display:inline-block;width:250px;height:250px"
+      data-ad-client="ca-pub-3904948390832684"
+      data-ad-slot="4073674053"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</section>
+<section>
+  <h1>Tag Cloud</h1>
+  <span id="tag-cloud"><a href='/blog/categories/chrome' style='font-size: 130.0%'>chrome</a> <a href='/blog/categories/coderetreat' style='font-size: 115.0%'>coderetreat</a> <a href='/blog/categories/hackathon' style='font-size: 115.0%'>hackathon</a> <a href='/blog/categories/haskell' style='font-size: 130.0%'>haskell</a> <a href='/blog/categories/jailbreak' style='font-size: 130.0%'>jailbreak</a> <a href='/blog/categories/kzrb' style='font-size: 115.0%'>kzrb</a> <a href='/blog/categories/mac' style='font-size: 160.0%'>mac</a> <a href='/blog/categories/mqtt' style='font-size: 115.0%'>mqtt</a> <a href='/blog/categories/nginx' style='font-size: 115.0%'>nginx</a> <a href='/blog/categories/python' style='font-size: 145.0%'>python</a> <a href='/blog/categories/tornado' style='font-size: 115.0%'>tornado</a> <a href='/blog/categories/vim' style='font-size: 145.0%'>vim</a> <a href='/blog/categories/sumahoapuri' style='font-size: 115.0%'>スマホアプリ</a> <a href='/blog/categories/burauzakuo-zhang-ji-neng' style='font-size: 115.0%'>ブラウザ拡張機能</a> </span>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - tknhs -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tknhs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tknhs.github.io/blog/2014/05/kzrb21/';
+        var disqus_url = 'http://tknhs.github.io/blog/2014/05/kzrb21/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+<script>
+(function(w,d){
+  var c,e=d.createDocumentFragment(),f=d.getElementsByTagName("script")[0],
+  a=function(a,b){if(!d.getElementById(b)){c=d.createElement("script");
+  c.src=a;c.id=b||null;c.async=true;e.appendChild(c);}};
+
+  
+
+  
+    a("//platform.twitter.com/widgets.js");
+  
+
+  
+    a("//connect.facebook.net/ja_JP/all.js#appId=1506920132861098&xfbml=1","facebook-jssdk");
+  
+
+  
+    a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
+  
+  f.parentNode.insertBefore(e,f);
+})(this,document);
+</script>
+
+
+</body>
+</html>

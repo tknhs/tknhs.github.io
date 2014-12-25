@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mac | tknhs's blog]]></title>
+  <link href="http://tknhs.github.io/blog/categories/mac/atom.xml" rel="self"/>
+  <link href="http://tknhs.github.io/"/>
+  <updated>2014-12-25T19:11:16+09:00</updated>
+  <id>http://tknhs.github.io/</id>
+  <author>
+    <name><![CDATA[tknhs]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Mac App: AutoKeyboard]]></title>
+    <link href="http://tknhs.github.io/blog/2014/09/mac-app-autokeyboard/"/>
+    <updated>2014-09-18T11:57:54+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/09/mac-app-autokeyboard</id>
+    <content type="html"><![CDATA[<p>個別のアプリケーションにデフォルトのキーボード入力ソースを設定するアプリの紹介</p>
+
+<!-- more -->
+
+
+
+
+<div style='text-align: center'>
+<img alt='autokeyboard-about' style='text-align: center;' src='http://tknhs.github.io/images/2014-09-18-mac-app-autokeyboard/33b8186c537a18306368d3997298910c.jpg' />
+</div>
+
+
+<p></p>
+
+<p>ターミナルで文字入力をする際に，日本語で入力する状態になっていて憤りを覚えることがありますよね．それを防いでくれるアプリ．</p>
+
+<div style='text-align: center'>
+<img alt='autokeyboard-screenshot' style='text-align: center;' src='http://tknhs.github.io/images/2014-09-18-mac-app-autokeyboard/c3ee182647bef71cf68dbda4c9d1167.jpg' />
+</div>
+
+
+<p></p>
+
+<h2>AutoKeyboard ダウンロードリンク</h2>
+
+<p>Mac
+<a href="https://itunes.apple.com/us/app/autokeyboard/id908553210?mt=12&uo=4&at=1l3vbuW" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_macappstore-lrg.png) no-repeat;width:165px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_macappstore-lrg.svg);}"></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[リモートデスクトップ: Mac -> Windows]]></title>
+    <link href="http://tknhs.github.io/blog/2014/08/mac-windows-remote-desktop/"/>
+    <updated>2014-08-15T18:18:23+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/08/mac-windows-remote-desktop</id>
+    <content type="html"><![CDATA[<p>Mac から Windows をリモートしたかったので作業メモ（同一ネットワーク）</p>
+
+<!-- more -->
+
+
+<h2>Mac 側の設定</h2>
+
+<ul>
+<li>MS が公式で出している <a href="https://itunes.apple.com/jp/app/microsoft-remote-desktop/id715768417?mt=12&amp;uo=4&amp;at=1l3vbuW">Microsoft Remote Desktop</a> をインストールする</li>
+<li>以下のように設定する</li>
+</ul>
+
+
+<div style='text-align: center'>
+<img alt='microsoft remote desktop' style='text-align: center;' src='http://tknhs.github.io/images/2014-08-15-mac-windows-remote-desktop/ff076774d82c14a3c69cb8aa85ed3515.png' />
+</div>
+
+
+<p></p>
+
+<h2>Windows 側の設定</h2>
+
+<ul>
+<li>ファイアウォールでリモートデスクトップを有効にする</li>
+</ul>
+
+
+<div style='text-align: center'>
+<img alt='firewall' style='text-align: center;' src='http://tknhs.github.io/images/2014-08-15-mac-windows-remote-desktop/fd7ae8bea8d62192cdcb8d0d5c22b1cf.png' />
+</div>
+
+
+<p></p>
+
+<ul>
+<li>システムでリモートデスクトップを許可する</li>
+</ul>
+
+
+<div style='text-align: center'>
+<img alt='system' style='text-align: center;' src='http://tknhs.github.io/images/2014-08-15-mac-windows-remote-desktop/afc4506e903d263805e9cbfed633366c.png' />
+</div>
+
+
+<p></p>
+
+<ul>
+<li>空のパスワードでもリモートデスクトップを可能にする</li>
+</ul>
+
+
+<div style='text-align: center'>
+<img alt='null password' style='text-align: center;' src='http://tknhs.github.io/images/2014-08-15-mac-windows-remote-desktop/55fbd202cfeae78ad6ca38fbbd58f1a4.png' />
+</div>
+
+
+<p></p>
+
+<h2>Microsoft Remote Desktop ダウンロードリンク</h2>
+
+<p>Mac
+<a href="https://itunes.apple.com/jp/app/microsoft-remote-desktop/id715768417?mt=12&uo=4&at=1l3vbuW" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_macappstore-lrg.png) no-repeat;width:165px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_macappstore-lrg.svg);}"></a>
+iPhone/iPad
+<a href="https://itunes.apple.com/jp/app/microsoft-remote-desktop/id714464092?mt=8&uo=4&at=1l3vbuW" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.png) no-repeat;width:135px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.svg);}"></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Google Chrome: 外部プロトコルリクエスト]]></title>
+    <link href="http://tknhs.github.io/blog/2014/06/external-protocol-request/"/>
+    <updated>2014-06-23T02:28:32+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/06/external-protocol-request</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='chrome' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/260e4f873cdea5df0e140673833ccd11.png' />
+</div>
+
+
+<p></p>
+
+<p>「URLスキームを使った Chrome 拡張機能がちゃんと動作しない」ということが拡張機能のバグだと思われている件について</p>
+
+<!-- more -->
+
+
+<p>前に<a href="http://tknhs.github.io/blog/2014/04/chrome-extension-dayone/">日記アプリ「Day One」のChrome拡張機能を作ったと言う話</a>を書いたけど，これの話．</p>
+
+<p>評価に関して，☆なんてものはどうでもいいのだけれどコメントは読んだりしている．</p>
+
+<ul>
+<li>自分の環境で動かない</li>
+<li>空白ウィンドウが開く</li>
+</ul>
+
+
+<p>空白ウィンドウが開くということについては今回は触れない（修正済み）．<br/>
+てことで，自分の環境では動かないという点について，動かない？！<strong>僕の環境では動いてる</strong>．なんとなくURLスキームが絡んでる気がしてた．（というか，それぐらいしかない</p>
+
+<p>この拡張機能を実行した場合，</p>
+
+<div style='text-align: center'>
+<img alt='external protocol request' style='text-align: center;' src='http://tknhs.github.io/images/2014-06-23-external-protocol-request/3a18718774deed18dfc2305ef30c8fc7.jpg' />
+</div>
+
+
+<p></p>
+
+<p>というように，外部プロトコルリクエストがポップアップされる．<br/>
+ここで，</p>
+
+<div style='text-align: center'>
+<img alt='external protocol request' style='text-align: center;' src='http://tknhs.github.io/images/2014-06-23-external-protocol-request/670c34b4f6970fbb8a4b197633227d83.jpg' />
+</div>
+
+
+<p></p>
+
+<p>「このようなリンクの設定をすべて保存する」にチェックを入れて「何もしない」を押してしまうと，以降何もアクションが起きなくなってしまう．たぶんこれが問題で，この設定をしてしまうと拡張機能の役目を果たさないことになってしまう．</p>
+
+<p>そして，この設定を直すのが単純だけどめんどうで&hellip;以下に手順を示す．</p>
+
+<ol>
+<li>Chrome を閉じる</li>
+<li>Local State を書き換える <code>$ vi ~/Library/Application\ Support/Google/Chrome/Local\ State</code><br/>
+今回の場合は，<code>"dayone": true,</code> というのを見つけてその一行を削除して保存する．</li>
+</ol>
+
+
+<div style='text-align: center'>
+<img alt='external protocol request' style='text-align: center;' src='http://tknhs.github.io/images/2014-06-23-external-protocol-request/d99b1e3aa35426fb1a57cc53d7ca8e3e.png' />
+</div>
+
+
+<p></p>
+
+<p>これを行った後，拡張機能を実行するとまた外部プロトコルリクエストのポップアップが開くようになる．</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[mac で pyenv と pyenv-virtualenv]]></title>
+    <link href="http://tknhs.github.io/blog/2014/04/pyenv/"/>
+    <updated>2014-04-02T23:47:55+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/04/pyenv</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='python' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/eea97ed4952c05be55ff9e462ea0e1c4.png' />
+</div>
+
+
+<p></p>
+
+<h2>経緯</h2>
+
+<ul>
+<li>python環境がごちゃごちゃしてるのがずっと気になってたけど，やってなかった．</li>
+<li>今日，気が向いた．</li>
+</ul>
+
+
+<!-- more -->
+
+
+<h2>環境</h2>
+
+<ul>
+<li>Mac OS X Mavericks 10.9.2</li>
+<li>Homebrew インストール済み</li>
+</ul>
+
+
+<h2>pyenv のインストール</h2>
+
+<ul>
+<li>モジュールを共存させたくない環境を作るために<code>$ brew install pyenv-virtualenv</code> で pyenv と pyenv-virtualenv を一緒にインストールする</li>
+<li><p>そんなの必要ないよというのであれば <code>$ brew install pyenv</code> でおｋ</p></li>
+<li><p>バージョンが確認できればインストールされている
+<code>bash
+$ pyenv --version
+pyenv 0.4.0-20140317
+</code></p></li>
+<li><p>ついでにパスを通しておく
+<code>bash
+$ echo 'export PATH="$HOME/.pyenv/bin:$PATH"' &gt;&gt; ~/.zprofile
+$ echo 'if which pyenv &gt; /dev/null; then eval "$(pyenv init - zsh)"; fi' &gt;&gt; ~/.zprofile
+</code></p></li>
+<li><p>普段通り起動する python がデフォルトになっている
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>pyenv versions&lt;/p&gt;&lt;/li&gt;
+</span><span class='line'>&lt;li&gt;&lt;p&gt;system
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>インストール可能なバージョンを表示
+<code>bash
+$ pyenv install -l
+Available versions:
+.
+.
+.
+2.7.6
+.
+.
+.
+3.4.0
+.
+.
+.
+pypy-2.2.1
+.
+.
+.
+</code></p></li>
+<li><p><code>$ pyenv install 2.7.6</code> とかやるとインストールが開始されるので暫く待つ</p></li>
+<li>2.7.6 がインストールされたのを確認する
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>pyenv versions&lt;/li&gt;
+</span><span class='line'>&lt;li&gt;&lt;p&gt;system
+</span><span class='line'>2.7.6
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>Python 2.7.6 を <code>Documents</code> だけで使うために以下のコマンドを実行する</p></li>
+<li>他のフォルダに移動すると <code>* system</code> となっているはず
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> ~/Documents
+</span><span class='line'><span class="nv">$ </span>pyenv <span class="nb">local </span>2.7.6
+</span><span class='line'><span class="nv">$ </span>pyenv versions
+</span><span class='line'>system&lt;/li&gt;
+</span><span class='line'>&lt;li&gt;&lt;p&gt;2.7.6
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>ただ，他のところでも 2.7.6 を使うとなるとモジュールの共有がされてしまう</p></li>
+<li>これじゃ前の環境と対して変わらないので virtualenv を使う
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>pyenv virtualenv 2.7.6 test_env
+</span><span class='line'><span class="nv">$ </span>pyenv <span class="nb">local </span>test_env
+</span><span class='line'><span class="nv">$ </span>pyenv activate
+</span><span class='line'>system
+</span><span class='line'>2.7.6&lt;/li&gt;
+</span><span class='line'>&lt;li&gt;&lt;p&gt;test_env
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>作ったものを削除する
+<code>bash
+$ pyenv uninstall test_env
+</code></p></li>
+</ul>
+
+
+<p>ということで，環境はキレイになったかな．<br/>
+これからはちゃんとプロジェクト毎に環境作っていこう！</p>
+]]></content>
+  </entry>
+  
+</feed>

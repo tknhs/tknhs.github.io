@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://tknhs.github.io/sitemap.xml

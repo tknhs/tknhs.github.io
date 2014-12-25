@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Google Chrome: 外部プロトコルリクエスト - tknhs&#8217;s blog</title>
+  <meta name="author" content="tknhs">
+
+  
+  <meta name="description" content="「URLスキームを使った Chrome 拡張機能がちゃんと動作しない」ということが拡張機能のバグだと思われている件について 前に日記アプリ「Day One」のChrome拡張機能を作ったと言う話を書いたけど，これの話． 評価に関して，☆なんてものはどうでもいいのだけれどコメントは読んだりしている &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tknhs.github.io/blog/2014/06/external-protocol-request">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/social.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+  <link href="/atom.xml" rel="alternate" title="tknhs's blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- リンク先を別ウィンドウで開く -->
+<script>
+$(document).ready( function () {
+   $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-50623059-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  <meta property="og:title" content="Google Chrome: 外部プロトコルリクエスト - tknhs's blog" />
+<meta property="og:description" content="「URLスキームを使った Chrome 拡張機能がちゃんと動作しない」ということが拡張機能のバグだと思われている件について 前に日記アプリ「Day One」のChrome拡張機能を作ったと言う話を書いたけど，これの話． 評価に関して，☆なんてものはどうでもいいのだけれどコメントは読んだりしている &hellip;" />
+<meta property="og:url" content="http://tknhs.github.io/blog/2014/06/external-protocol-request" />
+<meta property="og:image" content="http://tknhs.github.io/favicon.png" />
+<meta property="og:author" content="tknhs" />
+<meta property="og:site_name" content="tknhs's blog" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:type" content="article" />
+<meta property="fb:app_id" content="1506920132861098" />
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">tknhs&#8217;s blog</a></h1>
+  
+    <h2>ー ごちゃごちゃしてるブログ ー</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  
+  
+</ul>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Google Chrome: 外部プロトコルリクエスト</h1>
+    
+    
+      <p class="meta">
+        
+<!---->
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-06-23T02:28:32+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-06-23T02:28:32+09:00'><span class='date'>2014-06-23</span></time></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://tknhs.github.io">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div style='text-align: center'>
+<img alt='chrome' style='text-align: center;' width='120' height='120' src='/images/icons/260e4f873cdea5df0e140673833ccd11.png' />
+</div>
+
+
+<p></p>
+
+<p>「URLスキームを使った Chrome 拡張機能がちゃんと動作しない」ということが拡張機能のバグだと思われている件について</p>
+
+<!-- more -->
+
+
+<p>前に<a href="http://tknhs.github.io/blog/2014/04/chrome-extension-dayone/">日記アプリ「Day One」のChrome拡張機能を作ったと言う話</a>を書いたけど，これの話．</p>
+
+<p>評価に関して，☆なんてものはどうでもいいのだけれどコメントは読んだりしている．</p>
+
+<ul>
+<li>自分の環境で動かない</li>
+<li>空白ウィンドウが開く</li>
+</ul>
+
+
+<p>空白ウィンドウが開くということについては今回は触れない（修正済み）．<br/>
+てことで，自分の環境では動かないという点について，動かない？！<strong>僕の環境では動いてる</strong>．なんとなくURLスキームが絡んでる気がしてた．（というか，それぐらいしかない</p>
+
+<p>この拡張機能を実行した場合，</p>
+
+<div style='text-align: center'>
+<img alt='external protocol request' style='text-align: center;' src='/images/2014-06-23-external-protocol-request/3a18718774deed18dfc2305ef30c8fc7.jpg' />
+</div>
+
+
+<p></p>
+
+<p>というように，外部プロトコルリクエストがポップアップされる．<br/>
+ここで，</p>
+
+<div style='text-align: center'>
+<img alt='external protocol request' style='text-align: center;' src='/images/2014-06-23-external-protocol-request/670c34b4f6970fbb8a4b197633227d83.jpg' />
+</div>
+
+
+<p></p>
+
+<p>「このようなリンクの設定をすべて保存する」にチェックを入れて「何もしない」を押してしまうと，以降何もアクションが起きなくなってしまう．たぶんこれが問題で，この設定をしてしまうと拡張機能の役目を果たさないことになってしまう．</p>
+
+<p>そして，この設定を直すのが単純だけどめんどうで&hellip;以下に手順を示す．</p>
+
+<ol>
+<li>Chrome を閉じる</li>
+<li>Local State を書き換える <code>$ vi ~/Library/Application\ Support/Google/Chrome/Local\ State</code><br/>
+今回の場合は，<code>"dayone": true,</code> というのを見つけてその一行を削除して保存する．</li>
+</ol>
+
+
+<div style='text-align: center'>
+<img alt='external protocol request' style='text-align: center;' src='/images/2014-06-23-external-protocol-request/d99b1e3aa35426fb1a57cc53d7ca8e3e.png' />
+</div>
+
+
+<p></p>
+
+<p>これを行った後，拡張機能を実行するとまた外部プロトコルリクエストのポップアップが開くようになる．</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tknhs</span></span>
+
+      
+<!---->
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-06-23T02:28:32+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-06-23T02:28:32+09:00'><span class='date'>2014-06-23</span></time></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/chrome/'>chrome</a>, <a class='category' href='/blog/categories/mac/'>mac</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <div class="hatena">
+    <a class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="Google Chrome: 外部プロトコルリクエスト - tknhs's blog" href="http://b.hatena.ne.jp/entry/http://tknhs.github.io"></a>
+  </div>
+  
+  
+  <div class="twitter">
+    <a href="//twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://tknhs.github.io/blog/2014/06/external-protocol-request/" data-via="tknhs35" data-counturl="http://tknhs.github.io/blog/2014/06/external-protocol-request/" >Tweet</a>
+  </div>
+  
+  
+  
+  <div class="facebook">
+    <div class=fb-like data-href="http://tknhs.github.io/blog/2014/06/external-protocol-request/" data-layout="button_count" data-send="false" data-show-faces="false"></div>
+  </div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/06/python-pretty-print/" title="Previous Post: Python Tips: Prettyprint">&laquo; Python Tips: Prettyprint</a><br>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/08/mac-windows-remote-desktop/" title="Next Post: リモートデスクトップ: Mac -> Windows&#8221;>リモートデスクトップ: Mac -> Windows &raquo;</a>
+      
+    </p>
+
+    <div style='text-align: center'>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- tknhs.github.io - post_footer2 -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3904948390832684"
+           data-ad-slot="4815787655"
+           data-ad-format="horizontal"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Links</h1>
+  <a href="/atom.xml"><img src="/images/rss32.png" alt="rss" title="rss"></a>
+  <a href="http://cloud.feedly.com/#subscription/feed/http://tknhs.github.io/atom.xml" target="_blank"><img src="/images/feedly32.png" alt="feedly" title="feedly"></a>
+  <a href="http://www.amazon.co.jp/registry/wishlist/2GSP5C4GKAR2" target="_blank"><img src="/images/amazon32.png" alt="amazon" title="amazon"></a>
+  <br>
+  <a href="https://github.com/tknhs" target="_blank"><img src="/images/github32.png" alt="github" title="guthub"></a>
+  <a href="https://twitter.com/tknhs35" target="_blank"><img src="/images/twitter32.png" alt="twitter" title="twitter"></a>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/12/ios-device-test/">自作の iOS アプリを実機に転送</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/11/mqtt-mosquitto-setup/">MQTT Broker を立てた</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/09/kit-hackathon/">K.I.T. HACKATHON</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/09/mac-app-autokeyboard/">Mac App: AutoKeyboard</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/mac-windows-remote-desktop/">リモートデスクトップ: Mac -> Windows</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <div style='text-align: center'>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- tknhs.github.io - sidebar -->
+    <ins class="adsbygoogle"
+      style="display:inline-block;width:250px;height:250px"
+      data-ad-client="ca-pub-3904948390832684"
+      data-ad-slot="4073674053"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</section>
+<section>
+  <h1>Tag Cloud</h1>
+  <span id="tag-cloud"><a href='/blog/categories/chrome' style='font-size: 130.0%'>chrome</a> <a href='/blog/categories/coderetreat' style='font-size: 115.0%'>coderetreat</a> <a href='/blog/categories/hackathon' style='font-size: 115.0%'>hackathon</a> <a href='/blog/categories/haskell' style='font-size: 130.0%'>haskell</a> <a href='/blog/categories/jailbreak' style='font-size: 130.0%'>jailbreak</a> <a href='/blog/categories/kzrb' style='font-size: 115.0%'>kzrb</a> <a href='/blog/categories/mac' style='font-size: 160.0%'>mac</a> <a href='/blog/categories/mqtt' style='font-size: 115.0%'>mqtt</a> <a href='/blog/categories/nginx' style='font-size: 115.0%'>nginx</a> <a href='/blog/categories/python' style='font-size: 145.0%'>python</a> <a href='/blog/categories/tornado' style='font-size: 115.0%'>tornado</a> <a href='/blog/categories/vim' style='font-size: 145.0%'>vim</a> <a href='/blog/categories/sumahoapuri' style='font-size: 115.0%'>スマホアプリ</a> <a href='/blog/categories/burauzakuo-zhang-ji-neng' style='font-size: 115.0%'>ブラウザ拡張機能</a> </span>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - tknhs -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tknhs';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tknhs.github.io/blog/2014/06/external-protocol-request/';
+        var disqus_url = 'http://tknhs.github.io/blog/2014/06/external-protocol-request/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+<script>
+(function(w,d){
+  var c,e=d.createDocumentFragment(),f=d.getElementsByTagName("script")[0],
+  a=function(a,b){if(!d.getElementById(b)){c=d.createElement("script");
+  c.src=a;c.id=b||null;c.async=true;e.appendChild(c);}};
+
+  
+
+  
+    a("//platform.twitter.com/widgets.js");
+  
+
+  
+    a("//connect.facebook.net/ja_JP/all.js#appId=1506920132861098&xfbml=1","facebook-jssdk");
+  
+
+  
+    a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
+  
+  f.parentNode.insertBefore(e,f);
+})(this,document);
+</script>
+
+
+</body>
+</html>

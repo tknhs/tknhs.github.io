@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: haskell | tknhs's blog]]></title>
+  <link href="http://tknhs.github.io/blog/categories/haskell/atom.xml" rel="self"/>
+  <link href="http://tknhs.github.io/"/>
+  <updated>2014-12-25T19:11:16+09:00</updated>
+  <id>http://tknhs.github.io/</id>
+  <author>
+    <name><![CDATA[tknhs]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Haskellのお勉強１]]></title>
+    <link href="http://tknhs.github.io/blog/2014/05/haskell-tutorial-1/"/>
+    <updated>2014-05-02T04:19:01+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/05/haskell-tutorial-1</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='haskell' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/c63dc4c7bdcfa907e0d12d9cebfa0993.png' />
+</div>
+
+
+<p></p>
+
+<p>Haskellのお勉強を再開．といっても忘れているので最初からやる．<br/>
+環境はすでに入ってるけど，一応環境の構築から（てきとー）．</p>
+
+<!-- more -->
+
+
+<h2>今回進めるもの</h2>
+
+<p>本も考えたけど，一度<a href="http://www.amazon.co.jp/gp/product/4797336021/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=4797336021&amp;linkCode=as2&amp;tag=brsmc-22">ふつうのHaskell</a>をやっていて，今回は違うやり方で始めようと思ったので，とりあえずは<a href="http://labs.gree.jp/blog/2013/12/9201/">社内Haskellチュートリアルのススメ</a>にある<a href="https://github.com/gree/haskell-tutorial">gree/haskell-tutorial</a>を進めていくことにした．</p>
+
+<h2>環境構築</h2>
+
+<h4>処理系とか開発用プラットフォームとかのインストール</h4>
+
+<pre><code class="bash">$ brew install ghc
+$ brew install haskell-platform
+$ echo 'export PATH="$HOME/.cabal/bin:$PATH"' &gt;&gt; ~/.zprofile
+$ . ~/.zprofile
+$ cabal update
+$ cabal install ghc-mod
+</code></pre>
+
+<h4>開発はvimでやるのでプラグインを入れる</h4>
+
+<pre><code class="vim .vimrc">NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'dag/vim2hs'
+
+map &lt;Leader&gt;c &lt;esc&gt;:GhcModType&lt;CR&gt;
+map &lt;Leader&gt;C &lt;esc&gt;:GhcModTypeClear&lt;CR&gt;
+map &lt;Leader&gt;l &lt;esc&gt;:GhcModLint&lt;CR&gt;
+let g:haskell_jmacro  = 0
+let g:haskell_conceal = 0
+let g:haskell_multiline_strings = 1
+</code></pre>
+
+<h2>公式読み物</h2>
+
+<ul>
+<li><a href="http://www.haskell.org/ghc/docs/latest/html/">ドキュメント</a></li>
+<li><a href="http://www.haskell.org/hoogle/">Hoogle</a></li>
+<li><a href="http://www.haskell.org/haskellwiki/Keywords">予約語一覧</a></li>
+</ul>
+
+
+<h2>Haskellチュートリアル(第一日)</h2>
+
+<p>ということで，<a href="https://github.com/gree/haskell-tutorial/wiki/Haskell%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB(%E7%AC%AC%E4%B8%80%E6%97%A5)">Haskellチュートリアル(第一日)</a>をやる．<br/>
+<a href="https://github.com/yaakaito/NLTQuickCheck/wiki/yaakaito-%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEHaskell%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E8%AA%AD%E3%81%BF%E6%96%B9">yaakaito のためのHaskellコードの読み方</a>とかも読みながら．</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[久しぶりにHaskellを触ろうと思ったらvimでちょこっとエラーを吐かれた]]></title>
+    <link href="http://tknhs.github.io/blog/2014/04/ghcmod-vim-vimproc-compile/"/>
+    <updated>2014-04-29T21:23:45+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/04/ghcmod-vim-vimproc-compile</id>
+    <content type="html"><![CDATA[<div style='text-align: center'>
+<img alt='haskell' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/c63dc4c7bdcfa907e0d12d9cebfa0993.png' />
+</div>
+
+
+<p></p>
+
+<p>以前haskellをちょこっと勉強しつつも最近触ってなかったので久しくぶりにやろうかなーと思ったのが発端．以前書いたソースを眺めようと，vimで.hsファイルを開くとvimがエラーを吐いた．</p>
+
+<!-- more -->
+
+
+<p>どうやら<a href="https://github.com/eagletmt/ghcmod-vim">ghcmod-vim</a>がおかしいらしいと．念のため，<code>cabal update</code>して<code>cabal install ghc-mod</code>．</p>
+
+<p>もちろん解決されない．</p>
+
+<p>ということで，vimのプラグイン<a href="https://github.com/eagletmt/ghcmod-vim">ghcmod-vim</a>を<code>git pull</code>して，<a href="https://github.com/Shougo/vimproc.vim">vimproc</a>も<code>git pull</code>して<code>make -f make_mac.mak</code>したらちゃんと動くようになった！</p>
+
+<p>そろそろ今年度真面目にやる言語を決めないとなぁ&hellip;</p>
+]]></content>
+  </entry>
+  
+</feed>

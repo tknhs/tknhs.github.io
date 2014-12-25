@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mqtt | tknhs's blog]]></title>
+  <link href="http://tknhs.github.io/blog/categories/mqtt/atom.xml" rel="self"/>
+  <link href="http://tknhs.github.io/"/>
+  <updated>2014-12-25T19:11:16+09:00</updated>
+  <id>http://tknhs.github.io/</id>
+  <author>
+    <name><![CDATA[tknhs]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[MQTT Broker を立てた]]></title>
+    <link href="http://tknhs.github.io/blog/2014/11/mqtt-mosquitto-setup/"/>
+    <updated>2014-11-28T21:48:43+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/11/mqtt-mosquitto-setup</id>
+    <content type="html"><![CDATA[<p>さくらの VPS に MQTT Broker となる <a href="http://mosquitto.org/">Mosquitto</a> をインストールしたのでメモ．</p>
+
+<!-- more -->
+
+
+<p>MQTT とはなんぞ．な話は <a href="http://tdoc.info/blog/2014/01/27/mqtt.html">MQTTについてのまとめ</a> とか <a href="https://gist.github.com/voluntas/558fea1445253e6dc6c2">時雨堂 MQTT ブローカー開発ログ</a> とか <a href="https://gist.github.com/voluntas/8238751#%E5%8F%82%E8%80%83">MQTT コトハジメ</a> を読む．</p>
+
+<h2>Mosquitto のインストール</h2>
+
+<p>サーバの OS は CentOS 6
+<code>
+cd /etc/yum.repos.d
+wget http://download.opensuse.org/repositories/home:/oojah:/mqtt/CentOS_CentOS-6/home:oojah:mqtt.repo
+yum update
+yum install mosquitto
+</code></p>
+
+<h2>ポートの開放</h2>
+
+<pre><code>vi /etc/sysconfig/iptable
+/etc/init.d/iptables restart
+</code></pre>
+
+<h2>設定</h2>
+
+<p><code>/etc/mosquitto/mosquitto.conf.example</code> を読みながら，<br/>
+<code>/etc/mosquitto/mosquitto.conf</code> らへんに記述していく．</p>
+
+<h2>起動</h2>
+
+<pre><code>/etc/rc.d/init.d/mosquitto start
+</code></pre>
+
+<h2>確認</h2>
+
+<p>あとは自分の端末から mosquitto_pub, mosquitto_sub などを使ってちゃんと動いてるかチェックすればおしまい！<br/>
+Mac の場合は，<code>brew install mosquitto</code> をすれば，Pub/Sub できるようになる．</p>
+]]></content>
+  </entry>
+  
+</feed>
