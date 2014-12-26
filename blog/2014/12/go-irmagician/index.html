@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>iPhone/iPad: 天気アプリ「アメデス」が便利！ - tknhs&#8217;s blog</title>
+  <title>golang で irMagicain のライブラリを書いた - tknhs&#8217;s blog</title>
   <meta name="author" content="tknhs">
 
   
-  <meta name="description" content="後輩に紹介された「アメデス〜XRAIN(XバンドMPレーダ)」が便利だったので紹介．
-iPhoneアプリでも天気に関するアプリはたくさんあるけど，範囲が市町村だったり，時間が30分毎だったりで本当に今のこの場の天気がわからない． 説明 アメデスは、国土交通省のXRAIN（エックスレイン）（ &hellip;">
+  <meta name="description" content="タイトル通りだけど，golang で irMagician のライブラリ go-irMagician を書いた． irMagician とは 大宮技研 合同会社が販売している赤外線学習リモコンで，以下のような特徴がある． USB 経由で PC と接続（対応OS：Windows, Mac OS X &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@ iPhoneアプリでも天気に関するアプリはたくさんあるけど，�
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://tknhs.github.io/blog/2014/05/intro-amedesu">
+  <link rel="canonical" href="http://tknhs.github.io/blog/2014/12/go-irmagician">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/social.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -55,10 +54,9 @@ $(document).ready( function () {
   </script>
 
 
-  <meta property="og:title" content="iPhone/iPad: 天気アプリ「アメデス」が便利！ - tknhs's blog" />
-<meta property="og:description" content="後輩に紹介された「アメデス〜XRAIN(XバンドMPレーダ)」が便利だったので紹介．
-iPhoneアプリでも天気に関するアプリはたくさんあるけど，範囲が市町村だったり，時間が30分毎だったりで本当に今のこの場の天気がわからない． 説明 アメデスは、国土交通省のXRAIN（エックスレイン）（ &hellip;" />
-<meta property="og:url" content="http://tknhs.github.io/blog/2014/05/intro-amedesu" />
+  <meta property="og:title" content="golang で irMagicain のライブラリを書いた - tknhs's blog" />
+<meta property="og:description" content="タイトル通りだけど，golang で irMagician のライブラリ go-irMagician を書いた． irMagician とは 大宮技研 合同会社が販売している赤外線学習リモコンで，以下のような特徴がある． USB 経由で PC と接続（対応OS：Windows, Mac OS X &hellip;" />
+<meta property="og:url" content="http://tknhs.github.io/blog/2014/12/go-irmagician" />
 <meta property="og:image" content="http://tknhs.github.io/favicon.png" />
 <meta property="og:author" content="tknhs" />
 <meta property="og:site_name" content="tknhs's blog" />
@@ -95,7 +93,7 @@ iPhoneアプリでも天気に関するアプリはたくさんあるけど，�
   
   <header>
     
-      <h1 class="entry-title">iPhone/iPad: 天気アプリ「アメデス」が便利！</h1>
+      <h1 class="entry-title">golang で irMagicain のライブラリを書いた</h1>
     
     
       <p class="meta">
@@ -113,7 +111,7 @@ iPhoneアプリでも天気に関するアプリはたくさんあるけど，�
 
 
 
-<time datetime="2014-05-01T23:21:18+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-05-01T23:21:18+09:00'><span class='date'>2014-05-01</span></time></time>
+<time datetime="2014-12-27T00:43:18+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-12-27T00:43:18+09:00'><span class='date'>2014-12-27</span></time></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://tknhs.github.io">Comments</a>
@@ -123,37 +121,76 @@ iPhoneアプリでも天気に関するアプリはたくさんあるけど，�
   </header>
 
 
-<div class="entry-content"><div style='text-align: center'>
-<img alt='amedesu' style='text-align: center;' width='120' height='120' src='/images/2014-05-01-intro-amedesu/246afe5074ef707cba0b87b935b3b681.png' />
+<div class="entry-content"><p>タイトル通りだけど，golang で irMagician のライブラリ go-irMagician を書いた．</p>
+
+<!--more-->
+
+
+<h2>irMagician とは</h2>
+
+<p><a href="http://www.omiya-giken.com/">大宮技研 合同会社</a>が販売している赤外線学習リモコンで，以下のような特徴がある．</p>
+
+<div style='text-align: center'>
+<img alt='irMagicain front' style='text-align: center;' width='345' height='250' src='/images/2014-12-27-go-irmagician/da261ac114c8d809b3c9c910e88fb80b.jpg' />
+<img alt='irMagicain back' style='text-align: center;' width='325' height='250' src='/images/2014-12-27-go-irmagician/62d46f11a19e32c3d0dea8ebd3ac507a.jpg' />
 </div>
 
 
 <p></p>
 
-<p>後輩に紹介された「アメデス〜XRAIN(XバンドMPレーダ)」が便利だったので紹介．<br/>
-iPhoneアプリでも天気に関するアプリはたくさんあるけど，範囲が市町村だったり，時間が30分毎だったりで本当に今のこの場の天気がわからない．</p>
+<ul>
+<li>USB 経由で PC と接続（対応OS：Windows, Mac OS X, Linux 等）</li>
+<li>超小型・低価格
 
-<!-- more -->
+<ul>
+<li>キット（2014/12/27 現在）
+
+<ul>
+<li>irMagician 1,980円（送料：国内・税込み）</li>
+</ul>
+</li>
+<li>完成品（2014/12/27 現在）
+
+<ul>
+<li>irMagician (Windows, Linux, MacOSX 10.9.5 以前) 3,980円（送料：国内・税込み）</li>
+<li>irMagician T(Windows, Linux, MacOSX 10.9.5 以前) 4,480円（送料：国内・税込み）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>家電の赤外線データをキャプチャして家電に向かって送信すれば良い</li>
+<li>キャプチャした家電の赤外線データをローカルに保存しておけば，そのデータを読みだして利用することが可能</li>
+</ul>
 
 
-<h2>説明</h2>
+<p>詳しくは <a href="http://www.omiya-giken.com/?page_id=837">irMagician – 高機能／低価格赤外線リモコン</a> からどうぞ．</p>
 
-<blockquote><p>アメデスは、国土交通省のXRAIN（エックスレイン）（XバンドMPレーダネットワーク）による雨量データを見るためのアプリです。
-増加する集中豪雨や局所的な大雨（ゲリラ豪雨）による水害や土砂災害等に対する防災活動にお役立ててください。</p></blockquote>
+<h2>go-irMagician</h2>
 
-<p>ということで，石川県の天気情報は当てにならないのでコレを使うと非常に便利．<br/>
-さっきまで晴れてたのに雨が降ってるなんてことざらです．<br/>
-しかも土砂降りのなか帰ってきたのに家に着いたら止んだなんてことも．</p>
+<p>irMagicain はシリアル通信でコマンドを送信することにより制御する（<a href="http://www.omiya-giken.com/?page_id=889">コマンド一覧</a>）．
+実際に使うときにはプログラムを組むと思うのだけれど，公式のサンプルは python で書かれている（<a href="http://www.omiya-giken.com/?page_id=1231">プログラム例</a>）．</p>
 
-<p>このアプリを使えば，<strong><code>1分更新のレーダ画像が見れます</code></strong>ということなので，今雨の降ってないところを通るとか，もうちょっとしたら一時的にも雨が止む場合はそこを狙って帰るとかができる．</p>
+<p>ただ，今回は golang で家電操作のプログラムを組もうと思っていた．さらに，オレオレ家電操作プログラムに埋め込むだけじゃなくて，せっかくなら使い回しができるようにライブラリを作ることにした．</p>
 
-<p>そんなアプリです．詳しくは下記リンクからどうぞ．<br/>
-では．</p>
+<p>できあがったものは github で公開してみた．<a href="https://github.com/tknhs/go-irMagician">tknhs/go-irMagician</a><br/>
+（初めて golang のライブラリを書いたので，突っ込んでもらえると嬉しい．）</p>
 
-<h2>ダウンロードリンク</h2>
+<p>とりあえず，使いそうな機能は実装した．</p>
 
-<p>iPhone/iPad
-<a href="https://itunes.apple.com/jp/app/amedesu-xrain-xbandompreda/id837754827?mt=8&uo=4&at=1l3vbuW" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.png) no-repeat;width:135px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/ja_jp//images/web/linkmaker/badge_appstore-lrg.svg);}"></a></p>
+<ul>
+<li>室温を取得（ t コマンド）</li>
+<li>リモコンから受信した赤外線データを irMagician 内部に保存（ c コマンド）</li>
+<li>irMagician 内部に保存してある赤外線データを送信（ p コマンド）</li>
+<li>irMagician 内部に保存してある赤外線データをローカルに保存</li>
+<li>ローカルに保存してある赤外線データを読み込んで送信</li>
+</ul>
+
+
+<p>ドキュメント： <a href="https://godoc.org/github.com/tknhs/go-irMagician">GoDoc</a><br/>
+サンプル： <a href="https://github.com/tknhs/go-irMagician/tree/master/example">Example</a></p>
+
+<p>次回ぐらいに irMagician を使って今動いてるものを書くかもしれない．<br/>
+ただ，あんまりスマートじゃないので再設計したものを実装し直してから書くかも．</p>
 </div>
 
 
@@ -178,12 +215,12 @@ iPhoneアプリでも天気に関するアプリはたくさんあるけど，�
 
 
 
-<time datetime="2014-05-01T23:21:18+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-05-01T23:21:18+09:00'><span class='date'>2014-05-01</span></time></time>
+<time datetime="2014-12-27T00:43:18+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-12-27T00:43:18+09:00'><span class='date'>2014-12-27</span></time></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/sumahoapuri/'>スマホアプリ</a>
+    <a class='category' href='/blog/categories/golang/'>golang</a>, <a class='category' href='/blog/categories/iot/'>iot</a>, <a class='category' href='/blog/categories/irmagicain/'>irmagicain</a>
   
 </span>
 
@@ -193,18 +230,18 @@ iPhoneアプリでも天気に関するアプリはたくさんあるけど，�
       <div class="sharing">
   
   <div class="hatena">
-    <a class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="iPhone/iPad: 天気アプリ「アメデス」が便利！ - tknhs's blog" href="http://b.hatena.ne.jp/entry/http://tknhs.github.io"></a>
+    <a class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="golang で irMagicain のライブラリを書いた - tknhs's blog" href="http://b.hatena.ne.jp/entry/http://tknhs.github.io"></a>
   </div>
   
   
   <div class="twitter">
-    <a href="//twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://tknhs.github.io/blog/2014/05/intro-amedesu" data-via="tknhs35" data-counturl="http://tknhs.github.io/blog/2014/05/intro-amedesu" >Tweet</a>
+    <a href="//twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://tknhs.github.io/blog/2014/12/go-irmagician" data-via="tknhs35" data-counturl="http://tknhs.github.io/blog/2014/12/go-irmagician" >Tweet</a>
   </div>
   
   
   
   <div class="facebook">
-    <div class=fb-like data-href="http://tknhs.github.io/blog/2014/05/intro-amedesu" data-layout="button_count" data-send="false" data-show-faces="false"></div>
+    <div class=fb-like data-href="http://tknhs.github.io/blog/2014/12/go-irmagician" data-layout="button_count" data-send="false" data-show-faces="false"></div>
   </div>
   
 </div>
@@ -212,10 +249,8 @@ iPhoneアプリでも天気に関するアプリはたくさんあるけど，�
     
     <p class="meta">
       
-      <a class="basic-alignment left" href="/blog/2014/04/ghcmod-vim-vimproc-compile" title="Previous Post: 久しぶりにHaskellを触ろうと思ったらvimでちょこっとエラーを吐かれた">&laquo; 久しぶりにHaskellを触ろうと思ったらvimでちょこっとエラーを吐かれた</a><br>
+      <a class="basic-alignment left" href="/blog/2014/12/ios-device-test" title="Previous Post: 自作の iOS アプリを実機に転送">&laquo; 自作の iOS アプリを実機に転送</a><br>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/05/haskell-tutorial-1" title="Next Post: Haskellのお勉強１">Haskellのお勉強１ &raquo;</a>
       
     </p>
 
@@ -317,8 +352,8 @@ iPhoneアプリでも天気に関するアプリはたくさんあるけど，�
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://tknhs.github.io/blog/2014/05/intro-amedesu';
-        var disqus_url = 'http://tknhs.github.io/blog/2014/05/intro-amedesu';
+        var disqus_identifier = 'http://tknhs.github.io/blog/2014/12/go-irmagician';
+        var disqus_url = 'http://tknhs.github.io/blog/2014/12/go-irmagician';
         var disqus_script = 'embed.js';
       
     (function () {

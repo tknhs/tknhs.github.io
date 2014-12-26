@@ -4,7 +4,7 @@
   <title><![CDATA[tknhs's blog]]></title>
   <link href="http://tknhs.github.io/atom.xml" rel="self"/>
   <link href="http://tknhs.github.io/"/>
-  <updated>2014-12-26T18:13:22+09:00</updated>
+  <updated>2014-12-27T04:13:58+09:00</updated>
   <id>http://tknhs.github.io/</id>
   <author>
     <name><![CDATA[tknhs]]></name>
@@ -12,6 +12,16 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[golang で irMagicain のライブラリを書いた]]></title>
+    <link href="http://tknhs.github.io/blog/2014/12/go-irmagician"/>
+    <updated>2014-12-27T00:43:18+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/12/go-irmagician</id>
+    <content type="html"><![CDATA[<p>タイトル通りだけど，golang で irMagician のライブラリ go-irMagician を書いた．</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[自作の iOS アプリを実機に転送]]></title>
@@ -306,23 +316,6 @@ iPhoneアプリでも天気に関するアプリはたくさんあるけど，�
     <id>http://tknhs.github.io/blog/2014/04/you-sure-thats-enough-armor</id>
     <content type="html"><![CDATA[<p>ニコ動のランキングを見てたらエルシャダイ関連の動画が上がっていた．</p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[新年度ということで]]></title>
-    <link href="http://tknhs.github.io/blog/2014/04/first-blog"/>
-    <updated>2014-04-01T14:03:38+09:00</updated>
-    <id>http://tknhs.github.io/blog/2014/04/first-blog</id>
-    <content type="html"><![CDATA[<div style='text-align: center'>
-<img alt='github' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/007e1beb270498ecf16244db09d7ae35.png' />
-</div>
-
-
-<p></p>
-
-<p>GitHub上に <a href="http://octopress.org/">Octopress</a> でブログを構築してみたので，いろいろ書いていく！<br/>
-以上</p>
 ]]></content>
   </entry>
   

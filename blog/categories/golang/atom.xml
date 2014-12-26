@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: golang | tknhs's blog]]></title>
+  <link href="http://tknhs.github.io/blog/categories/golang/atom.xml" rel="self"/>
+  <link href="http://tknhs.github.io/"/>
+  <updated>2014-12-27T04:13:58+09:00</updated>
+  <id>http://tknhs.github.io/</id>
+  <author>
+    <name><![CDATA[tknhs]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[golang で irMagicain のライブラリを書いた]]></title>
+    <link href="http://tknhs.github.io/blog/2014/12/go-irmagician"/>
+    <updated>2014-12-27T00:43:18+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/12/go-irmagician</id>
+    <content type="html"><![CDATA[<p>タイトル通りだけど，golang で irMagician のライブラリ go-irMagician を書いた．</p>
+
+<!--more-->
+
+
+<h2>irMagician とは</h2>
+
+<p><a href="http://www.omiya-giken.com/">大宮技研 合同会社</a>が販売している赤外線学習リモコンで，以下のような特徴がある．</p>
+
+<div style='text-align: center'>
+<img alt='irMagicain front' style='text-align: center;' width='345' height='250' src='http://tknhs.github.io/images/2014-12-27-go-irmagician/da261ac114c8d809b3c9c910e88fb80b.jpg' />
+<img alt='irMagicain back' style='text-align: center;' width='325' height='250' src='http://tknhs.github.io/images/2014-12-27-go-irmagician/62d46f11a19e32c3d0dea8ebd3ac507a.jpg' />
+</div>
+
+
+<p></p>
+
+<ul>
+<li>USB 経由で PC と接続（対応OS：Windows, Mac OS X, Linux 等）</li>
+<li>超小型・低価格
+
+<ul>
+<li>キット（2014/12/27 現在）
+
+<ul>
+<li>irMagician 1,980円（送料：国内・税込み）</li>
+</ul>
+</li>
+<li>完成品（2014/12/27 現在）
+
+<ul>
+<li>irMagician (Windows, Linux, MacOSX 10.9.5 以前) 3,980円（送料：国内・税込み）</li>
+<li>irMagician T(Windows, Linux, MacOSX 10.9.5 以前) 4,480円（送料：国内・税込み）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>家電の赤外線データをキャプチャして家電に向かって送信すれば良い</li>
+<li>キャプチャした家電の赤外線データをローカルに保存しておけば，そのデータを読みだして利用することが可能</li>
+</ul>
+
+
+<p>詳しくは <a href="http://www.omiya-giken.com/?page_id=837">irMagician – 高機能／低価格赤外線リモコン</a> からどうぞ．</p>
+
+<h2>go-irMagician</h2>
+
+<p>irMagicain はシリアル通信でコマンドを送信することにより制御する（<a href="http://www.omiya-giken.com/?page_id=889">コマンド一覧</a>）．
+実際に使うときにはプログラムを組むと思うのだけれど，公式のサンプルは python で書かれている（<a href="http://www.omiya-giken.com/?page_id=1231">プログラム例</a>）．</p>
+
+<p>ただ，今回は golang で家電操作のプログラムを組もうと思っていた．さらに，オレオレ家電操作プログラムに埋め込むだけじゃなくて，せっかくなら使い回しができるようにライブラリを作ることにした．</p>
+
+<p>できあがったものは github で公開してみた．<a href="https://github.com/tknhs/go-irMagician">tknhs/go-irMagician</a><br/>
+（初めて golang のライブラリを書いたので，突っ込んでもらえると嬉しい．）</p>
+
+<p>とりあえず，使いそうな機能は実装した．</p>
+
+<ul>
+<li>室温を取得（ t コマンド）</li>
+<li>リモコンから受信した赤外線データを irMagician 内部に保存（ c コマンド）</li>
+<li>irMagician 内部に保存してある赤外線データを送信（ p コマンド）</li>
+<li>irMagician 内部に保存してある赤外線データをローカルに保存</li>
+<li>ローカルに保存してある赤外線データを読み込んで送信</li>
+</ul>
+
+
+<p>ドキュメント： <a href="https://godoc.org/github.com/tknhs/go-irMagician">GoDoc</a><br/>
+サンプル： <a href="https://github.com/tknhs/go-irMagician/tree/master/example">Example</a></p>
+
+<p>次回ぐらいに irMagician を使って今動いてるものを書くかもしれない．<br/>
+ただ，あんまりスマートじゃないので再設計したものを実装し直してから書くかも．</p>
+]]></content>
+  </entry>
+  
+</feed>
