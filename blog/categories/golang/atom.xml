@@ -4,7 +4,7 @@
   <title><![CDATA[Category: golang | tknhs's blog]]></title>
   <link href="http://tknhs.github.io/blog/categories/golang/atom.xml" rel="self"/>
   <link href="http://tknhs.github.io/"/>
-  <updated>2014-12-27T04:13:58+09:00</updated>
+  <updated>2014-12-30T03:34:20+09:00</updated>
   <id>http://tknhs.github.io/</id>
   <author>
     <name><![CDATA[tknhs]]></name>
@@ -87,7 +87,10 @@
 サンプル： <a href="https://github.com/tknhs/go-irMagician/tree/master/example">Example</a></p>
 
 <p>次回ぐらいに irMagician を使って今動いてるものを書くかもしれない．<br/>
-ただ，あんまりスマートじゃないので再設計したものを実装し直してから書くかも．</p>
+<del>ただ，あんまりスマートじゃないので再設計したものを実装し直してから書くかも．</del></p>
+
+<p><strong>2014/12/30 追記</strong><br/>
+書いた -&gt; <a href="/blog/2014/12/riemoh">家電を外出先から制御する俺得アプリを作った</a></p>
 ]]></content>
   </entry>
   

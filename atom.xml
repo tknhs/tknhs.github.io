@@ -4,7 +4,7 @@
   <title><![CDATA[tknhs's blog]]></title>
   <link href="http://tknhs.github.io/atom.xml" rel="self"/>
   <link href="http://tknhs.github.io/"/>
-  <updated>2014-12-27T04:13:58+09:00</updated>
+  <updated>2014-12-30T03:34:20+09:00</updated>
   <id>http://tknhs.github.io/</id>
   <author>
     <name><![CDATA[tknhs]]></name>
@@ -12,6 +12,16 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[家電を外出先から制御する俺得アプリを作った]]></title>
+    <link href="http://tknhs.github.io/blog/2014/12/riemoh"/>
+    <updated>2014-12-30T01:14:40+09:00</updated>
+    <id>http://tknhs.github.io/blog/2014/12/riemoh</id>
+    <content type="html"><![CDATA[<p>irMagician や MQTT を使って外出先から家電を制御するアプリを作った．</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[golang で irMagicain のライブラリを書いた]]></title>
@@ -305,16 +315,6 @@ iPhoneアプリでも天気に関するアプリはたくさんあるけど，�
 <li>今日，気が向いた．</li>
 </ul>
 
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[そんな装備で大丈夫か]]></title>
-    <link href="http://tknhs.github.io/blog/2014/04/you-sure-thats-enough-armor"/>
-    <updated>2014-04-01T23:37:25+09:00</updated>
-    <id>http://tknhs.github.io/blog/2014/04/you-sure-thats-enough-armor</id>
-    <content type="html"><![CDATA[<p>ニコ動のランキングを見てたらエルシャダイ関連の動画が上がっていた．</p>
 
 ]]></content>
   </entry>

@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Vim Tips: 改行コードを挿入する - tknhs&#8217;s blog</title>
+  <title>家電を外出先から制御する俺得アプリを作った - tknhs&#8217;s blog</title>
   <meta name="author" content="tknhs">
 
   
-  <meta name="description" content="文字列操作 ダミーテキスト（Lorem Ipsum）を使って練習． 1
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore &hellip;">
+  <meta name="description" content="irMagician や MQTT を使って外出先から家電を制御するアプリを作った． irMagician の話は golang で irMagicain のライブラリを書いた にて．
+MQTT の話は MQTT Broker を立てた にて． 制作物 アプリケーション名 : Riemoh 最初は &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://tknhs.github.io/blog/2014/05/vim-tips-new-line">
+  <link rel="canonical" href="http://tknhs.github.io/blog/2014/12/riemoh">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/social.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -55,10 +55,10 @@ $(document).ready( function () {
   </script>
 
 
-  <meta property="og:title" content="Vim Tips: 改行コードを挿入する - tknhs's blog" />
-<meta property="og:description" content="文字列操作 ダミーテキスト（Lorem Ipsum）を使って練習． 1
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore &hellip;" />
-<meta property="og:url" content="http://tknhs.github.io/blog/2014/05/vim-tips-new-line" />
+  <meta property="og:title" content="家電を外出先から制御する俺得アプリを作った - tknhs's blog" />
+<meta property="og:description" content="irMagician や MQTT を使って外出先から家電を制御するアプリを作った． irMagician の話は golang で irMagicain のライブラリを書いた にて．
+MQTT の話は MQTT Broker を立てた にて． 制作物 アプリケーション名 : Riemoh 最初は &hellip;" />
+<meta property="og:url" content="http://tknhs.github.io/blog/2014/12/riemoh" />
 <meta property="og:image" content="http://tknhs.github.io/favicon.png" />
 <meta property="og:author" content="tknhs" />
 <meta property="og:site_name" content="tknhs's blog" />
@@ -95,7 +95,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
   
   <header>
     
-      <h1 class="entry-title">Vim Tips: 改行コードを挿入する</h1>
+      <h1 class="entry-title">家電を外出先から制御する俺得アプリを作った</h1>
     
     
       <p class="meta">
@@ -113,7 +113,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 
 
-<time datetime="2014-05-18T21:29:11+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-05-18T21:29:11+09:00'><span class='date'>2014-05-18</span></time></time>
+<time datetime="2014-12-30T01:14:40+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-12-30T01:14:40+09:00'><span class='date'>2014-12-30</span></time></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://tknhs.github.io">Comments</a>
@@ -123,40 +123,92 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
   </header>
 
 
-<div class="entry-content"><div style='text-align: center'>
-<img alt='vim' style='text-align: center;' width='120' height='120' src='/images/icons/b3bb5bc30558959cc24017c992a805d4.png' />
+<div class="entry-content"><p>irMagician や MQTT を使って外出先から家電を制御するアプリを作った．</p>
+
+<!--more-->
+
+
+<p>irMagician の話は <a href="/blog/2014/12/go-irmagician">golang で irMagicain のライブラリを書いた</a> にて．<br/>
+MQTT の話は <a href="/blog/2014/11/mqtt-mosquitto-setup">MQTT Broker を立てた</a> にて．</p>
+
+<h2>制作物</h2>
+
+<p>アプリケーション名 : <strong>Riemoh</strong></p>
+
+<p>最初は PC 用のクライアントを作ったけど，今の時代スマホで使えなきゃダメだなと思って iPhone 版も作った（どちらも現状はオレオレ仕様になってるので公開はしてない）．</p>
+
+<div style='text-align: center'>
+<img alt='Riemoh PC' style='text-align: center;' width='450' src='/images/2014-12-30-riemoh/0cc59d250e8baf8e02a099bc2d9f1d45.jpg' />
+<img alt='Riemoh iPhone' style='text-align: center;' width='250' src='/images/2014-12-30-riemoh/42ed87088a5a8dcefbae32f402e79e15.jpg' />
 </div>
 
 
 <p></p>
 
-<p>文字列操作</p>
+<h2>システム構成</h2>
 
-<!-- more -->
-
-
-<p>ダミーテキスト（<a href="http://ja.wikipedia.org/wiki/Lorem_ipsum">Lorem Ipsum</a>）を使って練習．</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='text'><span class='line'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</span></code></pre></td></tr></table></div></figure>
+<ul>
+<li>MQTT ブローカー</li>
+<li>サーバアプリ（実際に家電を制御する）</li>
+<li>クライアントアプリ（家電を制御するためのコマンドを送る）</li>
+</ul>
 
 
-<p>これを一文ごとに改行する．</p>
+<p>グローバル IP を持ってないので，さくら VPS 上に MQTT ブローカーを立てて，そこを経由して自宅の PC （サーバ）が irMagician を制御する．</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='text'><span class='line'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-</span><span class='line'>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-</span><span class='line'>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</span><span class='line'>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</span></code></pre></td></tr></table></div></figure>
+<div style='text-align: center'>
+<img alt='System Configuration' style='text-align: center;' src='/images/2014-12-30-riemoh/f0840daafc19282c3fa0d1a64395ec5f.jpg' />
+</div>
 
 
-<p><code>:%s/\. /\.^M/g</code>で置換する．<br/>
-改行（^M）は C-v + Enter で入力する．</p>
+<p></p>
+
+<h3>サーバアプリのハードウェア構成</h3>
+
+<ul>
+<li>OS: Windows7 64bit</li>
+<li>カメラ: <a href="http://www.amazon.co.jp/gp/product/B004Q1XD5I/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B004Q1XD5I&amp;linkCode=as2&amp;tag=brsmc-22">Logicool C210</a></li>
+<li>赤外線: irMagician II T</li>
+</ul>
+
+
+<h2>サーバ・クライアントアプリで使用する Topic 一覧</h2>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;"> Topic 名      </th>
+<th style="text-align:left;"> 用途                       </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;"> <code>home/cmd</code>    </td>
+<td style="text-align:left;"> コマンド送受信             </td>
+</tr>
+<tr>
+<td style="text-align:left;"> <code>home/resp</code>   </td>
+<td style="text-align:left;"> コマンドのレスポンス送受信 </td>
+</tr>
+<tr>
+<td style="text-align:left;"> <code>home/server</code> </td>
+<td style="text-align:left;"> サーバ生死確認             </td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>まとめ</h2>
+
+<p>golang，swift，MQTT，画像，シリアル通信を使ってモノを作れたので楽しかった．irMagician 以外にも <a href="http://www.amazon.co.jp/gp/product/B00H91KK26/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00H91KK26&amp;linkCode=as2&amp;tag=brsmc-22">IRKit</a> とか家電を赤外線で制御する製品はあるし，導入して使うだけなら簡単なんだろうけど，せっかくなら最低限が用意されている状態でいろいろいじってみたかったし満足．</p>
+
+<h2>今後</h2>
+
+<ul>
+<li>エアコンが本当に付いたかどうか確認するのにカメラを使用しているが，カメラを使わない仕様にする．</li>
+<li>赤外線 LED が向いてる方向の範囲内に入っている機器しか制御できないため，今はエアコンの制御のみに留まっているが，赤外線 LED がついている部分を改造して向いてる方向に依存しないようにする．</li>
+</ul>
+
 </div>
 
 
@@ -181,12 +233,12 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 
 
-<time datetime="2014-05-18T21:29:11+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-05-18T21:29:11+09:00'><span class='date'>2014-05-18</span></time></time>
+<time datetime="2014-12-30T01:14:40+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2014-12-30T01:14:40+09:00'><span class='date'>2014-12-30</span></time></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/vim/'>vim</a>
+    <a class='category' href='/blog/categories/iot/'>iot</a>, <a class='category' href='/blog/categories/irmagician/'>irmagician</a>
   
 </span>
 
@@ -196,18 +248,18 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
       <div class="sharing">
   
   <div class="hatena">
-    <a class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="Vim Tips: 改行コードを挿入する - tknhs's blog" href="http://b.hatena.ne.jp/entry/http://tknhs.github.io"></a>
+    <a class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="家電を外出先から制御する俺得アプリを作った - tknhs's blog" href="http://b.hatena.ne.jp/entry/http://tknhs.github.io"></a>
   </div>
   
   
   <div class="twitter">
-    <a href="//twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://tknhs.github.io/blog/2014/05/vim-tips-new-line" data-via="tknhs35" data-counturl="http://tknhs.github.io/blog/2014/05/vim-tips-new-line" >Tweet</a>
+    <a href="//twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://tknhs.github.io/blog/2014/12/riemoh" data-via="tknhs35" data-counturl="http://tknhs.github.io/blog/2014/12/riemoh" >Tweet</a>
   </div>
   
   
   
   <div class="facebook">
-    <div class=fb-like data-href="http://tknhs.github.io/blog/2014/05/vim-tips-new-line" data-layout="button_count" data-send="false" data-show-faces="false"></div>
+    <div class=fb-like data-href="http://tknhs.github.io/blog/2014/12/riemoh" data-layout="button_count" data-send="false" data-show-faces="false"></div>
   </div>
   
 </div>
@@ -215,10 +267,8 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
     
     <p class="meta">
       
-      <a class="basic-alignment left" href="/blog/2014/05/how-to-create-jailbreak-apps-for-iphone" title="Previous Post: How to create jailbreak apps for iphone">&laquo; How to create jailbreak apps for iphone</a><br>
+      <a class="basic-alignment left" href="/blog/2014/12/go-irmagician" title="Previous Post: golang で irMagicain のライブラリを書いた">&laquo; golang で irMagicain のライブラリを書いた</a><br>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/05/kzrb21" title="Next Post: kanazawa.rb meetup #21">kanazawa.rb meetup #21 &raquo;</a>
       
     </p>
 
@@ -320,8 +370,8 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://tknhs.github.io/blog/2014/05/vim-tips-new-line';
-        var disqus_url = 'http://tknhs.github.io/blog/2014/05/vim-tips-new-line';
+        var disqus_identifier = 'http://tknhs.github.io/blog/2014/12/riemoh';
+        var disqus_url = 'http://tknhs.github.io/blog/2014/12/riemoh';
         var disqus_script = 'embed.js';
       
     (function () {
