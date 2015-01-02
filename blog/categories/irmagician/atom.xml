@@ -4,7 +4,7 @@
   <title><![CDATA[Category: irmagician | tknhs's blog]]></title>
   <link href="http://tknhs.github.io/blog/categories/irmagician/atom.xml" rel="self"/>
   <link href="http://tknhs.github.io/"/>
-  <updated>2014-12-30T03:34:20+09:00</updated>
+  <updated>2015-01-02T22:52:02+09:00</updated>
   <id>http://tknhs.github.io/</id>
   <author>
     <name><![CDATA[tknhs]]></name>
@@ -95,7 +95,7 @@ MQTT の話は <a href="/blog/2014/11/mqtt-mosquitto-setup">MQTT Broker を立�
 
 <h2>まとめ</h2>
 
-<p>golang，swift，MQTT，画像，シリアル通信を使ってモノを作れたので楽しかった．irMagician 以外にも <a href="http://www.amazon.co.jp/gp/product/B00H91KK26/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00H91KK26&amp;linkCode=as2&amp;tag=brsmc-22">IRKit</a> とか家電を赤外線で制御する製品はあるし，導入して使うだけなら簡単なんだろうけど，せっかくなら最低限が用意されている状態でいろいろいじってみたかったし満足．</p>
+<p>golang，swift，MQTT，カメラ，シリアル通信を使ってモノを作れたので楽しかった．irMagician 以外にも <a href="http://www.amazon.co.jp/gp/product/B00H91KK26/ref=as_li_ss_tl?ie=UTF8&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00H91KK26&amp;linkCode=as2&amp;tag=brsmc-22">IRKit</a> とか家電を赤外線で制御する製品はあるし，導入して使うだけなら簡単なんだろうけど，せっかくなら最低限が用意されている状態でいろいろいじってみたかったし満足．</p>
 
 <h2>今後</h2>
 
