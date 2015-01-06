@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mac | tknhs's blog]]></title>
   <link href="http://tknhs.github.io/blog/categories/mac/atom.xml" rel="self"/>
   <link href="http://tknhs.github.io/"/>
-  <updated>2015-01-02T22:52:02+09:00</updated>
+  <updated>2015-01-07T00:39:28+09:00</updated>
   <id>http://tknhs.github.io/</id>
   <author>
     <name><![CDATA[tknhs]]></name>
@@ -15,7 +15,7 @@
   
   <entry>
     <title type="html"><![CDATA[Mac App: AutoKeyboard]]></title>
-    <link href="http://tknhs.github.io/blog/2014/09/mac-app-autokeyboard"/>
+    <link href="http://tknhs.github.io/blog/2014/09/mac-app-autokeyboard/"/>
     <updated>2014-09-18T11:57:54+09:00</updated>
     <id>http://tknhs.github.io/blog/2014/09/mac-app-autokeyboard</id>
     <content type="html"><![CDATA[<p>個別のアプリケーションにデフォルトのキーボード入力ソースを設定するアプリの紹介</p>
@@ -50,7 +50,7 @@
   
   <entry>
     <title type="html"><![CDATA[リモートデスクトップ: Mac -&gt; Windows]]></title>
-    <link href="http://tknhs.github.io/blog/2014/08/mac-windows-remote-desktop"/>
+    <link href="http://tknhs.github.io/blog/2014/08/mac-windows-remote-desktop/"/>
     <updated>2014-08-15T18:18:23+09:00</updated>
     <id>http://tknhs.github.io/blog/2014/08/mac-windows-remote-desktop</id>
     <content type="html"><![CDATA[<p>Mac から Windows をリモートしたかったので作業メモ（同一ネットワーク）</p>
@@ -122,7 +122,7 @@ iPhone/iPad
   
   <entry>
     <title type="html"><![CDATA[Google Chrome: 外部プロトコルリクエスト]]></title>
-    <link href="http://tknhs.github.io/blog/2014/06/external-protocol-request"/>
+    <link href="http://tknhs.github.io/blog/2014/06/external-protocol-request/"/>
     <updated>2014-06-23T02:28:32+09:00</updated>
     <id>http://tknhs.github.io/blog/2014/06/external-protocol-request</id>
     <content type="html"><![CDATA[<div style='text-align: center'>
@@ -193,7 +193,7 @@ iPhone/iPad
   
   <entry>
     <title type="html"><![CDATA[mac で pyenv と pyenv-virtualenv]]></title>
-    <link href="http://tknhs.github.io/blog/2014/04/pyenv"/>
+    <link href="http://tknhs.github.io/blog/2014/04/pyenv/"/>
     <updated>2014-04-02T23:47:55+09:00</updated>
     <id>http://tknhs.github.io/blog/2014/04/pyenv</id>
     <content type="html"><![CDATA[<div style='text-align: center'>

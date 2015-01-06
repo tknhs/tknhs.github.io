@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | tknhs's blog]]></title>
   <link href="http://tknhs.github.io/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://tknhs.github.io/"/>
-  <updated>2015-01-02T22:52:02+09:00</updated>
+  <updated>2015-01-07T00:39:28+09:00</updated>
   <id>http://tknhs.github.io/</id>
   <author>
     <name><![CDATA[tknhs]]></name>
@@ -15,7 +15,7 @@
   
   <entry>
     <title type="html"><![CDATA[Vim Plugin: NERDTree]]></title>
-    <link href="http://tknhs.github.io/blog/2014/05/vim-plugin-nerdtree"/>
+    <link href="http://tknhs.github.io/blog/2014/05/vim-plugin-nerdtree/"/>
     <updated>2014-05-30T17:17:12+09:00</updated>
     <id>http://tknhs.github.io/blog/2014/05/vim-plugin-nerdtree</id>
     <content type="html"><![CDATA[<div style='text-align: center'>
@@ -74,7 +74,7 @@ let g:NERDTreeMouseMode=0
   
   <entry>
     <title type="html"><![CDATA[Vim Tips: 改行コードを挿入する]]></title>
-    <link href="http://tknhs.github.io/blog/2014/05/vim-tips-new-line"/>
+    <link href="http://tknhs.github.io/blog/2014/05/vim-tips-new-line/"/>
     <updated>2014-05-18T21:29:11+09:00</updated>
     <id>http://tknhs.github.io/blog/2014/05/vim-tips-new-line</id>
     <content type="html"><![CDATA[<div style='text-align: center'>
@@ -109,7 +109,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
   
   <entry>
     <title type="html"><![CDATA[久しぶりにHaskellを触ろうと思ったらvimでちょこっとエラーを吐かれた]]></title>
-    <link href="http://tknhs.github.io/blog/2014/04/ghcmod-vim-vimproc-compile"/>
+    <link href="http://tknhs.github.io/blog/2014/04/ghcmod-vim-vimproc-compile/"/>
     <updated>2014-04-29T21:23:45+09:00</updated>
     <id>http://tknhs.github.io/blog/2014/04/ghcmod-vim-vimproc-compile</id>
     <content type="html"><![CDATA[<div style='text-align: center'>

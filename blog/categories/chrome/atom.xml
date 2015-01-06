@@ -4,7 +4,7 @@
   <title><![CDATA[Category: chrome | tknhs's blog]]></title>
   <link href="http://tknhs.github.io/blog/categories/chrome/atom.xml" rel="self"/>
   <link href="http://tknhs.github.io/"/>
-  <updated>2015-01-02T22:52:02+09:00</updated>
+  <updated>2015-01-07T00:39:28+09:00</updated>
   <id>http://tknhs.github.io/</id>
   <author>
     <name><![CDATA[tknhs]]></name>
@@ -15,7 +15,7 @@
   
   <entry>
     <title type="html"><![CDATA[Google Chrome: 外部プロトコルリクエスト]]></title>
-    <link href="http://tknhs.github.io/blog/2014/06/external-protocol-request"/>
+    <link href="http://tknhs.github.io/blog/2014/06/external-protocol-request/"/>
     <updated>2014-06-23T02:28:32+09:00</updated>
     <id>http://tknhs.github.io/blog/2014/06/external-protocol-request</id>
     <content type="html"><![CDATA[<div style='text-align: center'>
@@ -86,7 +86,7 @@
   
   <entry>
     <title type="html"><![CDATA[日記アプリ「Day One」のChrome拡張機能を作ったと言う話]]></title>
-    <link href="http://tknhs.github.io/blog/2014/04/chrome-extension-dayone"/>
+    <link href="http://tknhs.github.io/blog/2014/04/chrome-extension-dayone/"/>
     <updated>2014-04-15T23:17:29+09:00</updated>
     <id>http://tknhs.github.io/blog/2014/04/chrome-extension-dayone</id>
     <content type="html"><![CDATA[<div style='text-align: center'>
