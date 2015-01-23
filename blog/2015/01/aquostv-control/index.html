@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="ja"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: chrome - tknhs&#8217;s blog</title>
+  <title>液晶テレビ AQUOS を PC から制御する - tknhs&#8217;s blog</title>
   <meta name="author" content="tknhs">
 
   
-  <meta name="description" content="Category: chrome">
+  <meta name="description" content="irMigician を手に入れてスマホから家電を操作できるようになって，今後は操作したい家電をすべて赤外線対応させればいいんじゃないかと思考停止に陥ってたところ，後輩からうちのテレビにPCから制御可能な端子が付いていることを教えてもらった． そんな変態テレビを PC &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://tknhs.github.io/blog/categories/chrome">
+  <link rel="canonical" href="http://tknhs.github.io/blog/2015/01/aquostv-control">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/social.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -59,9 +59,9 @@ $(document).ready( function () {
   </script>
 
 
-  <meta property="og:title" content="Category: chrome - tknhs's blog" />
-<meta property="og:description" content="Category: chrome" />
-<meta property="og:url" content="http://tknhs.github.io/blog/categories/chrome" />
+  <meta property="og:title" content="液晶テレビ AQUOS を PC から制御する - tknhs's blog" />
+<meta property="og:description" content="irMigician を手に入れてスマホから家電を操作できるようになって，今後は操作したい家電をすべて赤外線対応させればいいんじゃないかと思考停止に陥ってたところ，後輩からうちのテレビにPCから制御可能な端子が付いていることを教えてもらった． そんな変態テレビを PC &hellip;" />
+<meta property="og:url" content="http://tknhs.github.io/blog/2015/01/aquostv-control" />
 <meta property="og:image" content="http://tknhs.github.io/favicon.png" />
 <meta property="og:author" content="tknhs" />
 <meta property="og:site_name" content="tknhs's blog" />
@@ -95,50 +95,175 @@ $(document).ready( function () {
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: chrome</h1>
+    
+      <h1 class="entry-title">液晶テレビ AQUOS を PC から制御する<a href="http://b.hatena.ne.jp/entry/http://tknhs.github.io/blog/2015/01/aquostv-control/"><img src="http://b.hatena.ne.jp/entry/image/large/http://tknhs.github.io/blog/2015/01/aquostv-control/"></a></h1>
+    
+    
+      <p class="meta">
+        
+<!---->
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-01-23T21:21:46+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2015-01-23T21:21:46+09:00'><span class='date'>2015-01-23</span></time></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://tknhs.github.io">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>irMigician を手に入れてスマホから家電を操作できるようになって，今後は操作したい家電をすべて赤外線対応させればいいんじゃないかと思考停止に陥ってたところ，後輩からうちのテレビにPCから制御可能な端子が付いていることを教えてもらった．</p>
 
-  
-  <h2>2014</h2>
+<p>そんな変態テレビを PC から制御するライブラリを作成した（している）話．</p>
 
-<article>
-  
-<h1><a href="/blog/2014/06/external-protocol-request/">Google Chrome: 外部プロトコルリクエスト</a><a href="http://b.hatena.ne.jp/entry/http://tknhs.github.io/blog/2014/06/external-protocol-request/"><img src="http://b.hatena.ne.jp/entry/image/large/http://tknhs.github.io/blog/2014/06/external-protocol-request/"></a></h1>
-<time datetime="2014-06-23T02:28:32+09:00" pubdate><span class='month'>Jun</span> <span class='day'>23</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/chrome/'>chrome</a>, <a class='category' href='/blog/categories/mac/'>mac</a></span>
-</footer>
+<!-- more -->
 
 
-</article>
+<h2>SHARP AQUOS TV</h2>
+
+<p>そのテレビを販売しているのは，SHARP．<br/>
+テレビの後ろの端子群に用途のよくわからない端子がついていたらそれ．<br/>
+RS232C で PC と接続してシリアル通信にて使用するが，普段リモコンを使って行うようなこととをする分には十分すぎるコマンドが用意されている．</p>
+
+<p>そして，PC から制御できるという情報は取り扱い説明書にちょこっと載ってるだけなので普通は気づかない．ただ，最近のテレビにはその端子はなくなっている？と思って調べたら，LAN ポートから操作できるようになったっぽい（LAN ポートの方は持ってないので以降は RS232C ベースの話）．</p>
+
+<ul>
+<li><a href="http://www.sharp.co.jp/support/aquos/product/">液晶テレビ AQUOS（アクオス）｜機種別サポート情報</a> &lt;- 比較的最近発売された製品</li>
+<li><a href="http://www.sharp.co.jp/support/aquos/product/index_b.html#upper_37">液晶テレビ AQUOSサポートステーション｜機種別情報</a> &lt;- 古めの製品</li>
+</ul>
 
 
+<p>テレビに RS232C 端子が付いているか確認するにはリンク先から自分の持っているテレビの型番のリンクをクリックし，背面端子配置図を見れば良い．</p>
 
-<article>
-  
-<h1><a href="/blog/2014/04/chrome-extension-dayone/">日記アプリ「Day One」のChrome拡張機能を作ったと言う話</a><a href="http://b.hatena.ne.jp/entry/http://tknhs.github.io/blog/2014/04/chrome-extension-dayone/"><img src="http://b.hatena.ne.jp/entry/image/large/http://tknhs.github.io/blog/2014/04/chrome-extension-dayone/"></a></h1>
-<time datetime="2014-04-15T23:17:29+09:00" pubdate><span class='month'>Apr</span> <span class='day'>15</span> <span class='year'>2014</span></time>
+<p>例）LC-20E5／LC-16E5 背面図<br/>
+<a href="http://www.sharp.co.jp/support/aquos/product/lc20_16e5_back.html">液晶テレビ（AQUOS）｜LC-20E5／LC-16E5　背面図：シャープ</a>より引用</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/chrome/'>chrome</a>, <a class='category' href='/blog/categories/burauzakuo-zhang-ji-neng/'>ブラウザ拡張機能</a></span>
-</footer>
-
-
-</article>
-
+<div style='text-align: center'>
+<img alt='TV back view' style='text-align: center;' width='450' src='/images/2015-01-23-aquostv-control/af6604362bb759b0b9724b10431b5592.jpg' />
 </div>
 
+
+<p></p>
+
+<p>利用時に必要なケーブル類は <a href="http://www.amazon.co.jp/s/?_encoding=UTF8&amp;camp=247&amp;creative=7399&amp;field-keywords=rs232c%20%E3%82%AF%E3%83%AD%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB&amp;linkCode=ur2&amp;sprefix=rs232%2Caps%2C269&amp;tag=brsmc-22&amp;url=search-alias%3Daps">RS232C クロスケーブル | amazon</a> と <a href="http://www.amazon.co.jp/s/?_encoding=UTF8&amp;camp=247&amp;creative=7399&amp;field-keywords=rs232c%20usb%20%E5%A4%89%E6%8F%9B%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB&amp;linkCode=ur2&amp;rh=i%3Aaps%2Ck%3Ars232c%20usb%20%E5%A4%89%E6%8F%9B%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB&amp;sprefix=rs232c%20usb%20%E5%A4%89%E6%8F%9B%2Caps%2C256&amp;tag=brsmc-22&amp;url=search-alias%3Daps">RS232C USB 変換ケーブル | amazon</a> だが，今回は後々 <a href="http://www.intel.co.jp/content/www/jp/ja/do-it-yourself/edison.html">Intel Edison</a> に組み込むことを考慮して市販のものは買わなかった．</p>
+
+<p>ということで，後輩に手伝ってもらって（ほとんどやってもらった），Edison でも使えるように RS232C-UART ケーブルと UART-MicroB ケーブルを作った．</p>
+
+<div style='text-align: center'>
+<img alt='MicroB-UART FRONT VIEW' style='text-align: center;' width='350' src='/images/2015-01-23-aquostv-control/fc39f3a1ffd2dac65612a1c4888240ef.jpg' />
+<img alt='MicroB-UART BACK VIEW' style='text-align: center;' width='350' src='/images/2015-01-23-aquostv-control/ca3922aa84ab08166d613003de40750d.jpg' />
+</div>
+
+
+<p></p>
+
+<h2>aquostv</h2>
+
+<p><a href="https://github.com/tknhs/aquostv">tknhs/aquostv</a></p>
+
+<p>そんなテレビを PC から制御する golang のライブラリ aquostv を作成中．機種によってコマンドの詳細が違うので，今のところは LC-20E5 / LC-16E5 のみの対応になってる（他の機種でも使える機能はあると思う）．</p>
+
+<p>また，常にPCから制御したい場合には，本体の設定をいじっておく必要がある．<br/>
+メニュー -&gt; 本体設定 -&gt; クイック起動設定 -&gt; する（常に有効）．</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">tknhs</span></span>
+
+      
+<!---->
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-01-23T21:21:46+09:00" pubdate data-updated="true"><time class='entry-date' datetime='2015-01-23T21:21:46+09:00'><span class='date'>2015-01-23</span></time></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/golang/'>golang</a>, <a class='category' href='/blog/categories/rs232c/'>rs232c</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <div class="hatena">
+    <a class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" data-hatena-bookmark-title="液晶テレビ AQUOS を PC から制御する - tknhs's blog" href="http://b.hatena.ne.jp/entry/http://tknhs.github.io/blog/2015/01/aquostv-control/"></a>
+  </div>
+  
+  
+  <div class="twitter">
+    <a href="//twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://tknhs.github.io/blog/2015/01/aquostv-control/" data-via="tknhs35" data-counturl="http://tknhs.github.io/blog/2015/01/aquostv-control/" >Tweet</a>
+  </div>
+  
+  
+  
+  <div class="facebook">
+    <div class=fb-like data-href="http://tknhs.github.io/blog/2015/01/aquostv-control/" data-layout="button_count" data-send="false" data-show-faces="false"></div>
+  </div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+      <a class="basic-alignment left" href="/blog/2014/12/riemoh/" title="Previous Post: 家電を外出先から制御する俺得アプリを作った">&laquo; 家電を外出先から制御する俺得アプリを作った</a><br>
+      
+      
+    </p>
+
+    <div style='text-align: center'>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- tknhs.github.io - post_footer2 -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3904948390832684"
+           data-ad-slot="4815787655"
+           data-ad-format="horizontal"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -215,7 +340,10 @@ $(document).ready( function () {
       var disqus_shortname = 'tknhs';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tknhs.github.io/blog/2015/01/aquostv-control/';
+        var disqus_url = 'http://tknhs.github.io/blog/2015/01/aquostv-control/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

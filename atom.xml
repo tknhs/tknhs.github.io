@@ -4,7 +4,7 @@
   <title><![CDATA[tknhs's blog]]></title>
   <link href="http://tknhs.github.io/atom.xml" rel="self"/>
   <link href="http://tknhs.github.io/"/>
-  <updated>2015-01-07T02:04:01+09:00</updated>
+  <updated>2015-01-24T05:32:53+09:00</updated>
   <id>http://tknhs.github.io/</id>
   <author>
     <name><![CDATA[tknhs]]></name>
@@ -12,6 +12,18 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[液晶テレビ AQUOS を PC から制御する]]></title>
+    <link href="http://tknhs.github.io/blog/2015/01/aquostv-control/"/>
+    <updated>2015-01-23T21:21:46+09:00</updated>
+    <id>http://tknhs.github.io/blog/2015/01/aquostv-control</id>
+    <content type="html"><![CDATA[<p>irMigician を手に入れてスマホから家電を操作できるようになって，今後は操作したい家電をすべて赤外線対応させればいいんじゃないかと思考停止に陥ってたところ，後輩からうちのテレビにPCから制御可能な端子が付いていることを教えてもらった．</p>
+
+<p>そんな変態テレビを PC から制御するライブラリを作成した（している）話．</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[家電を外出先から制御する俺得アプリを作った]]></title>
@@ -292,29 +304,6 @@ iPhoneアプリでも天気に関するアプリはたくさんあるけど，�
 
 <p>今日，ようやくVPSを借りるに踏み切った．<br/>
 環境をいろいろ整えてたら今日が終わった，そんな感じ．</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[mac で pyenv と pyenv-virtualenv]]></title>
-    <link href="http://tknhs.github.io/blog/2014/04/pyenv/"/>
-    <updated>2014-04-02T23:47:55+09:00</updated>
-    <id>http://tknhs.github.io/blog/2014/04/pyenv</id>
-    <content type="html"><![CDATA[<div style='text-align: center'>
-<img alt='python' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/eea97ed4952c05be55ff9e462ea0e1c4.png' />
-</div>
-
-
-<p></p>
-
-<h2>経緯</h2>
-
-<ul>
-<li>python環境がごちゃごちゃしてるのがずっと気になってたけど，やってなかった．</li>
-<li>今日，気が向いた．</li>
-</ul>
-
 
 ]]></content>
   </entry>
