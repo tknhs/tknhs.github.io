@@ -4,7 +4,7 @@
   <title><![CDATA[Category: jailbreak | tknhs's blog]]></title>
   <link href="http://tknhs.github.io/blog/categories/jailbreak/atom.xml" rel="self"/>
   <link href="http://tknhs.github.io/"/>
-  <updated>2015-01-24T05:32:53+09:00</updated>
+  <updated>2015-03-11T22:12:12+09:00</updated>
   <id>http://tknhs.github.io/</id>
   <author>
     <name><![CDATA[tknhs]]></name>
@@ -30,8 +30,10 @@
 <li>MacBook Air Mid 2012
 
 <ul>
-<li>OS X Yosemite 10.10.1</li>
-<li>Xcode 6.1.1</li>
+<li><del>OS X Yosemite 10.10.1</del></li>
+<li>OS X Yosemite 10.10.2</li>
+<li><del>Xcode 6.1.1</del></li>
+<li>Xcode 6.2</li>
 </ul>
 </li>
 <li>iPhone 5s
@@ -57,6 +59,10 @@
 
 
 <p>おわり</p>
+
+<p><strong>2015/03/11 追記</strong><br/>
+- 開発環境のアップデート
+- 証明書作成から Xcode の設定までは <a href="http://alpha22jp.hatenablog.jp/entry/2014/11/25/224310">最小限の初期投資で始めるiOSアプリ開発 - alpha22jp’s blog</a> を参考に．</p>
 ]]></content>
   </entry>
   
