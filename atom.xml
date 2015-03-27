@@ -4,7 +4,7 @@
   <title><![CDATA[tknhs's blog]]></title>
   <link href="http://tknhs.github.io/atom.xml" rel="self"/>
   <link href="http://tknhs.github.io/"/>
-  <updated>2015-03-11T22:12:12+09:00</updated>
+  <updated>2015-03-27T11:55:11+09:00</updated>
   <id>http://tknhs.github.io/</id>
   <author>
     <name><![CDATA[tknhs]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[グミ作成記 〜好みのグミを追い求めて〜 １日目]]></title>
+    <link href="http://tknhs.github.io/blog/2015/03/gummy-candy-day1/"/>
+    <updated>2015-03-26T22:30:00+09:00</updated>
+    <id>http://tknhs.github.io/blog/2015/03/gummy-candy-day1</id>
+    <content type="html"><![CDATA[<p>グミ作成記１日目．</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[グミ作成記 〜好みのグミを追い求めて〜 ０日目]]></title>
+    <link href="http://tknhs.github.io/blog/2015/03/gummy-candy-day0/"/>
+    <updated>2015-03-26T22:00:00+09:00</updated>
+    <id>http://tknhs.github.io/blog/2015/03/gummy-candy-day0</id>
+    <content type="html"><![CDATA[<p>諸君，私はグミが好きだ<br/>
+諸君，私はグミが好きだ<br/>
+諸君，私はグミが大好きだ<br/>
+&hellip;</p>
+
+<p>というわけで，唐突に自作グミ作成記を始めてみる．</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[液晶テレビ AQUOS を PC から制御する]]></title>
@@ -268,42 +293,6 @@ iPhoneアプリでも天気に関するアプリはたくさんあるけど，�
 <p></p>
 
 <p>以前haskellをちょこっと勉強しつつも最近触ってなかったので久しくぶりにやろうかなーと思ったのが発端．以前書いたソースを眺めようと，vimで.hsファイルを開くとvimがエラーを吐いた．</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[日記アプリ「Day One」のChrome拡張機能を作ったと言う話]]></title>
-    <link href="http://tknhs.github.io/blog/2014/04/chrome-extension-dayone/"/>
-    <updated>2014-04-15T23:17:29+09:00</updated>
-    <id>http://tknhs.github.io/blog/2014/04/chrome-extension-dayone</id>
-    <content type="html"><![CDATA[<div style='text-align: center'>
-<img alt='dayone' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/2014-04-15-chrome-extension-dayone/27c7a4c65fcb08034da185c0719a0b87.png' />
-</div>
-
-
-<p></p>
-
-<p>もはや説明の必要もないであろうMac/iPhone/iPadの日記アプリ「Day One」．<br/>
-どういう使い方をしているかというと，</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[さくらのVPSを借りて]]></title>
-    <link href="http://tknhs.github.io/blog/2014/04/sakura-vps-nginx-tornado/"/>
-    <updated>2014-04-04T01:22:51+09:00</updated>
-    <id>http://tknhs.github.io/blog/2014/04/sakura-vps-nginx-tornado</id>
-    <content type="html"><![CDATA[<div style='text-align: center'>
-<img alt='sakura_internet' style='text-align: center;' width='120' height='120' src='http://tknhs.github.io/images/icons/1cc83d36c7b75af55c58d3d5f3b8f6cd.png' />
-</div>
-
-
-<p></p>
-
-<p>今日，ようやくVPSを借りるに踏み切った．<br/>
-環境をいろいろ整えてたら今日が終わった，そんな感じ．</p>
 
 ]]></content>
   </entry>

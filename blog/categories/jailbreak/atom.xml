@@ -4,7 +4,7 @@
   <title><![CDATA[Category: jailbreak | tknhs's blog]]></title>
   <link href="http://tknhs.github.io/blog/categories/jailbreak/atom.xml" rel="self"/>
   <link href="http://tknhs.github.io/"/>
-  <updated>2015-03-11T22:12:12+09:00</updated>
+  <updated>2015-03-27T11:55:11+09:00</updated>
   <id>http://tknhs.github.io/</id>
   <author>
     <name><![CDATA[tknhs]]></name>
@@ -60,9 +60,13 @@
 
 <p>おわり</p>
 
-<p><strong>2015/03/11 追記</strong><br/>
-- 開発環境のアップデート
-- 証明書作成から Xcode の設定までは <a href="http://alpha22jp.hatenablog.jp/entry/2014/11/25/224310">最小限の初期投資で始めるiOSアプリ開発 - alpha22jp’s blog</a> を参考に．</p>
+<p><strong>2015/03/11 追記</strong></p>
+
+<ul>
+<li>開発環境のアップデート</li>
+<li>証明書作成から Xcode の設定までは <a href="http://alpha22jp.hatenablog.jp/entry/2014/11/25/224310">最小限の初期投資で始めるiOSアプリ開発 - alpha22jp’s blog</a> を参考に．</li>
+</ul>
+
 ]]></content>
   </entry>
   
